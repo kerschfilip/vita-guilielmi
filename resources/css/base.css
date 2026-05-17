@@ -578,3 +578,6 @@ main {
 .metadata-panel {
     margin-block-start: 1rem;
 }
+
+/*sync-test*/
+body { background-color: #fff8dc; }
