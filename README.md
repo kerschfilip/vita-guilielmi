@@ -168,6 +168,42 @@ git push
 
 Or use VS Code's Source Control panel (`Cmd+Shift+G`) → write a commit message → **Commit & Push**.
 
+----
+
+## Where to Make Changes – Three Scenarios
+
+There are three places you can change your application: VS Code, Jinks, or the TEI Publisher GUI. Each requires a different sync approach.
+
+### Scenario 1: Editing in VS Code (recommended for daily work)
+
+This is the easiest case. You edit files in `~/docker/vita-guilielmi/` on your machine, the existdb-vscode plugin pushes every save to the database automatically, and you commit through Git as usual.
+
+Use VS Code for: TEI XML documents, ODD files (text editing), CSS, HTML templates, XQuery modules.
+
+### Scenario 2: Changes through Jinks (Apply, theme, config, profiles)
+
+Jinks writes its output directly into the database, so the existdb-vscode plugin won't see those changes. After every **Apply** in Jinks (or any change to the app's theme, features, or configuration), you need to pull the changes back to your local folder:
+
+1. In Jinks, click **Sync** in the bottom toolbar.
+2. Enter the path: `/exist/sync/vita-guilielmi` and click **Run**.
+3. In Terminal:
+
+bash
+
+```bash
+   docker cp teipublisher:/exist/sync/vita-guilielmi/. ~/docker/vita-guilielmi/
+```
+
+(On Windows, adjust the destination path, e.g., `C:\Users\yourname\Documents\docker\vita-guilielmi\`.) 
+
+4. Open VS Code's Source Control panel, review the changes, commit, and push.
+
+### Scenario 3: Editing the ODD through the GUI editor in TEI Publisher
+
+The visual ODD editor in TEI Publisher also writes changes directly to the database. The procedure is the same as Scenario 2 (Jinks Sync + `docker cp`).
+
+> **Rule of thumb:** After any work done in the TEI Publisher or Jinks web interface, always do **Jinks Sync + `docker cp`** before committing, so Git accurately reflects the current state.
+
 ---
 
 ## Important Rules
