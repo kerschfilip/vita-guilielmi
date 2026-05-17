@@ -1,14 +1,17 @@
 # Vita Guilielmi – Digital Comparative Edition
 
-A digital synoptic and comparative edition of the **_Vita et obitu sancti Guilielmi_**, comparing a 13th-century Beneventan manuscript preserved at the Abbey of Montevergine with the 1581 printed *editio princeps* by Felice Renda.
+A digital synoptic and comparative edition of the **_Vita et obitu sancti Guilielmi_**, comparing a 13th-century Beneventan manuscript preserved at the Abbey of Montevergine with the 1581 printed _editio princeps_ by Felice Renda.
 
 Built with **TEI Publisher** running in **Docker**, generated and managed by **Jinks**, and synced in real time between local files and the database via the **existdb-vscode** extension. This repository contains all source files (TEI XML, ODD schemas, HTML templates, CSS, XQuery modules) that power the edition.
 
 ---
-
 ## Getting Started
 
-This setup assumes you're working on **macOS**. The workflow runs TEI Publisher locally in Docker, syncs files between your local Git folder and the database in real time, and uses GitHub for collaboration.
+> **Note:** This README is written for **collaborators joining an existing project**. It walks you through setting up your local environment so you can start working on the edition right away.
+> 
+> If you're starting a new TEI Publisher project from scratch (generating the app via Jinks, exporting the initial state, creating the repository), see the project setup notes on the [Wiki](https://github.com/kerschfilip/vita-guilielmi/wiki/TEI-Publisher-Collaborative-Workflow-Guide).
+
+The workflow runs TEI Publisher locally in Docker, syncs files between your local Git folder and the database in real time, and uses GitHub for collaboration.
 
 ### Prerequisites
 
@@ -21,6 +24,8 @@ This setup assumes you're working on **macOS**. The workflow runs TEI Publisher 
 
 #### 1. Install Docker Desktop and start TEI Publisher
 
+**On macOS / Linux:**
+
 ```bash
 docker pull existdb/teipublisher:latest
 docker run -d \
@@ -28,6 +33,18 @@ docker run -d \
   --name teipublisher \
   existdb/teipublisher:latest
 ```
+
+**On Windows (PowerShell):**
+
+```powershell
+docker pull existdb/teipublisher:latest
+docker run -d `
+  -p 8088:8080 `
+  --name teipublisher `
+  existdb/teipublisher:latest
+```
+
+> Note: PowerShell uses backtick (`` ` ``) for line continuation, not backslash. You can also write the command on a single line if preferred.
 
 TEI Publisher is now at: [http://localhost:8088/exist/apps/tei-publisher/](http://localhost:8088/exist/apps/tei-publisher/)
 
@@ -38,9 +55,9 @@ Both collaborators must generate an app with the **same Abbreviation** so the da
 1. Open the eXist-DB Dashboard: [http://localhost:8088/exist/apps/dashboard/](http://localhost:8088/exist/apps/dashboard/) (login: `admin`, empty password)
 2. Open **Jinks** (login: `tei` / `simple`)
 3. In **Application Configuration**, set:
-   - **Abbreviation:** `vita-guilielmi`
-   - **Label:** *Vita Guilielmi – Digital Comparative Edition*
-   - **Unique identifier:** `https://e-editiones.org/apps/vita-guilielmi`
+    - **Abbreviation:** `vita-guilielmi`
+    - **Label:** _Vita Guilielmi – Digital Comparative Edition_
+    - **Unique identifier:** `https://e-editiones.org/apps/vita-guilielmi`
 4. Click **Apply** and wait for the app to be created.
 
 #### 3. Clone this repository
@@ -48,9 +65,11 @@ Both collaborators must generate an app with the **same Abbreviation** so the da
 ```bash
 mkdir -p ~/docker
 cd ~/docker
-git clone https://github.com/your-username/vita-guilielmi.git
+git clone https://github.com/kerschfilip/vita-guilielmi.git
 cd vita-guilielmi
 ```
+
+> On Windows, replace `~/docker` with a path like `C:\Users\yourname\Documents\docker`.
 
 #### 4. Create your local `.existdb.json`
 
@@ -107,13 +126,25 @@ Open [http://localhost:8088/exist/apps/vita-guilielmi/](http://localhost:8088/ex
 
 ### Start of session
 
-```bash
-docker start teipublisher                    # if container isn't running
-cd ~/docker/vita-guilielmi
-git pull                                     # get collaborator's changes
-```
+The **order of operations matters** – existdb-vscode only syncs files that change _while it is running_. If you `git pull` before starting the sync, the plugin won't see those changes and won't push them to the database.
 
-In VS Code: `Cmd+Shift+P` → **eXist-db: Control folder synchronization to database** to start sync.
+**Correct order:**
+
+1. **Start Docker container** if not running:
+    
+    ```bash
+    docker start teipublisher
+    ```
+    
+2. **Open VS Code** in the project folder.
+3. **Start sync first:** Command Palette (`Cmd+Shift+P` on Mac / `Ctrl+Shift+P` on Windows) → **eXist-db: Control folder synchronization to database**. Wait until the terminal shows `Watching /path/to/vita-guilielmi`.
+4. **Then pull from GitHub:**
+    - VS Code Source Control → Sync Changes (arrow icon)
+    - Or Terminal: `cd ~/docker/vita-guilielmi && git pull`
+5. The plugin now picks up each pulled file change and uploads it to the database.
+6. Open your app: [http://localhost:8088/exist/apps/vita-guilielmi/](http://localhost:8088/exist/apps/vita-guilielmi/)
+
+> If you accidentally pulled before starting sync, you can re-trigger the upload by touching the files (e.g., open and re-save them in VS Code), or restart the sync.
 
 ### While working
 
@@ -168,43 +199,46 @@ See the [Jinks documentation](https://e-editiones.org/) for details on conflict 
 - The helper package isn't installed. Trigger the banner by opening a file in VS Code and starting sync; click **Install**.
 - Check `.existdb.json` uses port `8088`, not `8080`.
 
-### Files don't appear after sync
+### "Connecting to server failed" / 400
 
-- Check the VS Code sync terminal shows `Watching /Users/.../vita-guilielmi`.
-- Hard refresh the browser (`Cmd+Shift+R`).
-- Force a reindex via [eXide](http://localhost:8088/exist/apps/eXide/):
-  ```xquery
-  xquery version "3.1";
-  xmldb:reindex("/db/apps/vita-guilielmi")
-  ```
+- This usually means the server is reachable but the helper package didn't install correctly, or the URL context is wrong.
+- Try changing the server URL in `.existdb.json` from `http://localhost:8088/exist` to `http://localhost:8088` (without `/exist`) and restart sync.
+- If installation failed because of a `503` error from `exist-db.org/exist/apps/public-repo`, the upstream package repository was temporarily down. Wait a few minutes and try again.
+- If the public-repo is unreachable, you can install the helper XAR manually:
+    1. Download it from [https://github.com/wolfgangmm/existdb-langserver/tree/master/resources](https://github.com/wolfgangmm/existdb-langserver/tree/master/resources)
+    2. Open the eXist-DB Dashboard → Package Manager → click the upload icon → select the `.xar` file
+    3. Restart sync in VS Code
 
-### Sync stopped working
+### Pulled changes don't show up in the app
 
-- The sync terminal may have closed. Run **eXist-db: Control folder synchronization to database** again.
-- Check Docker is running: `docker ps` should list `teipublisher`.
+- Check the order: `docker start` → start sync in VS Code → **then** `git pull`. If the plugin wasn't running during the pull, files won't auto-sync.
+- Quick fix: open one of the pulled files in VS Code and re-save it (`Cmd+S` / `Ctrl+S`) – this triggers an upload.
+
+### Git conflict
+
+Use VS Code's built-in merge editor to resolve, then commit and push.
 
 ---
 
 ## Quick Reference
 
-| Task | How |
+|Task|How|
 |---|---|
-| Start Docker container | `docker start teipublisher` |
-| Stop container | `docker stop teipublisher` |
-| Start sync | Command Palette → **eXist-db: Control folder synchronization to database** |
-| Open the edition | [http://localhost:8088/exist/apps/vita-guilielmi/](http://localhost:8088/exist/apps/vita-guilielmi/) |
-| Open TEI Publisher | [http://localhost:8088/exist/apps/tei-publisher/](http://localhost:8088/exist/apps/tei-publisher/) |
-| Open Jinks | [http://localhost:8088/exist/apps/jinks/](http://localhost:8088/exist/apps/jinks/) |
-| Open eXide editor | [http://localhost:8088/exist/apps/eXide/](http://localhost:8088/exist/apps/eXide/) |
-| Open Dashboard | [http://localhost:8088/exist/apps/dashboard/](http://localhost:8088/exist/apps/dashboard/) |
+|Start Docker container|`docker start teipublisher`|
+|Stop container|`docker stop teipublisher`|
+|Start sync|Command Palette → **eXist-db: Control folder synchronization to database**|
+|Open the edition|[http://localhost:8088/exist/apps/vita-guilielmi/](http://localhost:8088/exist/apps/vita-guilielmi/)|
+|Open TEI Publisher|[http://localhost:8088/exist/apps/tei-publisher/](http://localhost:8088/exist/apps/tei-publisher/)|
+|Open Jinks|[http://localhost:8088/exist/apps/jinks/](http://localhost:8088/exist/apps/jinks/)|
+|Open eXide editor|[http://localhost:8088/exist/apps/eXide/](http://localhost:8088/exist/apps/eXide/)|
+|Open Dashboard|[http://localhost:8088/exist/apps/dashboard/](http://localhost:8088/exist/apps/dashboard/)|
 
 ### Default Credentials
 
-- **eXist-DB / Dashboard / eXide:** `admin` / *(empty password)*
+- **eXist-DB / Dashboard / eXide:** `admin` / _(empty password)_
 - **TEI Publisher / Jinks:** `tei` / `simple`
 
---- 
-
+---
 ## License
 
 To be added. The edition aims to be an open and sustainable resource in accordance with FAIR principles.
