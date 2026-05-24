@@ -1,9 +1,12 @@
 {
   "label" : "Vita Guilielmi – Digital Comparative Edition",
   "id" : "https://e-editiones.org/apps/vita-guilielmi",
-  "extends" : [ "base10", "demo-data", "theme-base10" ],
+  "extends" : [ "base10", "theme-base10" ],
   "pkg" : {
     "abbrev" : "vita-guilielmi"
+  },
+  "defaults" : {
+    "dataCollection" : "vita-guilielmi"
   },
   "description" : ""
 }
