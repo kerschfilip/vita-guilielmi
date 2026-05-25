@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+    ---json
+    {
+        "templating": {
+            "extends": "templates/layouts/content.html"
+        }
+    }
+    ---
+    <!-- Hardcoded dokument: nezávisí na URL parametru -->
+    <pb-document id="document1" path="vita-guilielmi/vita-guilielmi.xml" odd="vita-guilielmi" view="div"/>
+    
+    <main class="synoptic-grid">
+        
+        <section class="witness-pane">
+            <header><h2>Codex 1 (13. století)</h2></header>
+            <pb-view src="document1" view="div" odd="vita-guilielmi" xpath="//tei:text[@xml:id='wit.ms_XIII']//tei:div[@type='unit'][@n='01']">
+            </pb-view>
+        </section>
+        
+        <section class="witness-pane">
+            <header><h2>Renda (1581)</h2></header>
+            <pb-view src="document1" view="div" odd="vita-guilielmi" xpath="//tei:text[@xml:id='wit.renda_1581']//tei:div[@type='unit'][@n='01']">
+            </pb-view>
+        </section>
+        
+    </main>
+    
+    <style>
+        .synoptic-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 1.5rem;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        .witness-pane {
+            border-left: 3px solid #999;
+            padding-left: 1rem;
+            min-width: 0;
+        }
+        .witness-pane &gt; header h2 {
+            margin-top: 0;
+            color: #555;
+            font-size: 1.2em;
+            font-weight: normal;
+            border-bottom: 1px solid #eee;
+            padding-bottom: .5rem;
+        }
+    </style>
+</template>

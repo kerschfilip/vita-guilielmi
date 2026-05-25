@@ -2,7 +2,7 @@
 {
     "servers": {
         "localhost": {
-            "server": "http://127.0.0.1:8080/exist",
+            "server": "http://localhost:8088/exist",
             "user": "admin",
             "password": "",
             "root": "/apps/vita-guilielmi"

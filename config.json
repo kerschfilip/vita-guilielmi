@@ -4,7 +4,8 @@
   "id" : "https://e-editiones.org/apps/vita-guilielmi",
   "defaults" : {
     "dataCollection" : "vita-guilielmi",
-    "odd" : "vita-guilielmi.odd"
+    "odd" : "vita-guilielmi.odd",
+    "template" : "synoptic.html"
   },
   "extends" : [ "base10", "registers", "toolbar-toggles", "metadata-panel", "theme-base10" ],
   "pkg" : {
