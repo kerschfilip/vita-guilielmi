@@ -164,7 +164,7 @@
     --jinks-toc-indent: 1rem;
 
     /* register page */
-    --jinks-registers-columns: ;
+    --jinks-registers-columns: 2;
 
     /* dialogs */
     --jinks-dialog-header-background-color: var(--jinks-colors-500);

@@ -24,9 +24,7 @@ declare variable $config:sort-default := "category";
 
 
 
-    
-    declare variable $config:data-default := $config:data-root || "/sermons";
-    
+    declare variable $config:data-default := $config:data-root;
 
 
 
@@ -41,13 +39,13 @@ declare variable $config:data-exclude := (
 );
 
 declare variable $config:odd-root := $config:app-root || "/resources/odd";
-declare variable $config:default-odd := "teipublisher.odd";
+declare variable $config:default-odd := "vita-guilielmi.odd";
 declare variable $config:odd-internal := 
     (  );
 
 declare variable $config:odd-available :=
 
-( "teipublisher.odd", "dta.odd", "shakespeare.odd", "vangogh.odd", "osinski.odd" )
+( "teipublisher.odd", "vita-guilielmi.odd" )
 ;
 
 declare variable $config:odd-media := ("web", "print", "epub");
