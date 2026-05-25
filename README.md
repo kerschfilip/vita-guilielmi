@@ -268,6 +268,8 @@ Use VS Code's built-in merge editor to resolve, then commit and push.
 |Open Jinks|[http://localhost:8088/exist/apps/jinks/](http://localhost:8088/exist/apps/jinks/)|
 |Open eXide editor|[http://localhost:8088/exist/apps/eXide/](http://localhost:8088/exist/apps/eXide/)|
 |Open Dashboard|[http://localhost:8088/exist/apps/dashboard/](http://localhost:8088/exist/apps/dashboard/)|
+|Create Collection in eXide|`xmldb:create-collection("/db/apps/vita-guilielmi/data", "vita-guilielmi")`|
+|Reindex Collection in eXide|`xmldb:reindex("/db/apps/vita-guilielmi/data/vita-guilielmi")`|
 
 ### Default Credentials
 
