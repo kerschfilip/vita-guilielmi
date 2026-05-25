@@ -40,25 +40,5 @@ declare variable $facets-config:facets := [
                 case "en" return "English"
                 default return $label
         }
-    },
-    map {
-        "dimension": "place",
-        "heading": "facets.place",
-        "max": 3,
-        "hierarchical": false(),
-        "source": "api/search/facets/place",
-        "output": function($label) {
-            collection($config:register-root)/id($label)/tei:placeName[@type = "main"]/string()
-        }
-    },
-    map {
-        "dimension": "person",
-        "heading": "facets.author",
-        "max": 3,
-        "hierarchical": false(),
-        "source": "api/search/facets/person",
-        "output": function($label) {
-            collection($config:register-root)/id($label)/tei:persName[@type = "main"]/string()
-        }
     }
 ];

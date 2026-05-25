@@ -25,10 +25,11 @@
       "name" : "target"
     } ]
   } ],
-  "profiles" : [ "base10", "theme-base10" ],
-  "_lastModified" : "2026-05-17T19:41:45.705Z",
+  "profiles" : [ "base10", "registers", "toolbar-toggles", "metadata-panel", "theme-base10" ],
+  "shortname" : "metadata",
+  "_lastModified" : "2026-05-24T22:54:03.509Z",
   "label" : "Vita Guilielmi – Digital Comparative Edition",
-  "odds" : [ "teipublisher.odd" ],
+  "odds" : [ "teipublisher.odd", "vita-guilielmi.odd" ],
   "version" : "1.0.0",
   "id" : "https://e-editiones.org/apps/vita-guilielmi",
   "_update" : true,
@@ -45,6 +46,12 @@
     "items" : [ {
       "url" : "browse.html",
       "id" : "Start"
+    }, {
+      "url" : "people",
+      "id" : "people"
+    }, {
+      "url" : "places",
+      "id" : "places"
     } ],
     "login" : true,
     "download" : true,
@@ -75,6 +82,9 @@
       "background-color" : "var(--jinks-colors-500)",
       "color" : "#ffffff",
       "background-image" : "none"
+    },
+    "registers" : {
+      "columns" : 2
     },
     "splash" : {
       "width" : "320px",
@@ -145,6 +155,9 @@
     }
   },
   "features" : {
+    "metadata" : {
+      "enabled" : true
+    },
     "browse" : {
       "sort" : {
         "options" : [ {
@@ -176,6 +189,10 @@
       }
     },
     "menubar" : true,
+    "register" : {
+      "description" : "auto",
+      "enabled" : false
+    },
     "toolbar" : {
       "zoom" : true,
       "navigation" : true,
@@ -234,9 +251,11 @@
   "source" : "/db/apps/jinks/profiles/theme-base10",
   "type" : "theme",
   "skip" : [ "^doc/.*$", "setup.xql", "config.json" ],
+  "category" : "components",
   "_overwrite" : "quick",
   "defaults" : {
     "data" : "data",
+    "dataCollection" : "vita-guilielmi",
     "address-by-id" : false,
     "odd-root" : "resources/odd",
     "languages" : [ "bg", "cs", "zh_CN", "zh_TW", "de", "en", "es", "el", "fr", "fi", "it", "ka", "nl", "no", "pl", "pt", "ro", "ru", "sl", "sv", "tr", "uk" ],
@@ -247,7 +266,7 @@
     "search" : "div",
     "view" : "div",
     "data-exclude" : [ "doc($config:data-root || '/taxonomy.xml')//tei:text", "collection($config:register-root)//tei:text" ],
-    "odd" : "teipublisher.odd",
+    "odd" : "vita-guilielmi.odd",
     "pagination" : {
       "fill" : 5,
       "depth" : 10
@@ -256,6 +275,7 @@
     "register-root" : "registers"
   },
   "templating" : {
+    "use" : [ "templates/register-blocks.html", "templates/toggle-blocks.html", "templates/metadata-blocks.html" ],
     "modules" : {
       "http://teipublisher.com/ns/templates/browse" : {
         "at" : "modules/templates/browse.xqm",
@@ -274,5 +294,12 @@
     "cdn" : "https://cdn.jsdelivr.net/npm/@teipublisher/pb-components"
   },
   "order" : 1,
-  "$schema" : "../../schema/jinks.json"
+  "$schema" : "../../schema/jinks.json",
+  "i18n" : [ "registers" ],
+  "api" : [ {
+    "spec" : "registers-api.json",
+    "prefix" : "rview",
+    "id" : "http://teipublisher.com/api/registers/view",
+    "path" : "registers-api.xql"
+  } ]
 }
