@@ -8,31 +8,35 @@
     }
     ---
     
-    <nav class="unit-nav">
-        <button id="prev-unit" onclick="navigateUnit(-1)">← Předchozí</button>
-        <select id="unit-select" onchange="goToUnit(this.value)">
-            <option value="01">Unit 01 — Prologus / Praefatio</option>
-            <option value="02">Unit 02 — Incipit &amp; pueritia</option>
-            <option value="03">Unit 03 — Peregrinatio &amp; faber</option>
-            <option value="04">Unit 04 — Circuli ferrei</option>
-            <option value="05">Unit 05 — Miraculum caeci</option>
-            <option value="06">Unit 06 — Vocatio &amp; ignis</option>
-            <option value="07">Unit 07 — Lorica &amp; cophia</option>
-            <option value="08">Unit 08 — Fons &amp; ursus</option>
-            <option value="09">Unit 09 — Edificatio ecclesiae</option>
-        </select>
-        <button id="next-unit" onclick="navigateUnit(1)">Další →</button>
-    </nav>
-    
-    <main class="synoptic-grid">
-        <section class="witness-pane">
-            <header><h2>Codex 1 (13. století)</h2></header>
-            <div id="content-ms" class="witness-content">Načítání…</div>
-        </section>
-        <section class="witness-pane">
-            <header><h2>Renda (1581)</h2></header>
-            <div id="content-renda" class="witness-content">Načítání…</div>
-        </section>
+       <main class="synoptic-page">
+        
+        <nav class="unit-nav">
+            <button id="prev-unit" onclick="navigateUnit(-1)">← Předchozí</button>
+            <select id="unit-select" onchange="goToUnit(this.value)">
+                <option value="01">Unit 01 — Prologus / Praefatio</option>
+                <option value="02">Unit 02 — Incipit &amp; pueritia</option>
+                <option value="03">Unit 03 — Peregrinatio &amp; faber</option>
+                <option value="04">Unit 04 — Circuli ferrei</option>
+                <option value="05">Unit 05 — Miraculum caeci</option>
+                <option value="06">Unit 06 — Vocatio &amp; ignis</option>
+                <option value="07">Unit 07 — Lorica &amp; cophia</option>
+                <option value="08">Unit 08 — Fons &amp; ursus</option>
+                <option value="09">Unit 09 — Edificatio ecclesiae</option>
+            </select>
+            <button id="next-unit" onclick="navigateUnit(1)">Další →</button>
+        </nav>
+        
+        <div class="synoptic-grid">
+            <section class="witness-pane">
+                <header><h2>Codex 1 (13. století)</h2></header>
+                <div id="content-ms" class="witness-content">Načítání…</div>
+            </section>
+            <section class="witness-pane">
+                <header><h2>Renda (1581)</h2></header>
+                <div id="content-renda" class="witness-content">Načítání…</div>
+            </section>
+        </div>
+        
     </main>
     
     <style>
