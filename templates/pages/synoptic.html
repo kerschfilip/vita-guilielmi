@@ -59,22 +59,22 @@
         .witness-pane {
             border-left: 3px solid #999; padding-left: 1rem; min-width: 0;
         }
-        .witness-pane > header h2 {
+        .witness-pane &gt; header h2 {
             margin-top: 0; color: #555; font-size: 1.2em; font-weight: normal;
             border-bottom: 1px solid #eee; padding-bottom: .5rem;
         }
         /* Segment color coding (mirror of ODD outputRendition) */
-        .tei-seg1 { background-color: #bdb2ff; padding: 0 .15em; border-radius: 3px; }
-        .tei-seg2 { background-color: #a8d8ea; padding: 0 .15em; border-radius: 3px; }
-        .tei-seg3 { background-color: #d4a574; padding: 0 .15em; border-radius: 3px; }
-        .tei-seg4 { background-color: #ffd6a5; padding: 0 .15em; border-radius: 3px; }
-        .tei-seg5 { background-color: #caffbf; padding: 0 .15em; border-radius: 3px; }
-        .tei-seg6 { background-color: #ffadad; padding: 0 .15em; border-radius: 3px; }
-        .tei-seg7 { background-color: #e0e0e0; padding: 0 .15em; border-radius: 3px; }
+        .tei-seg1 { background-color: #bdb2ff; padding: 0 .15em; border-radius: 3px; margin-bottom:20px;}
+        .tei-seg2 { background-color: #32c71b; padding: 0 .15em; border-radius: 3px; margin-bottom:20px;}
+        .tei-seg3 { background-color: #d4a574; padding: 0 .15em; border-radius: 3px; margin-bottom:20px;}
+        .tei-seg4 { background-color: #ffd6a5; padding: 0 .15em; border-radius: 3px; margin-bottom:20px;}
+        .tei-seg5 { background-color: #caffbf; padding: 0 .15em; border-radius: 3px; margin-bottom:20px;}
+        .tei-seg6 { background-color: #ffadad; padding: 0 .15em; border-radius: 3px; margin-bottom:20px;}
+        .tei-seg7 { background-color: #e0e0e0; padding: 0 .15em; border-radius: 3px; margin-bottom:20px;}
     </style>
     
     <script>
-    /* <![CDATA[ */
+    /*  */
         var MIN_UNIT = 1, MAX_UNIT = 9;
         var DOC_PATH = 'vita-guilielmi/vita-guilielmi.xml';
         var ODD = 'vita-guilielmi';
@@ -89,21 +89,21 @@
         function loadWitness(elementId, witnessId, unit) {
             var xpath = "//tei:text[@xml:id='" + witnessId + "']//tei:div[@type='unit'][@n='" + unit + "']";
             var url = BASE_URL + '/api/parts/' + encodeURIComponent(DOC_PATH) + 
-                      '/json?odd=' + ODD + '&view=div&xpath=' + encodeURIComponent(xpath);
+                      '/json?odd=' + ODD + '&amp;view=div&amp;xpath=' + encodeURIComponent(xpath);
             var el = document.getElementById(elementId);
             if (!el) return;
-            el.innerHTML = '<em>Načítání…</em>';
+            el.innerHTML = '&lt;em&gt;Načítání…&lt;/em&gt;';
             
             fetch(url)
                 .then(function(r) { return r.json(); })
                 .then(function(data) {
                     /* TP API vrací JSON; HTML obsah bývá v poli "content" */
                     var html = data.content || data.html || data.body || '';
-                    if (!html) { el.innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>'; return; }
+                    if (!html) { el.innerHTML = '&lt;pre&gt;' + JSON.stringify(data, null, 2) + '&lt;/pre&gt;'; return; }
                     el.innerHTML = html;
                 })
                 .catch(function(err) {
-                    el.innerHTML = '<p style="color:red">Chyba: ' + err.message + '</p>';
+                    el.innerHTML = '&lt;p style="color:red"&gt;Chyba: ' + err.message + '&lt;/p&gt;';
                 });
         }
         
@@ -117,8 +117,8 @@
             if (select) select.value = unit;
             var prev = document.getElementById('prev-unit');
             var next = document.getElementById('next-unit');
-            if (prev) prev.disabled = parseInt(unit, 10) <= MIN_UNIT;
-            if (next) next.disabled = parseInt(unit, 10) >= MAX_UNIT;
+            if (prev) prev.disabled = parseInt(unit, 10) &lt;= MIN_UNIT;
+            if (next) next.disabled = parseInt(unit, 10) &gt;= MAX_UNIT;
         }
         
         function goToUnit(unit) {
@@ -132,7 +132,7 @@
         function navigateUnit(delta) {
             var current = parseInt(currentUnit(), 10);
             var target = current + delta;
-            if (target < MIN_UNIT || target > MAX_UNIT) return;
+            if (target &lt; MIN_UNIT || target &gt; MAX_UNIT) return;
             goToUnit(padUnit(target));
         }
         
@@ -147,6 +147,6 @@
             updateUI(unit);
             loadBoth(unit);
         });
-    /* ]]> */
+    /*  */
     </script>
 </template>

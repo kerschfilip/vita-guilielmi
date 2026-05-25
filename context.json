@@ -27,7 +27,7 @@
   } ],
   "profiles" : [ "base10", "registers", "toolbar-toggles", "metadata-panel", "theme-base10" ],
   "shortname" : "metadata",
-  "_lastModified" : "2026-05-25T07:36:51.983Z",
+  "_lastModified" : "2026-05-25T20:49:39.349Z",
   "label" : "Vita Guilielmi – Digital Comparative Edition",
   "odds" : [ "teipublisher.odd", "vita-guilielmi.odd" ],
   "version" : "1.0.0",
