@@ -247,8 +247,21 @@ See the [Jinks documentation](https://e-editiones.org/) for details on conflict 
 
 ### Pulled changes don't show up in the app
 
-- Check the order: `docker start` → start sync in VS Code → **then** `git pull`. If the plugin wasn't running during the pull, files won't auto-sync.
-- Quick fix: open one of the pulled files in VS Code and re-save it (`Cmd+S` / `Ctrl+S`) – this triggers an upload.
+Check the order: `docker start` → start sync in VS Code → **then** `git pull`. If the plugin wasn't running during the pull, files won't auto-sync.
+
+Quick fix: open one of the pulled files in VS Code and re-save it (`Cmd+S` / `Ctrl+S`) – this triggers an upload.
+
+If more then one file was not uploaded, touch all the files:
+
+macOS (Terminal / zsh):  
+```
+bashfind data resources templates modules -type f -exec touch {} +
+```
+
+Windows (PowerShell):  
+```
+powershellGet-ChildItem -Recurse -File -Path data,resources,templates,modules | ForEach-Object { $_.LastWriteTime = Get-Date }
+```
 
 ### Git conflict
 
@@ -268,6 +281,8 @@ Use VS Code's built-in merge editor to resolve, then commit and push.
 |Open Jinks|[http://localhost:8088/exist/apps/jinks/](http://localhost:8088/exist/apps/jinks/)|
 |Open eXide editor|[http://localhost:8088/exist/apps/eXide/](http://localhost:8088/exist/apps/eXide/)|
 |Open Dashboard|[http://localhost:8088/exist/apps/dashboard/](http://localhost:8088/exist/apps/dashboard/)|
+|Create Collection in eXide|`xmldb:create-collection("/db/apps/vita-guilielmi/data", "vita-guilielmi")`|
+|Reindex Collection in eXide|`xmldb:reindex("/db/apps/vita-guilielmi/data/vita-guilielmi")`|
 
 ### Default Credentials
 

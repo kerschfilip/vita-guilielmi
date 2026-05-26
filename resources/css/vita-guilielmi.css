@@ -1,0 +1,9 @@
+/* Segment type colour coding — Vita Guilielmi synoptic edition */
+
+.seg-miracle        { background-color: #bdb2ff; padding: 0 .15em; border-radius: 3px; margin-bottom: 20px; display: block; }
+.seg-authorial      { background-color: #a8d8ea; padding: 0 .15em; border-radius: 3px; margin-bottom: 20px; display: block; }
+.seg-ascetic        { background-color: #d4a574; padding: 0 .15em; border-radius: 3px; margin-bottom: 20px; display: block; }
+.seg-institutional  { background-color: #ffd6a5; padding: 0 .15em; border-radius: 3px; margin-bottom: 20px; display: block; }
+.seg-speech         { background-color: #caffbf; padding: 0 .15em; border-radius: 3px; margin-bottom: 20px; display: block; }
+.seg-conflict       { background-color: #ffadad; padding: 0 .15em; border-radius: 3px; margin-bottom: 20px; display: block; }
+.seg-narrative      { background-color: #e0e0e0; padding: 0 .15em; border-radius: 3px; margin-bottom: 20px; display: block; }
