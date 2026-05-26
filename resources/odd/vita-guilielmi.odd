@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:pb="http://teipublisher.com/1.0" xml:lang="en"><teiHeader><fileDesc>
+<?xml-model href="teipublisher_odds.xsd"?><TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:pb="http://teipublisher.com/1.0" xml:lang="en"><teiHeader><fileDesc>
             <titleStmt><title>Vita Guilielmi – Digital Comparative Edition</title></titleStmt>
             <publicationStmt>
                 <publisher>e-editiones</publisher>
@@ -16,7 +16,7 @@
             <change when="2026-05-25T06:27:59.445Z">Initial version</change>
         </revisionDesc></teiHeader><text>
         <body>
-            <schemaSpec start="TEI teiCorpus" source="teipublisher.odd">
+            <schemaSpec ident="vita-guilielmi" start="TEI teiCorpus" source="teipublisher.odd">
 
                 <elementSpec ident="seg" mode="change">
 
@@ -59,6 +59,110 @@
 
                 </elementSpec>
 
+                <elementSpec ident="person" mode="change">
+
+                    <!-- Register entry overview in list (clickable link) -->
+                    <model predicate="parent::listPerson and $parameters?mode='register-overview'" behaviour="pass-through">
+                        <param name="id" value="@xml:id"/>
+                        <param name="label" value="head((persName[@type='sort'], persName[@type='main'], persName[1]))"/>
+                        <param name="description" value="note"/>
+                        <pb:template xmlns="" xml:space="preserve"><div>
+<header>
+    <a href="people/[[ id ]]">[[ label ]]</a>
+</header>
+[[ description ]]
+</div></pb:template>
+                    </model>
+
+                    <!-- Register sidebar -->
+                    <model predicate="parent::listPerson and $parameters?mode='register'" behaviour="listItem">
+                        <param name="content" value="persName[@type=('main', 'full')]"/>
+                    </model>
+
+                    <!-- Register details view — document-list model omitted; $passages in template provides links instead -->
+                    <modelSequence predicate="parent::listPerson">
+                        <model behaviour="heading">
+                            <param name="content" value="(persName[@type!='variant'])[1]"/>
+                        </model>
+                        <model predicate="$parameters?mode='register-details'" behaviour="block">
+                            <param name="content" value="(birth, death)"/>
+                        </model>
+                        <model predicate="$parameters?mode='register-details'" behaviour="paragraph">
+                            <param name="content" value="persName[@type='variant']"/>
+                        </model>
+                        <model predicate="$parameters?mode='register-details'" behaviour="block">
+                            <param name="content" value="figure"/>
+                        </model>
+                        <model behaviour="pass-through">
+                            <param name="content" value="note[@type='bio']"/>
+                        </model>
+                        <model predicate="$parameters?mode='register-details'" behaviour="pass-through">
+                            <param name="content" value="note[@type!='bio']"/>
+                        </model>
+                        <model behaviour="list">
+                            <param name="content" value="ptr"/>
+                        </model>
+                        <model predicate="$parameters?mode='register-details'" behaviour="block" cssClass="occupation">
+                            <param name="content" value="occupation"/>
+                        </model>
+                    </modelSequence>
+
+                </elementSpec>
+
+                <elementSpec ident="place" mode="change">
+
+                    <!-- Register entry overview in list (clickable link + map pin) -->
+                    <model predicate="$parameters?mode='register-overview'" behaviour="pass-through">
+                        <param name="id" value="@xml:id"/>
+                        <param name="label" value="placeName[1]/string()"/>
+                        <param name="longitude" value="tokenize(location/geo)[2]"/>
+                        <param name="latitude" value="tokenize(location/geo)[1]"/>
+                        <param name="zoom" value="if (@type != 'approximate') then 12 else 9"/>
+                        <param name="description" value="note"/>
+                        <pb:template xmlns="" xml:space="preserve"><div>
+<header>
+    <a href="places/[[id]]">
+        [[ label ]]
+    </a>
+    <pb-geolocation latitude="[[ latitude ]]" longitude="[[ longitude ]]" label="[[ label ]]" emit="map" event="click" zoom="[[ zoom ]]">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-map" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.5.5 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103M10 1.91l-4-.8v12.98l4 .8zm1 12.98 4-.8V1.11l-4 .8zm-6-.8V1.11l-4 .8v12.98z"/>
+        </svg>
+    </pb-geolocation>
+</header>
+[[ description ]]
+</div></pb:template>
+                    </model>
+
+                    <!-- Register sidebar -->
+                    <model predicate="$parameters?mode='register'" behaviour="listItem">
+                        <param name="content" value="placeName[@type='main']"/>
+                        <param name="longitude" value="tokenize(location/geo, ' ')[2]"/>
+                        <param name="latitude" value="tokenize(location/geo, ' ')[1]"/>
+                        <param name="label" value="placeName[@type='main']/node()"/>
+                        <pb:template xmlns="" xml:space="preserve"><pb-geolocation event="mouseover" longitude="[[longitude]]" latitude="[[latitude]]" label="[[label]]" auto="auto" wait-for="pb-leaflet-map" zoom="11" emit="map">[[content]]</pb-geolocation></pb:template>
+                    </model>
+
+                    <!-- Register details view — document-list model omitted; $passages in template provides links instead -->
+                    <modelSequence>
+                        <model behaviour="heading">
+                            <param name="longitude" value="tokenize(location/geo, ' ')[2]"/>
+                            <param name="latitude" value="tokenize(location/geo, ' ')[1]"/>
+                            <param name="label" value="placeName[@type='main']/node()"/>
+                            <param name="content" value="placeName[@type='main']"/>
+                            <param name="location" value="string-join((country, region), ', ')"/>
+                            <pb:template xmlns="" xml:space="preserve"><pb-geolocation event="click" longitude="[[longitude]]" latitude="[[latitude]]" label="[[label]]" auto="auto" wait-for="#map" subscribe="map" emit="map" zoom="11">[[content]] <small>[[location]]</small></pb-geolocation></pb:template>
+                        </model>
+                        <model behaviour="paragraph">
+                            <param name="content" value="note"/>
+                        </model>
+                        <model behaviour="list" cssClass="links">
+                            <param name="content" value="ptr"/>
+                        </model>
+                    </modelSequence>
+
+                </elementSpec>
+
                 <elementSpec ident="note" mode="change">
 
                     <!-- Margin notes (violet accent) -->
@@ -67,6 +171,7 @@
                     </model>
 
                 </elementSpec>
+
 
             </schemaSpec>
         </body>
