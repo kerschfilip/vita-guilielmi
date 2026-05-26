@@ -11,5 +11,11 @@
   "pkg" : {
     "abbrev" : "vita-guilielmi"
   },
-  "description" : ""
+  "description" : "",
+  "features": {
+    "register": {
+      "enabled": true,
+      "description": "auto"
+    }
+  }
 }
