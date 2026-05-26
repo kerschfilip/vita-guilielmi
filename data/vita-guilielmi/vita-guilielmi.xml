@@ -1072,7 +1072,7 @@
           <div type="unit" n="03" xml:id="renda.d.u03.peregrinatio_faber">
             <head>Pilgrimage and Navigational Devices</head>
             <ab>
-              <note place="margin" xml:id="renda.n.u03.m01">Habitu albo sacrae religionis induitur</note>
+              <note place="margin">Habitu albo sacrae religionis induitur</note>
 
               <seg type="habit-assumptio" xml:id="renda.u03.s01">
                 Quartumdecimum annum attingens,
@@ -1118,7 +1118,7 @@
           <div type="unit" n="04" xml:id="renda.d.u04.circuli">
             <head>Iron Hoops and Functional Indexing</head>
             <ab>
-              <note place="margin" xml:id="renda.n.u04.m01">Circulis ferreis carnem macerat</note>
+              <note place="margin">Circulis ferreis carnem macerat</note>
               <seg type="technical-description" xml:id="renda.u04.s01">
                 Quorum altero pectus,
                 altero ventrem circumdaret,
@@ -1131,7 +1131,7 @@
           <div type="unit" n="05" xml:id="renda.d.u05.miraculum_ceci">
             <head>Caecus illuminatur: The Prodigy as a Discrete Unit</head>
             <ab>
-              <note place="margin" xml:id="renda.n.u05.m01">Caecum illuminat</note>
+              <note place="margin">Caecum illuminat</note>
 
               <seg type="incipit" xml:id="renda.u05.s01">
                 Die quadam evenit ut Christi confessor
@@ -1232,7 +1232,7 @@
                 magna dilectione rogatur.
               </seg>
 
-              <note place="margin" xml:id="renda.n.u06.m01">In ignis flamma apparuit ei Dominus</note>
+              <note place="margin">In ignis flamma apparuit ei Dominus</note>
 
               <seg type="divine-revelation" xml:id="renda.u06.s07">
                 Cui
@@ -1270,7 +1270,7 @@
                 Salernum proficiscitur.
               </seg>
 
-              <note place="margin" xml:id="renda.n.u07.m01">Lorica magni ponderis carnem macerat</note>
+              <note place="margin">Lorica magni ponderis carnem macerat</note>
 
               <seg type="lorica-acquisition" xml:id="renda.u07.s04">
                 Quam statim ingresso Dei viro miles occurrit;
@@ -1326,7 +1326,7 @@
                 montana discurrunt.
               </seg>
 
-              <note place="margin" xml:id="renda.n.u08.m01">Miraculum de Urso fontem perturbante</note>
+              <note place="margin">Miraculum de Urso fontem perturbante</note>
 
               <seg type="iterative-struggle" xml:id="renda.u08.s03">
                 At ursus pluries hoc faciens,
@@ -1361,7 +1361,7 @@
           <div type="unit" n="09" xml:id="renda.d.u09.edificatio_monasterii">
             <head>De edificatione sacri monasterii</head>
             <ab>
-              <note place="margin" xml:id="renda.n.u09.m01" target="#renda.u09.s01">
+              <note place="margin" target="#renda.u09.s01">
                 Ecclesiam <placeName ref="#mons_virginis">Montis Virginis</placeName> Sanctus erigit anno 1124 die decimo mensis Aprilis
               </note>
 
@@ -1379,7 +1379,7 @@
                 Ecclesiae fundamenta fodere incipit, et fossis primo lapidem signo crucis signatum projicit intus.
               </seg>
 
-              <note place="margin" xml:id="renda.n.u09.m02" target="#renda.u09.s02">Miraculum aridi brachii Gualterii</note>
+              <note place="margin" target="#renda.u09.s02">Miraculum aridi brachii Gualterii</note>
 
               <seg type="miracle-builder" xml:id="renda.u09.s02">
                 At dum ipsa construeretur Ecclesia, quidam ligur
@@ -1397,7 +1397,7 @@
                 sospitatem recuperat.
               </seg>
 
-              <note place="margin" xml:id="renda.n.u09.m03" target="#renda.u09.s03">Die tertia Maii Ecclesia completa inspicitur</note>
+              <note place="margin" target="#renda.u09.s03">Die tertia Maii Ecclesia completa inspicitur</note>
 
               <seg type="completion-and-supply" xml:id="renda.u09.s03">
                 Lapidem laetus suscepit, postea ab eo sacrae Religionis habitum indutus
@@ -1414,7 +1414,7 @@
                 ad praedictum rediit montem.
               </seg>
 
-              <note place="margin" xml:id="renda.n.u09.m04" target="#renda.u09.s04">Prima dedicatio Ecclesiae Sanctae Mariae Virginis</note>
+              <note place="margin" target="#renda.u09.s04">Prima dedicatio Ecclesiae Sanctae Mariae Virginis</note>
 
               <seg type="dedication-frame" xml:id="renda.u09.s04">
                 Proximo mense Maii, in die Pentecostes anno 1124, constituto die,
@@ -1424,7 +1424,7 @@
                 gentis multitudo confluxit.
               </seg>
 
-              <note place="margin" xml:id="renda.n.u09.m05" target="#renda.u09.s05">Sanctus mutam facit loqui</note>
+              <note place="margin" target="#renda.u09.s05">Sanctus mutam facit loqui</note>
 
               <seg type="miracle-mute" xml:id="renda.u09.s05">
                 In qua erat mulier quae per annos septem muta silebat; ad Sancti tamen Confessoris
@@ -1432,7 +1432,7 @@
                 <persName ref="#p_guilielmus">Guilielmum</persName> Sanctum praedicare coeperunt.
               </seg>
 
-              <note place="margin" xml:id="renda.n.u09.m06" target="#renda.u09.s06">Lupus pro asino facit servire</note>
+              <note place="margin" target="#renda.u09.s06">Lupus pro asino facit servire</note>
 
               <seg type="post-dedication-building" xml:id="renda.u09.s06">
                 Facta Ecclesiae dedicatione Episcopoque discesso, Monasterium, ut monachi cum cellulis
@@ -1449,7 +1449,7 @@
                 construxit et auxit.
               </seg>
 
-              <note place="margin" xml:id="renda.n.u09.m07" target="#renda.u09.s08">Exemptio facta ab Episcopo Abellinensi</note>
+              <note place="margin" target="#renda.u09.s08">Exemptio facta ab Episcopo Abellinensi</note>
 
               <seg type="exemptio" xml:id="renda.u09.s08">
                 Annis duobus elapsis praedictus <placeName ref="#avellinum">Avellanensis</placeName> Episcopus,
@@ -1494,11 +1494,11 @@
                 Quod Dei famulus sentiens, dictis illos solatur amicis; cognoscens autem se inter illos non posse proficere.
               </seg>
 
-              <note place="margin" xml:id="renda.n.u09.m08" target="#renda.u09.s16">Sacerdotum murmuratio</note>
-              <note place="margin" xml:id="renda.n.u09.m09" target="#renda.u09.s17">Primus Abbas Guilielmus</note>
-              <note place="margin" xml:id="renda.n.u09.m10" target="#renda.u09.s17">Secundus Abbas loco eligitur D. Albertus nomine</note>
-              <note place="margin" xml:id="renda.n.u09.m11" target="#renda.u09.s17">Regulam diui Benedicti pro norma tradit</note>
-              <note place="margin" xml:id="renda.n.u09.m12" target="#renda.u09.s17">Esus carnis, ouorum, &amp; casei prohibet cum suis</note>
+              <note place="margin" target="#renda.u09.s16">Sacerdotum murmuratio</note>
+              <note place="margin" target="#renda.u09.s17">Primus Abbas Guilielmus</note>
+              <note place="margin" target="#renda.u09.s17">Secundus Abbas loco eligitur D. Albertus nomine</note>
+              <note place="margin" target="#renda.u09.s17">Regulam diui Benedicti pro norma tradit</note>
+              <note place="margin" target="#renda.u09.s17">Esus carnis, ouorum, &amp; casei prohibet cum suis</note>
 
               <seg type="speech" xml:id="renda.u09.s17">
                 Constituto Monasterio, collectis capitulariter monachis alacri facie publice dixit:
