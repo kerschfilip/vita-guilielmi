@@ -63,14 +63,20 @@
             margin-top: 0; color: #555; font-size: 1.2em; font-weight: normal;
             border-bottom: 1px solid #eee; padding-bottom: .5rem;
         }
-        /* Segment color coding (mirror of ODD outputRendition) */
-        .tei-seg1 { background-color: #bdb2ff; padding: 0 .15em; border-radius: 3px; margin-bottom:20px;}
-        .tei-seg2 { background-color: #ffffff; padding: 0 .15em; border-radius: 3px; margin-bottom:20px;}
-        .tei-seg3 { background-color: #d4a574; padding: 0 .15em; border-radius: 3px; margin-bottom:20px;}
-        .tei-seg4 { background-color: #ffd6a5; padding: 0 .15em; border-radius: 3px; margin-bottom:20px;}
-        .tei-seg5 { background-color: #caffbf; padding: 0 .15em; border-radius: 3px; margin-bottom:20px;}
-        .tei-seg6 { background-color: #ffadad; padding: 0 .15em; border-radius: 3px; margin-bottom:20px;}
-        .tei-seg7 { background-color: #e0e0e0; padding: 0 .15em; border-radius: 3px; margin-bottom:20px;}
+        /* Label blocks — odd model numbers (1,3,5,7,9,11,13) */
+        .tei-seg1, .tei-seg3, .tei-seg5, .tei-seg7,
+        .tei-seg9, .tei-seg11, .tei-seg13 {
+            font-size: .72em; font-variant: small-caps; letter-spacing: .05em;
+            color: #555; margin-top: 1em; margin-bottom: .1em; display: block;
+        }
+        /* Content blocks — even model numbers (2,4,6,8,10,12,14) */
+        .tei-seg2  { background-color: #bdb2ff; padding: .2em .4em; border-radius: 3px; margin-bottom: .6em; } /* miracle */
+        .tei-seg4  { background-color: #a8eab3; padding: .2em .4em; border-radius: 3px; margin-bottom: .6em; } /* authorial */
+        .tei-seg6  { background-color: #d4a574; padding: .2em .4em; border-radius: 3px; margin-bottom: .6em; } /* ascetic */
+        .tei-seg8  { background-color: #ffd6a5; padding: .2em .4em; border-radius: 3px; margin-bottom: .6em; } /* institutional */
+        .tei-seg10 { background-color: #caffbf; padding: .2em .4em; border-radius: 3px; margin-bottom: .6em; } /* speech */
+        .tei-seg12 { background-color: #ffadad; padding: .2em .4em; border-radius: 3px; margin-bottom: .6em; } /* conflict */
+        .tei-seg14 { background-color: #e0e0e0; padding: .2em .4em; border-radius: 3px; margin-bottom: .6em; } /* narrative */
         .tei-note1 { font-size: .85em; color: #555; font-style: italic; border-left: 2px solid #bbb; padding-left: .4em; margin: .4em 0; }
     </style>
     
