@@ -18,6 +18,69 @@
         <body>
             <schemaSpec ident="vita-guilielmi" start="TEI teiCorpus" source="teipublisher.odd">
 
+                <!-- persName: swap the popover-alternate for a styled link; keep all other base-ODD models -->
+                <elementSpec ident="persName" mode="change">
+                    <model output="fo" behaviour="inline"/>
+                    <model output="print" behaviour="inline"/>
+                    <model predicate="(@key or @ref) and $parameters?mode='register-details'" behaviour="link">
+                        <param name="uri" value="head((@key, @ref))"/>
+                        <param name="target" value="'_blank'"/>
+                    </model>
+                    <model predicate="$parameters?display='browse' or $parameters?mode='breadcrumb' or $parameters?mode='toc'" behaviour="inline"/>
+                    <model predicate="$parameters?mode='register'" behaviour="pass-through">
+                        <param name="content" value="."/>
+                        <param name="alternate" value="parent::person/note"/>
+                        <param name="uri" value="$parameters?context-path || '/people/' || parent::person/@xml:id"/>
+                        <pb:template xmlns="" xml:space="preserve"><a href="[[uri]]" class="persName">
+                            <pb-popover>
+                                <span slot="default">[[content]]</span>
+                                <template slot="alternate">[[alternate]]</template>
+                            </pb-popover>
+                        </a></pb:template>
+                    </model>
+                    <model predicate="$parameters?mode='register-overview'" behaviour="inline"/>
+                    <model predicate="@type='variant'" behaviour="inline" cssClass="name variant"/>
+                    <model predicate="parent::person" behaviour="inline"/>
+                    <model predicate="ancestor::correspContext" behaviour="inline"/>
+                    <!-- styled link to person detail page (replaces base-ODD alternate/popover) -->
+                    <model predicate="@key or @ref" behaviour="link" cssClass="person-ref">
+                        <param name="uri" value="$parameters?context-path || '/people/' || head((@key, @ref))"/>
+                        <param name="target" value="'_blank'"/>
+                    </model>
+                    <model behaviour="inline"/>
+                </elementSpec>
+
+                <!-- placeName: swap the popover-alternate for a styled link; keep all other base-ODD models -->
+                <elementSpec ident="placeName" mode="change">
+                    <model output="fo" behaviour="inline"/>
+                    <model output="print" behaviour="inline"/>
+                    <model predicate="@key and $parameters?mode='register-details'" behaviour="inline">
+                        <param name="content" value="let $key := head((@key, @ref)) return id($key, collection($global:register-root)/id('pb-places'))/placeName[@type='main']/string()"/>
+                    </model>
+                    <model predicate="$parameters?display='browse' or $parameters?mode='breadcrumb' or $parameters?mode='toc'" behaviour="inline"/>
+                    <model predicate="$parameters?mode='register'" behaviour="pass-through">
+                        <param name="default" value="."/>
+                        <param name="alternate" value="parent::place/note"/>
+                        <param name="uri" value="$parameters?context-path || '/places/' || parent::place/@xml:id"/>
+                        <param name="content" value="."/>
+                        <pb:template xmlns="" xml:space="preserve"><a href="[[uri]]" class="placeName context">
+                            <pb-popover>
+                                <span slot="default">[[content]]</span>
+                                <template slot="alternate">[[alternate]]</template>
+                            </pb-popover>
+                        </a></pb:template>
+                    </model>
+                    <model predicate="@type='variant'" behaviour="inline" cssClass="name variant"/>
+                    <model predicate="parent::place" behaviour="inline"/>
+                    <model predicate="ancestor::correspContext" behaviour="inline"/>
+                    <!-- styled link to place detail page (replaces base-ODD alternate/popover) -->
+                    <model predicate="@key or @ref" behaviour="link" cssClass="place-ref">
+                        <param name="uri" value="$parameters?context-path || '/places/' || head((@key, @ref))"/>
+                        <param name="target" value="'_blank'"/>
+                    </model>
+                    <model behaviour="inline"/>
+                </elementSpec>
+
                 <elementSpec ident="seg" mode="change">
 
                     <!-- Miracles (violet) -->
