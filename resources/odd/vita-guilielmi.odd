@@ -48,6 +48,13 @@
             </outputRendition>
         </model><model behaviour="block"/></elementSpec>
 
+                <elementSpec ident="note" mode="change"><model predicate="@place='margin'" behaviour="block">
+            <outputRendition xml:space="preserve">
+            font-size: .85em; color: #555; font-style: italic;
+            border-left: 2px solid #bbb; padding-left: .4em; margin: .4em 0;
+            </outputRendition>
+        </model></elementSpec>
+
             </schemaSpec>
         </body>
     </text></TEI>
