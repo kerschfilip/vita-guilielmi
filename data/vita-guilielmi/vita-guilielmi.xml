@@ -823,102 +823,77 @@
 
           <div type="unit" n="08" xml:id="ms.d.u08.fons_ursus">
             <head>Fons et Ursus: Empirical Discovery and Restoration of Order</head>
+            <ab>
+              <seg type="settlement-context" xml:id="ms.u08a.s00">
+                Cum igitur ad iam saepe dictum vicum reversus
+                <persName ref="#p_guilielmus">Guilielmus</persName>,
+                assumptis quibusdam consanguineis et vicinis illius
+                <persName ref="#p_matrona_atripaldum">matronae</persName>,
+                apud quam hospitabatur,
+                ad locum in quo prius aquam invenerat ascendit;
+                ubi quadam domuncula ab eisdem sibi aedificata,
+                solus ibi cum Domino
+                <persName ref="#p_guilielmus">venerabilis heremita</persName>
+                remansit.
+              </seg>
 
-            <div type="sub-unit" n="08a" xml:id="ms.d.u08a.contextus">
-              <head>Contextus: From Civil Mediation to Solitary Settlement</head>
-              <ab>
-                <seg type="settlement-context" xml:id="ms.u08a.s00">
-                  Cum igitur ad iam saepe dictum vicum reversus
-                  <persName ref="#p_guilielmus">Guilielmus</persName>,
-                  assumptis quibusdam consanguineis et vicinis illius
-                  <persName ref="#p_matrona_atripaldum">matronae</persName>,
-                  apud quam hospitabatur,
-                  ad locum in quo prius aquam invenerat ascendit;
-                  ubi quadam domuncula ab eisdem sibi aedificata,
-                  solus ibi cum Domino
-                  <persName ref="#p_guilielmus">venerabilis heremita</persName>
-                  remansit.
-                </seg>
-              </ab>
-            </div>
+              <seg type="discovery-damage" xml:id="ms.u08b.s01">
+                Die quadam,
+                cum gratia hauriendi aquam cella exiret, Dei famulus
+                in praedicto fonte parum aquae invenit; ursus enim veniens
+                fontem conculcaverat et eum fere oppilaverat.
+              </seg>
 
-            <div type="sub-unit" n="08b" xml:id="ms.d.u08b.fons_obstaculum">
-              <head>Conculcatio: Sabotage of the Spring</head>
-              <ab>
-                <seg type="discovery-damage" xml:id="ms.u08b.s01">
-                  Die quadam,
-                  cum gratia hauriendi aquam cella exiret, Dei famulus
-                  in praedicto fonte parum aquae invenit; ursus enim veniens
-                  fontem conculcaverat et eum fere oppilaverat.
-                </seg>
+              <seg type="restoration-labor" xml:id="ms.u08b.s02">
+                Quid multa? Fontem restituit, domum regressus est.
+              </seg>
 
-                <seg type="restoration-labor" xml:id="ms.u08b.s02">
-                  Quid multa? Fontem restituit, domum regressus est.
-                </seg>
+              <seg type="iterative-struggle" xml:id="ms.u08b.s03">
+                ursus autem nihilominus,
+                singulis diebus adveniens,
+                aquam sorbebat,
+                fontem conculcabat.
+              </seg>
 
-                <seg type="iterative-struggle" xml:id="ms.u08b.s03">
-                  ursus autem nihilominus,
-                  singulis diebus adveniens,
-                  aquam sorbebat,
-                  fontem conculcabat.
-                </seg>
-              </ab>
-            </div>
+              <seg type="patience-limit" xml:id="ms.u08c.s01">
+                Quod cum diu perpetiretur
+                <persName ref="#p_guilielmus">Guilielmus</persName>,
+                die quadam ad hauriendum aquam egressus,
+                beluam bibentem invenit.
+              </seg>
 
-            <div type="sub-unit" n="08c" xml:id="ms.d.u08c.ursus_confrontatio">
-              <head>Allocutio: Ethical Rebuke and Moral Authority</head>
-              <ab>
-                <seg type="patience-limit" xml:id="ms.u08c.s01">
-                  Quod cum diu perpetiretur
-                  <persName ref="#p_guilielmus">Guilielmus</persName>,
-                  die quadam ad hauriendum aquam egressus,
-                  beluam bibentem invenit.
-                </seg>
+              <seg type="holy-rebuke" xml:id="ms.u08c.s02">
+                Eamque his verbis alloquitur:
+                «Quid est quod agis?
+                Alieno, ut video, labori iniuriose incumbis;
+                aquam, quam propriis manibus ego effodio,
+                perturbas et sorbes.
+                Vade hinc et cave ulterius ne accedas».
+              </seg>
 
-                <seg type="holy-rebuke" xml:id="ms.u08c.s02">
-                  Eamque his verbis alloquitur:
-                  «Quid est quod agis?
-                  Alieno, ut video, labori iniuriose incumbis;
-                  aquam, quam propriis manibus ego effodio,
-                  perturbas et sorbes.
-                  Vade hinc et cave ulterius ne accedas».
-                </seg>
-              </ab>
-            </div>
+              <seg type="miracle-response" xml:id="ms.u08d.s01">
+                Ad cuius imperium
+                <persName ref="#p_guilielmus">venerandi patris</persName>,
+                mox depresso in terra capite ursus,
+                nihil feritatis ostendens,
+                protinus recessit
+                et ad fontem amplius non est reversus.
+              </seg>
 
-            <div type="sub-unit" n="08d" xml:id="ms.d.u08d.ursus_submissio">
-              <head>Submissio: Recognition of Authority</head>
-              <ab>
-                <seg type="miracle-response" xml:id="ms.u08d.s01">
-                  Ad cuius imperium
-                  <persName ref="#p_guilielmus">venerandi patris</persName>,
-                  mox depresso in terra capite ursus,
-                  nihil feritatis ostendens,
-                  protinus recessit
-                  et ad fontem amplius non est reversus.
-                </seg>
-              </ab>
-            </div>
-
-            <div type="sub-unit" n="08e" xml:id="ms.d.u08e.civil_recognition">
-              <head>Recognitio Civilis: From Suspicion to Release</head>
-              <ab>
-                <seg type="civil-episode" xml:id="ms.u08e.s01">
-                  Praedictus Dei famulus,
-                  cum comite <persName ref="#p_petrus_socius_mons">Petro</persName>,
-                  in aspectu fontis persistens,
-                  a custodibus cuiusdam castelli visus est,
-                  qui arbitrantes eos latrones esse,
-                  capiunt et usque ad
-                  <persName ref="#p_baiulus_mercuriani">baiulum Mercuriani</persName>
-                  deducunt;
-                  qui, eius sacris auditis sermonibus,
-                  cuius esset sanctitatis cognovit,
-                  eum ilico in pace dimisit.
-                </seg>
-              </ab>
-            </div>
-
+              <seg type="civil-episode" xml:id="ms.u08e.s01">
+                Praedictus Dei famulus,
+                cum comite <persName ref="#p_petrus_socius_mons">Petro</persName>,
+                in aspectu fontis persistens,
+                a custodibus cuiusdam castelli visus est,
+                qui arbitrantes eos latrones esse,
+                capiunt et usque ad
+                <persName ref="#p_baiulus_mercuriani">baiulum Mercuriani</persName>
+                deducunt;
+                qui, eius sacris auditis sermonibus,
+                cuius esset sanctitatis cognovit,
+                eum ilico in pace dimisit.
+              </seg>
+            </ab>
           </div>
 
           <div type="unit" n="09" xml:id="ms.d.u09.edificatio_conflictus">
