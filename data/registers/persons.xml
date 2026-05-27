@@ -3,7 +3,7 @@
     <teiHeader>
         <fileDesc>
             <titleStmt>
-                <title>Local Authority File: Person register</title>
+                <title>Persons Register — Vita Guilielmi</title>
             </titleStmt>
             <publicationStmt>
                 <p>Publication Information</p>
@@ -15,335 +15,127 @@
     </teiHeader>
     <standOff>
         <listPerson>
-            <person xml:id="gnd-119442086">
-                <persName type="main">Dantiscus, Ioannes</persName>
 
-                <persName type="variant">Jan Dantyszek</persName>
-                <persName type="variant">Ioannes de Curiis</persName>
-                <persName type="variant">Johannes von Höfen</persName>
-                <persName type="variant">Hans Flachsbinder</persName>
+            <person xml:id="p_iacobus_pater">
+                <persName type="main">Iacobus (pater)</persName>
+                <note type="role">Addressee of the Prologus (pater / superior), as named in the MS.</note>
+            </person>
 
-                <persName type="sort">Dantiscus, Ioannes</persName>
-                <gender value="M">male</gender>
-                <birth>
-                    <date when="1485-10-31"/>
-                    <placeName ref="https://d-nb.info/gnd/4011039-4">Danzig</placeName>
-                </birth>
-                <death>
-                    <date when="1548-10-28"/>
-                    <placeName ref="https://d-nb.info/gnd/4024083-6">Heilsberg (Ermland)</placeName>
-                </death>
-                <note type="bio" xml:lang="en">Ioannes Dantiscus (*1485 – †1548), eminent diplomat and humanist in the service of the Jagiellons, neo-Latin poet; 1530-1537 Bishop of Kulm; 1537-1548 Bishop of Ermland</note>
-                <note type="bio" xml:lang="de">Poln. Humanist, Dichter und Diplomat; Bischof von Kulm (Chelmno) und Ermland (Warmia); Sohn einer deutschen aus dem Ermland nach Danzig eingewanderten Familie; enge Freundschaft zu Nicolaus Copernicus; Botschaftssekretär und Ständiger Polnischer Gesandter Kaiserhof Karl V.</note>
-                <occupation ref="https://d-nb.info/gnd/4006949-7">Bischof</occupation>
-                <occupation ref="https://d-nb.info/gnd/4160777-6">Humanist</occupation>
-                <occupation ref="https://d-nb.info/gnd/4053309-8">Schriftsteller</occupation>
-                <occupation ref="https://d-nb.info/gnd/4029050-5">Jurist</occupation>
-                <occupation ref="https://d-nb.info/gnd/4012401-0">Diplomat</occupation>
-                <occupation ref="https://d-nb.info/gnd/4137184-7">Geistlicher</occupation>
-                <occupation ref="https://d-nb.info/gnd/4168391-2">Lyriker</occupation>
+            <person xml:id="p_iacobus_apostolus">
+                <persName type="main">Iacobus Apostolus</persName>
+                <note type="role">Apostle James; pilgrimage shrine in the itinerary frame.</note>
             </person>
-            <person xml:id="gnd-118797158">
-                <persName type="main">Sigismund I Jagiellon</persName>
-                <persName type="variant">Zygmunt I.</persName>
-                <persName type="sort">Sigismund I</persName>
-                <gender value="M">male</gender>
-                <birth>
-                    <date when="1467-01-01"/>
-                    <placeName ref="https://d-nb.info/gnd/1216411-2">Kozienice</placeName>
-                </birth>
-                <death>
-                    <date when="1548-04-01"/>
-                    <placeName ref="https://d-nb.info/gnd/4073760-3">Krakau</placeName>
-                </death>
-                <note type="bio" xml:lang="en">Sigismund I Jagiellon (Zygmunt I) (*1467 – †1548), King of Poland and Grand Duke of Lithuania</note>
-                <note type="bio" xml:lang="de">1507-1548 König von Polen aus der Familie der Jagiellonen; 1508-1548 Großfürst von Litauen; Beitr. im VD-16</note>
-            </person>
-            <person xml:id="gnd-118560093">
-                <persName type="main">Charles V of Habsburg</persName>
 
-                <persName type="variant">Carlos V</persName>
-                <persName type="variant">Karl V</persName>
+            <person xml:id="p_guilielmus">
+                <persName type="main">Guilielmus</persName>
+                <persName type="sort">Guilielmus</persName>
+                <note type="role">Subject of the Vita; founder of Montevergine.</note>
+                <idno type="VIAF">190751093</idno>
+                <idno type="Wikidata">Q2197784</idno>
+                <birth when="1085">1085</birth>
+                <death when="1142">1142</death>
+            </person>
 
-                <persName type="sort">Charles V</persName>
-                <gender value="M">male</gender>
-                <birth>
-                    <date when="1500-02-24"/>
-                    <placeName ref="https://d-nb.info/gnd/4020176-4">Gent</placeName>
-                </birth>
-                <death>
-                    <date when="1558-09-21"/>
-                    <placeName ref="https://d-nb.info/gnd/16003734-7">Cuacos de Yuste</placeName>
-                </death>
-                <note type="bio" xml:lang="en">Charles V of Habsburg (*1500 – †1558), ruler of the Burgundian territories (1506-1555), King of Spain as Charles I (1516-1556), King of Naples and Sicily, King of the Romans (1519-1530), Holy Roman Emperor of the German Nation (elected 1519, crowned 1530, abdicated 1556); son of Philip I the Handsome and Joanna the Mad of Castile</note>
-                <note type="bio" xml:lang="de">Kaiser (1519-1556)</note>
+            <person xml:id="p_iohannes_discipulus">
+                <persName type="main">Iohannes (discipulus)</persName>
+                <persName type="sort">Iohannes discipulus</persName>
+                <note type="role">Disciple/holy companion of Guilielmus; abbot/founder figure linked to Genusium.</note>
             </person>
-            <person xml:id="gnd-137224435">
-                <persName type="main">Sailer, Hieronymus</persName>
-                <persName type="variant">Hieronymus Seiler</persName>
 
-                <persName type="sort">Sailer, Hieronymus</persName>
-                <gender value="M">male</gender>
-                <birth>
-                    <date when="1494"/>
-                    <placeName ref="https://d-nb.info/gnd/4051594-1">Sankt Gallen</placeName>
-                </birth>
-                <death>
-                    <date when="1559-06-15"/>
-                    <placeName ref="https://d-nb.info/gnd/4003614-5">Augsburg</placeName>
-                </death>
-                <note type="bio" xml:lang="en">Hieronymus Sailer (Hieronymus Seiler) (*1495 – †1559), in 1524 agent of the Welsers' company in Spain, and later, from 1528, in Venezuela. After his return to Europe, he dealt with the Welsers' affairs at the Spanish court, in 1540 he became their agent in Antwerp. Son-in-law of Bartholomäus Welser </note>
-                <note type="bio" xml:lang="de">Faktor der Augsburger Welser-Gesellschaft in Südamerika; Unterzeichner der Venezuela-Verträge; Finanzgeschäfte mit dem König von Frankreich; Börsenspekulant in Antwerpen; Gründer einer eigenen Handelsgesellschaft</note>
-                <occupation ref="https://d-nb.info/gnd/4128272-3">Kaufmann</occupation>
+            <person xml:id="p_albertus">
+                <persName type="main">Albertus</persName>
+                <note type="role">Monk received into Guilielmus' community; later designated superior/abbot.</note>
             </person>
-            <person xml:id="gnd-118575449">
-                <persName type="main">Luther, Martin</persName>
-                <persName type="sort">Martinus Lutherus</persName>
-                <persName type="sort">Luther, Martin</persName>
-                <gender value="M">male</gender>
-                <note type="bio" xml:lang="en">Martin Luther (Martinus Lutherus) (*1483 – †1546), theologian, leader and originator of the German Reformation</note>
-                <birth>
-                    <date when="1483-11-10"/>
-                    <placeName ref="https://d-nb.info/gnd/4092450-6">Eisleben</placeName>
-                </birth>
-                <death>
-                    <date when="1546-02-18"/>
-                    <placeName ref="https://d-nb.info/gnd/4092450-6">Eisleben</placeName>
-                </death>
-                <note type="bio">Martin Luther (Martinus Lutherus) (*1483-11-10? – †1546), theologian, leader and originator of the German
-                     Reformation </note>
-                <occupation ref="https://d-nb.info/gnd/4177347-0">Reformator</occupation>
-                <occupation ref="https://d-nb.info/gnd/4059756-8">Theologe</occupation>
-                <occupation ref="https://d-nb.info/gnd/4032009-1">Komponist</occupation>
-                <occupation ref="https://d-nb.info/gnd/4061414-1">Übersetzer</occupation>
-                <occupation ref="https://d-nb.info/gnd/4053309-8">Schriftsteller</occupation>
-            </person>
-            <person xml:id="gnd-118619993">
-                <persName type="main">Suleiman the Magnificent</persName>
 
-                <persName type="variant">Sulaiman I</persName>
-                <persName type="variant">Sulejman I</persName>
+            <person xml:id="p_roggerius_rex">
+                <persName type="main">Rogerius Rex</persName>
+                <persName type="sort">Rogerius Rex</persName>
+                <note type="role">King; political pacifier/liberator of Apulia; historical framing in both witnesses.</note>
+                <idno type="Wikipedia">https://it.wikipedia.org/wiki/Ruggero_II_di_Sicilia</idno>
+            </person>
 
-                <persName type="sort">Suleiman I</persName>
-                <gender value="M">male</gender>
-                <birth>
-                    <date when="1494"/>
-                </birth>
-                <death>
-                    <date when="1566"/>
-                </death>
-                <note type="bio" xml:lang="en">Suleiman the Magnificent (*1494 – †5-7 September 1566), Sultan of the Ottoman Empire
-                     (1520-1566)</note>
-                <note type="bio" xml:lang="de">regierte 1520-1566; in Europa wird Süleyman der Prächtige (I.) auch als Sulaiman II. gezählt</note>
-                <occupation ref="https://d-nb.info/gnd/4209235-8">Sultan</occupation>
+            <person xml:id="p_iohannes_episc_avellino">
+                <persName type="main">Ioannes (episcopus Avellini)</persName>
+                <persName type="sort">Ioannes episcopus Avellini</persName>
+                <note type="role">Bishop of Avellino who consecrates/dedicates the church.</note>
             </person>
-            <person xml:id="gnd-118522280">
-                <persName type="main">Cortés, Hernán</persName>
-                <persName type="variant">Hernán Cortés de Monroy e Pizarro</persName>
-                <persName type="sort">Cortés, Hernán</persName>
-                <gender value="M">male</gender>
-                <birth>
-                    <date when="1485"/>
-                    <placeName ref="https://d-nb.info/gnd/7583214-8">Medellín (Provinz Badajoz)</placeName>
-                </birth>
-                <death>
-                    <date when="1547"/>
-                    <placeName ref="https://d-nb.info/gnd/4216659-7">Castilleja de la Cuesta</placeName>
-                </death>
-                <note type="bio" xml:lang="en">(1485 – 1547-12-02); Spanish conquistador and Dantiscus' friend</note>
-                <occupation ref="https://d-nb.info/gnd/4165054-2">Konquistador</occupation>
-                <occupation ref="https://d-nb.info/gnd/4473166-8">Eroberer</occupation>
+
+            <person xml:id="p_petrus_socius_mons">
+                <persName type="main">Petrus (socius)</persName>
+                <note type="role">Companion/guide on the ascent to Mons Virginis; associated with the search for water.</note>
             </person>
-            <person xml:id="gnd-1053071620">
-                <persName type="main">Castilla, Luis de</persName>
-                <persName type="sort">Castilla, Luis de</persName>
-                <gender value="M">male</gender>
-                <birth>
-                    <date when="1502"/>
-                </birth>
-                <death>
-                    <date when="1582"/>
-                </death>
-                <note type="bio">Regidor de la ciudad de México</note>
+
+            <person xml:id="p_faber_ferrarius">
+                <persName type="main">faber ferrarius</persName>
+                <note type="role">Hospitator of Guilielmus during the early pilgrimage; provides iron circles for mortification. Anonymous in both witnesses.</note>
             </person>
-            <person xml:id="dantiscus-00001">
-                <persName type="main">Juana Ramírez de Arellano de Zúñiga</persName>
-                <persName type="sort">Arellano de Zúñiga, Juana Ramírez</persName>
-                <gender value="F">female</gender>
-                <note type="bio" xml:lang="en">Juana Ramírez de Arellano de Zúñiga, second wife of Hernán Cortés</note>
-                <idno type="CIDTC">IDPe2777</idno>
+
+            <person xml:id="p_matrona_atripaldum">
+                <persName type="main">matrona Atripaldi</persName>
+                <note type="role">Unnamed woman in Atripaldum who hosts Guilielmus and advises about the mountain hermit.</note>
             </person>
-            <person xml:id="dantiscus-00002">
-                <persName type="main">Cortés de Zúñiga, Catalina</persName>
-                <persName type="sort">Cortés de Zúñiga, Catalina</persName>
-                <gender value="F">female</gender>
-                <birth>
-                    <date when="1531"/>
-                </birth>
-                <death>
-                    <date when="1531"/>
-                </death>
-                <note type="bio" xml:lang="en">(*1531 – †1531), daughter of Hernán Cortés</note>
-                <idno type="CIDTC">IDPe2779</idno>
+
+            <person xml:id="p_baiulus_mercuriani">
+                <persName type="main">baiulus Mercuriani</persName>
+                <note type="role">Local official who releases Guilielmus after recognising his sanctity. Anonymous in both witnesses.</note>
             </person>
-            <person xml:id="dantiscus-00003">
-                <persName type="main">Luis Cortés y Ramírez de Arellano</persName>
-                <persName type="sort">Cortés y Ramírez de Arellano, Luis </persName>
-                <gender value="M">male</gender>
-                <note type="bio" xml:lang="en">Luis Cortés y Ramírez de Arellano (*1530 – †1530), son of Hernán Cortés</note>
-                <idno type="CIDTC">IDPe2778</idno>
+
+            <person xml:id="p_gualterius">
+                <persName type="main">Gualterius</persName>
+                <note type="role">Ligure architectus; miraculously healed of a withered arm during construction of the church on Mons Virginis; later disciple of Guilielmus (Renda 1581).</note>
             </person>
-            <person xml:id="kbga-actors-27">
-                <persName type="main">Barth, Peter (1888-1940)</persName>
-                <persName type="sort">Barth, Peter</persName>
-                <gender value="M">male</gender>
-                <note type="bio" xml:lang="de">Schweizer reformierter Theologe; 1912 Pfarrer in Laupen BE, 1918 in Madiswil BE. Bruder Karl Barths,  Schwiegersohn Martin Rades.</note>
+
+            <person xml:id="p_felix_renda">
+                <persName type="main">Felix Renda</persName>
+                <persName type="sort">Renda, Felix</persName>
+                <note type="role">Editor/compilator of the 1581 printed edition; author of prefatory materials.</note>
             </person>
-            <person xml:id="kbga-actors-136">
-                <persName type="main">Goethe, Johann Wolfgang von (1749-1832)</persName>
-                <persName type="variant">Goethe, Johann Wolfgang</persName>
-                <persName type="sort">Goethe, Johann Wolfgang von</persName>
-                <gender value="M">male</gender>
-                <note type="bio" xml:lang="de">Deutscher Dichter, Dramatiker, Naturforscher und Politiker; als einer der bedeutendsten deutschsprachigen Dichter überhaupt auch von Barth besonders geschätzt und häufig zitiert.</note>
+
+            <person xml:id="p_guido_de_ferreriis">
+                <persName type="main">Guido de Ferreriis</persName>
+                <persName type="sort">Ferreriis, Guido de</persName>
+                <note type="role">Dedicatee in the 1581 paratext (cardinal).</note>
             </person>
-            <person xml:id="kbga-actors-181">
-                <persName type="main">Herrmann, Wilhelm (1846-1922)</persName>
-                <persName type="alternative">Herrmann, Johann Georg Wilhelm</persName>
-                <persName type="variant">Herrmann, Johann Wilhelm</persName>
-                <persName type="sort">Herrmann, Wilhelm</persName>
-                <gender value="M">male</gender>
-                <note type="bio" xml:lang="de">Deutscher evangelischer Theologe; 1879 Prof. für Systematische Theologie in Marburg. Lehrer Barths und Bultmanns.</note>
+
+            <person xml:id="p_io_franciscus_lombardus">
+                <persName type="main">Ioannes Franciscus Lombardus</persName>
+                <persName type="sort">Lombardus, Ioannes Franciscus</persName>
+                <note type="role">Neapolitan; author of the Octastichon addressed to Felice Renda.</note>
             </person>
-            <person xml:id="kbga-actors-797">
-                <persName type="main">Tersteegen, Gerhard (1697-1769)</persName>
-                <persName type="sort">Tersteegen, Gerhard</persName>
-                <gender value="M">male</gender>
-                <note type="bio" xml:lang="de">Deutscher Kirchenlieddichter, Schriftsteller und Laienprediger.</note>
+
+            <person xml:id="p_paulus_regius">
+                <persName type="main">Paulus Regius</persName>
+                <persName type="sort">Regius, Paulus</persName>
+                <note type="role">Neapolitan theologian.</note>
             </person>
-            <person xml:id="kbga-actors-403">
-                <persName type="main">Thurneysen, Eduard (1888-1974)</persName>
-                <persName type="variant">Thurneysen jun., Eduard</persName>
-                <persName type="sort">Thurneysen, Eduard</persName>
-                <gender value="M">male</gender>
-                <note type="bio" xml:lang="de">Schweizer reformierter Theologe; Vertreter der Dialektischen Theologie und enger Freund Karl Barths; 1913-1920 Pfarrer in Leutwil-Dürrenäsch AG, 1920-1927 in St. Gallen-Bruggen, 1927-1959 am Basler Münster, ab 1941 zugleich ao. Prof. für Praktische Theologie in Basel. - Barth und Thurneysen kannten sich bereits von klein auf über ihre freundschaftlich verbundenen Väter und waren seit der Studienzeit eng befreundet.</note>
+
+            <person xml:id="p_constantia_regis">
+                <persName type="main">Constantia</persName>
+                <note type="role">Regis filia; monialis Montis Virginis; donor of Mercuriani territory.</note>
             </person>
-            <person xml:id="kbga-actors-329">
-                <persName type="main">Rade, Martin (1857-1940)</persName>
-                <persName type="variant">Rade, Paul Martin</persName>
-                <persName type="sort">Rade, Martin</persName>
-                <gender value="M">male</gender>
-                <note type="bio" xml:lang="de">Deutscher evangelischer Theologe und linksliberaler Politiker; 1899 Prof. für Systematische Theologie in Marburg, 1888/89-1931 Herausgeber der Zeitschrift «Die Christliche Welt», bei der Barth 1908/09 als Redaktionsgehilfe arbeitete. Beide blieben darüber hinaus in engem, freundschaftlichem Kontakt; Rade war Schwiegervater von Barths Bruder Peter.</note>
+
+            <person xml:id="p_henricus_v">
+                <persName type="main">Henricus V</persName>
+                <note type="role">Romanorum Imperator Augustus; husband of Constantia.</note>
+                <idno type="Wikipedia">https://it.wikipedia.org/wiki/Enrico_V_del_Sacro_Romano_Impero</idno>
             </person>
-            <person xml:id="kbga-actors-2060">
-                <persName type="main">Knorr von Rosenroth, Christian (1636-1689)</persName>
-                <persName type="variant">Knorr von Rosenroth, Christian Anton Philipp</persName>
-                <persName type="sort">Knorr von Rosenroth, Christian</persName>
-                <gender value="M">male</gender>
-                <note type="bio" xml:lang="de">Oberpfälzischer Hofrat und vielseitiger Forscher, Alchimist, (Lieder-) Dichter und Tonsetzer.</note>
+
+            <person xml:id="p_carolus_v">
+                <persName type="main">Carolus V</persName>
+                <note type="role">Imperator Romanorum Augustus; confirmer of privileges.</note>
+                <idno type="Wikipedia">https://it.wikipedia.org/wiki/Carlo_V_d%27Asburgo</idno>
             </person>
-            <person xml:id="kbga-actors-2805">
-                <persName type="main">Bogatzky, Karl Heinrich von (1690-1774)</persName>
-                <persName type="variant">Bogarzky, Karl Heinrich von</persName>
-                <persName type="sort">Bogatzky, Karl Heinrich von</persName>
-                <gender value="M">male</gender>
-                <note type="bio" xml:lang="de">Deutscher evangelischer Theologe, Schriftsteller und Liederdichter; seit 1718 nach abgebrochenem Theologiestudium Seelsorger und Erbauungsprediger in Sachsen, Böhmen und Schlesien, 1740 Kammerjunker Herzog Christian Ernsts von Sachsen-Saalfeld.</note>
+
+            <person xml:id="p_lucius_iii">
+                <persName type="main">Lucius III</persName>
+                <note type="role">Sanctae Sedis Pontifex Maximus.</note>
             </person>
-            <person xml:id="kbga-actors-5844">
-                <persName type="main">Elis, Pyrrhon von</persName>
-                <persName type="sort">Elis, Pyrrhon von</persName>
-                <gender value="M">male</gender>
-                <note type="bio" xml:lang="de">Noch keine Beschreibung vorhanden.</note>
+
+            <person xml:id="p_gregorius_xiii">
+                <persName type="main">Gregorius XIII</persName>
+                <note type="role">Pontifex Romanus; grantor of indulgences and exemptions.</note>
             </person>
-            <person xml:id="kbga-actors-5825">
-                <persName type="main">Hossenfelder, Malte (1935-2011)</persName>
-                <persName type="sort">Hossenfelder, Malte</persName>
-                <gender value="M">male</gender>
-                <note type="bio" xml:lang="de">Noch keine Beschreibung vorhanden.</note>
-            </person>
-            <person xml:id="kbga-actors-2206">
-                <persName type="main">Johannes der Täufer ( -30)</persName>
-                <persName type="variant">Johannes (der Täufer)</persName>
-                <persName type="sort">Johannes der Täufer</persName>
-                <gender value="M">male</gender>
-                <note type="bio" xml:lang="de">Jüdischer Bußprediger, der laut Neuem Testament in seinen Predigten das baldige Kommen des Messias ankündigte und Jesus im Jordan taufte.</note>
-            </person>
-            <person xml:id="kbga-actors-2228">
-                <persName type="main">Mose</persName>
-                <persName type="variant">Moses</persName>
-                <persName type="sort">Mose</persName>
-                <gender value="M">male</gender>
-                <note type="bio" xml:lang="de">Prophet des Alten Testaments, eine Zentralfigur des Pentateuch; führte nach biblischer Überlieferung das Volk der Israeliten auf einer vierzigjährigen Wanderung aus der ägyptischen Sklaverei in das Land Kanaan.</note>
-            </person>
-            <person xml:id="kbga-actors-2281">
-                <persName type="main">Elia</persName>
-                <persName type="variant">Elias</persName>
-                <persName type="variant">Elija</persName>
-                <persName type="sort">Elia</persName>
-                <gender value="M">male</gender>
-                <note type="bio" xml:lang="de">Biblischer Prophet, der in der Zeit der Könige Ahab und Ahasja im zweiten Viertel des 9. Jahrhunderts v. Chr. im Nordreich Israel wirkte. Sein Name bedeutet „Mein Gott ist JHWH".</note>
-            </person>
-            <person xml:id="kbga-actors-2031">
-                <persName type="main">Grimm, Jacob (1785-1863)</persName>
-                <persName type="sort">Grimm, Jacob</persName>
-                <gender value="M">male</gender>
-                <note type="bio" xml:lang="de">Noch keine Beschreibung vorhanden.</note>
-            </person>
-            <person xml:id="kbga-actors-2032">
-                <persName type="main">Grimm, Wilhelm (1786-1859)</persName>
-                <persName type="sort">Grimm, Wilhelm</persName>
-                <gender value="M">male</gender>
-                <note type="bio" xml:lang="de">Noch keine Beschreibung vorhanden.</note>
-            </person>
-            <person xml:id="kbga-actors-261">
-                <persName type="main">Luther, Martin (1483-1546)</persName>
-                <persName type="sort">Luther, Martin</persName>
-                <gender value="M">male</gender>
-                <note type="bio" xml:lang="de">Deutscher Theologe und Bibelübersetzer, als deutscher Reformator die zentrale Figur der Reformation 1517 und Mitbegründer der evangelischen Kirche.</note>
-            </person>
-            <person xml:id="kbga-actors-1365">
-                <persName type="main">Hausmann, Julie von (1826-1901)</persName>
-                <persName type="variant">Hausmann, Julie</persName>
-                <persName type="variant">Haußmann, Julie von</persName>
-                <persName type="sort">Hausmann, Julie von</persName>
-                <gender value="F">female</gender>
-                <note type="bio" xml:lang="de">Deutsch-baltische Dichterin; ihr bekanntestes Gedicht diente als Text des gleichnamigen Kirchenlieds: «So nimm denn meine Hände».</note>
-            </person>
-            <person xml:id="kbga-actors-240">
-                <persName type="main">Kutter, Hermann (1863-1931)</persName>
-                <persName type="variant">Kutter, Hermann (sen.)</persName>
-                <persName type="variant">Kutter, Hermann d.Ä.</persName>
-                <persName type="variant">Kutter, Hermann (Vater)</persName>
-                <persName type="sort">Kutter, Hermann</persName>
-                <gender value="M">male</gender>
-                <note type="bio" xml:lang="de">Schweizer evangelischer Theologe; 1887 Pfarrer in Vinels, 1898 am Zürcher Neumünster; Mitbegründer und einer der führenden Vertreter des religiösen Sozialismus in der Schweiz.</note>
-            </person>
-            <person xml:id="kbga-actors-1487">
-                <persName type="main">Bonjour, Edgar (1898-1991)</persName>
-                <persName type="sort">Bonjour, Edgar</persName>
-                <gender value="M">male</gender>
-                <note type="bio" xml:lang="de">Schweizer Historiker; 1935 Prof. für Schweizergeschichte und Neuere Allgemeine Geschichte in Basel; bekannt vor allem durch seine «Geschichte der Schweizerischen Neutralität» und den nach ihm benannten «Bonjour Bericht» über die Rolle der Schweiz im Zweiten Weltkrieg.</note>
-            </person>
-            <person xml:id="kbga-actors-1342">
-                <persName type="main">Arnold, Gottfried (1666-1714)</persName>
-                <persName type="alternative">Christophorus Irenaeus</persName>
-                <persName type="sort">Arnold, Gottfried</persName>
-                <gender value="M">male</gender>
-                <note type="bio" xml:lang="de">Deutscher evangelischer Theologe, Kirchenhistoriker und Liederdichter; 1697/98 Prof. für Kirchengeschichte in Gießen, 1702 Prediger in Allstedt, 1705 Pfarrer in Werben, 1707 in Perleberg; königlich-preußischer Historiograph und Vertreter eines radikalen Pietismus.</note>
-            </person>
-            <person xml:id="kbga-actors-2297">
-                <persName type="main">Johannes (Evangelist)</persName>
-                <persName type="variant">Johannes (der Evangelist)</persName>
-                <persName type="variant">4. Evangelist</persName>
-                <persName type="variant">Johannes Evangelista</persName>
-                <persName type="sort">Johannes (Evangelist)</persName>
-                <gender value="M">male</gender>
-                <note type="bio" xml:lang="de">Autor des Johannesevangeliums; in der Tradition mit dem gleichnamigen Apostel und dem Verfasser der Johannesbriefe und der Apokalypse gleichgesetzt, was jedoch in der Forschung  bezweifelt wird.</note>
-            </person>
-            <person xml:id="kbga-actors-5864">
-                <persName type="main">Wegleiter, Christoph (1659-1706)</persName>
-                <persName type="sort">Wegleiter, Christoph</persName>
-                <gender value="M">male</gender>
-            </person>
+
         </listPerson>
     </standOff>
 </TEI>

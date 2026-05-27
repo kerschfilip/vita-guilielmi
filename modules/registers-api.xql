@@ -121,18 +121,45 @@ declare function rview:detail-html($request as map(*)) {
     let $id := xmldb:decode-uri($request?parameters?id)
     let $entry := collection($config:register-root)/id($id) => head()
     let $config := tpu:parse-pi(root($entry), $request?parameters?view, $request?parameters?odd)
-    let $mentions := 
+    let $mentions :=
         if ($entry instance of element(tei:person)) then
             collection($config:data-default)//tei:persName[@key = $id]/ancestor::tei:TEI
         else if ($entry instance of element(tei:bibl)) then
             collection($config:data-default)//tei:bibl[@key = $id]/ancestor::tei:TEI
         else
             collection($config:data-default)//tei:placeName[@key = $id]/ancestor::tei:TEI
+    let $passages :=
+        let $refs :=
+            if ($entry instance of element(tei:person)) then
+                collection($config:data-default)//tei:persName[@key = $id]
+            else if ($entry instance of element(tei:place)) then
+                collection($config:data-default)//tei:placeName[@key = $id]
+            else ()
+        let $items :=
+            for $ref in $refs
+            let $unit := $ref/ancestor::tei:div[@type='unit']/@n/string()
+            let $wit  := $ref/ancestor::tei:text/@xml:id/string()
+            where $unit != '' and $wit != ''
+            group by $unit, $wit
+            order by $unit, $wit
+            return
+                <li><a href="../pages/synoptic.html?n={$unit}">{
+                    "Unit " || $unit || " — " ||
+                    (if (contains($wit, 'ms')) then 'MS XIII' else 'Renda 1581')
+                }</a></li>
+        return
+            if (empty($items)) then ()
+            else
+                <div class="passage-list" style="margin-top:1.5rem">
+                    <h4 style="margin-bottom:.4rem">Occurrences in the text</h4>
+                    <ul style="margin:0;padding-left:1.2rem">{$items}</ul>
+                </div>
     let $extConfig := map {
         "entity-data": map {
             "id": $id,
             "root": $entry,
             "letters": $mentions,
+            "passages": $passages,
             "transform": page:transform(?, ?, $config?odd),
             "transform-with": page:transform#3
         }

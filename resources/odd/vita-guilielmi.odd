@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:pb="http://teipublisher.com/1.0" xml:lang="en"><teiHeader><fileDesc>
+<?xml-model href="teipublisher_odds.xsd"?><TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:pb="http://teipublisher.com/1.0" xml:lang="en"><teiHeader><fileDesc>
             <titleStmt><title>Vita Guilielmi – Digital Comparative Edition</title></titleStmt>
             <publicationStmt>
                 <publisher>e-editiones</publisher>
@@ -16,44 +16,225 @@
             <change when="2026-05-25T06:27:59.445Z">Initial version</change>
         </revisionDesc></teiHeader><text>
         <body>
-            <schemaSpec start="TEI teiCorpus" source="teipublisher.odd">
+            <schemaSpec ident="vita-guilielmi" start="TEI teiCorpus" source="teipublisher.odd">
 
-                <elementSpec ident="seg" mode="change"><model predicate="@type='miracle-event' or @type='miracle-status' or @type='miracle-response' or @type='miracle-builder' or @type='miracle-mute' or @type='miracle-wolf'" behaviour="block">
-            <outputRendition xml:space="preserve">
-            background-color: #bdb2ff; padding: 0 .15em; border-radius: 3px;
-            </outputRendition>
-        </model><model predicate="@type='authorial-stance' or @type='authorial-fear' or @type='purpose-writing' or @type='mandate-writing' or @type='burden-writing' or @type='saint-representation' or @type='moral-diagnosis' or @type='moral-certification'" behaviour="block">
-            <outputRendition xml:space="preserve">
-            background-color: #a8eab3; padding: 0 .15em; border-radius: 3px;
-            </outputRendition>
-        </model><model predicate="@type='ascetic-practice' or @type='ascetic-defense' or @type='ascetic-crisis' or @type='humility-defense' or @type='penitential-limit' or @type='lorica-intent' or @type='lorica-acquisition' or @type='lorica-secrecy' or @type='cophia-acquisition' or @type='cophia-secrecy' or @type='habit-assumptio' or @type='interior-discipline' or @type='patience-limit' or @type='active-sanctity' or @type='rational-detachment' or @type='hospitality-ritual' or @type='technical-description'" behaviour="block">
-            <outputRendition xml:space="preserve">
-            background-color: #d4a574; padding: 0 .15em; border-radius: 3px;
-            </outputRendition>
-        </model><model predicate="@type='institutional-display' or @type='institutional-legitimation' or @type='political-legitimation' or @type='liturgical-integration' or @type='foundation' or @type='dedication-frame' or @type='completion-and-supply' or @type='post-dedication-building' or @type='exemptio' or @type='nobilitas-topos' or @type='offerings' or @type='dispensatio'" behaviour="block">
-            <outputRendition xml:space="preserve">
-            background-color: #ffd6a5; padding: 0 .15em; border-radius: 3px;
-            </outputRendition>
-        </model><model predicate="@type='speech' or @type='pastoral-argument' or @type='spiritual-dialogue' or @type='holy-rebuke'" behaviour="block">
-            <outputRendition xml:space="preserve">
-            background-color: #caffbf; padding: 0 .15em; border-radius: 3px;
-            </outputRendition>
-        </model><model predicate="@type='escalation' or @type='accusation' or @type='presbyters-request' or @type='fear-of-poverty'" behaviour="block">
-            <outputRendition xml:space="preserve">
-            background-color: #ffadad; padding: 0 .15em; border-radius: 3px;
-            </outputRendition>
-        </model><model predicate="@type='incipit' or @type='textual-closure' or @type='encounter' or @type='itinerary' or @type='setting' or @type='forced-return' or @type='departure' or @type='discovery-ritual' or @type='divine-revelation' or @type='discernment-climax' or @type='empirical-search' or @type='persistence' or @type='discovery-damage' or @type='restoration-labor' or @type='iterative-struggle' or @type='response-intro' or @type='historical-context' or @type='settlement-context' or @type='immediate-departure' or @type='resolute-action' or @type='petition' or @type='scenography-contemplative' or @type='meditative-rumination' or @type='civil-episode'" behaviour="block">
-            <outputRendition xml:space="preserve">
-            background-color: #e0e0e0; padding: 0 .15em; border-radius: 3px;
-            </outputRendition>
-        </model><model behaviour="block"/></elementSpec>
+                <!-- persName: swap the popover-alternate for a styled link; keep all other base-ODD models -->
+                <elementSpec ident="persName" mode="change">
+                    <model output="fo" behaviour="inline"/>
+                    <model output="print" behaviour="inline"/>
+                    <model predicate="(@key or @ref) and $parameters?mode='register-details'" behaviour="link">
+                        <param name="uri" value="head((@key, @ref))"/>
+                        <param name="target" value="'_blank'"/>
+                    </model>
+                    <model predicate="$parameters?display='browse' or $parameters?mode='breadcrumb' or $parameters?mode='toc'" behaviour="inline"/>
+                    <model predicate="$parameters?mode='register'" behaviour="pass-through">
+                        <param name="content" value="."/>
+                        <param name="alternate" value="parent::person/note"/>
+                        <param name="uri" value="$parameters?context-path || '/people/' || parent::person/@xml:id"/>
+                        <pb:template xmlns="" xml:space="preserve"><a href="[[uri]]" class="persName">
+                            <pb-popover>
+                                <span slot="default">[[content]]</span>
+                                <template slot="alternate">[[alternate]]</template>
+                            </pb-popover>
+                        </a></pb:template>
+                    </model>
+                    <model predicate="$parameters?mode='register-overview'" behaviour="inline"/>
+                    <model predicate="@type='variant'" behaviour="inline" cssClass="name variant"/>
+                    <model predicate="parent::person" behaviour="inline"/>
+                    <model predicate="ancestor::correspContext" behaviour="inline"/>
+                    <!-- styled link to person detail page (replaces base-ODD alternate/popover) -->
+                    <model predicate="@key or @ref" behaviour="link" cssClass="person-ref">
+                        <param name="uri" value="$parameters?context-path || '/people/' || head((@key, @ref))"/>
+                        <param name="target" value="'_blank'"/>
+                    </model>
+                    <model behaviour="inline"/>
+                </elementSpec>
 
-                <elementSpec ident="note" mode="change"><model predicate="@place='margin'" behaviour="block">
-            <outputRendition xml:space="preserve">
-            font-size: .85em; color: #555; font-style: italic;
-            border-left: 2px solid #bbb; padding-left: .4em; margin: .4em 0;
-            </outputRendition>
-        </model></elementSpec>
+                <!-- placeName: swap the popover-alternate for a styled link; keep all other base-ODD models -->
+                <elementSpec ident="placeName" mode="change">
+                    <model output="fo" behaviour="inline"/>
+                    <model output="print" behaviour="inline"/>
+                    <model predicate="@key and $parameters?mode='register-details'" behaviour="inline">
+                        <param name="content" value="let $key := head((@key, @ref)) return id($key, collection($global:register-root)/id('pb-places'))/placeName[@type='main']/string()"/>
+                    </model>
+                    <model predicate="$parameters?display='browse' or $parameters?mode='breadcrumb' or $parameters?mode='toc'" behaviour="inline"/>
+                    <model predicate="$parameters?mode='register'" behaviour="pass-through">
+                        <param name="default" value="."/>
+                        <param name="alternate" value="parent::place/note"/>
+                        <param name="uri" value="$parameters?context-path || '/places/' || parent::place/@xml:id"/>
+                        <param name="content" value="."/>
+                        <pb:template xmlns="" xml:space="preserve"><a href="[[uri]]" class="placeName context">
+                            <pb-popover>
+                                <span slot="default">[[content]]</span>
+                                <template slot="alternate">[[alternate]]</template>
+                            </pb-popover>
+                        </a></pb:template>
+                    </model>
+                    <model predicate="@type='variant'" behaviour="inline" cssClass="name variant"/>
+                    <model predicate="parent::place" behaviour="inline"/>
+                    <model predicate="ancestor::correspContext" behaviour="inline"/>
+                    <!-- styled link to place detail page (replaces base-ODD alternate/popover) -->
+                    <model predicate="@key or @ref" behaviour="link" cssClass="place-ref">
+                        <param name="uri" value="$parameters?context-path || '/places/' || head((@key, @ref))"/>
+                        <param name="target" value="'_blank'"/>
+                    </model>
+                    <model behaviour="inline"/>
+                </elementSpec>
+
+                <elementSpec ident="seg" mode="change">
+
+                    <!-- Miracles (violet) -->
+                    <model predicate="@type='miracle-event' or @type='miracle-status' or @type='miracle-response' or @type='miracle-builder' or @type='miracle-mute' or @type='miracle-wolf'" behaviour="block">
+                        <outputRendition xml:space="preserve">display:block; border-left:4px solid #7c3aed; background-color:#f5f3ff; padding:6px 8px; margin:6px 0; border-radius:10px;</outputRendition>
+                    </model>
+
+                    <!-- Authorial / Moral (green) -->
+                    <model predicate="@type='authorial-stance' or @type='authorial-fear' or @type='purpose-writing' or @type='mandate-writing' or @type='burden-writing' or @type='saint-representation' or @type='moral-diagnosis' or @type='moral-certification'" behaviour="block">
+                        <outputRendition xml:space="preserve">display:block; border-left:4px solid #16a34a; background-color:#f0fdf4; padding:6px 8px; margin:6px 0; border-radius:10px;</outputRendition>
+                    </model>
+
+                    <!-- Ascetic practice (amber) -->
+                    <model predicate="@type='ascetic-practice' or @type='ascetic-defense' or @type='ascetic-crisis' or @type='humility-defense' or @type='penitential-limit' or @type='lorica-intent' or @type='lorica-acquisition' or @type='lorica-secrecy' or @type='cophia-acquisition' or @type='cophia-secrecy' or @type='habit-assumptio' or @type='interior-discipline' or @type='patience-limit' or @type='active-sanctity' or @type='rational-detachment' or @type='hospitality-ritual' or @type='technical-description'" behaviour="block">
+                        <outputRendition xml:space="preserve">display:block; border-left:4px solid #d97706; background-color:#fffbeb; padding:6px 8px; margin:6px 0; border-radius:10px;</outputRendition>
+                    </model>
+
+                    <!-- Institutional / Political (orange) -->
+                    <model predicate="@type='institutional-display' or @type='institutional-legitimation' or @type='political-legitimation' or @type='liturgical-integration' or @type='foundation' or @type='dedication-frame' or @type='completion-and-supply' or @type='post-dedication-building' or @type='exemptio' or @type='nobilitas-topos' or @type='offerings' or @type='dispensatio'" behaviour="block">
+                        <outputRendition xml:space="preserve">display:block; border-left:4px solid #ea580c; background-color:#fff7ed; padding:6px 8px; margin:6px 0; border-radius:10px;</outputRendition>
+                    </model>
+
+                    <!-- Speech / Dialogue (blue) -->
+                    <model predicate="@type='speech' or @type='pastoral-argument' or @type='spiritual-dialogue' or @type='holy-rebuke'" behaviour="block">
+                        <outputRendition xml:space="preserve">display:block; border-left:4px solid #2563eb; background-color:#eff6ff; padding:6px 8px; margin:6px 0; border-radius:10px;</outputRendition>
+                    </model>
+
+                    <!-- Conflict / Accusation (red) -->
+                    <model predicate="@type='escalation' or @type='accusation' or @type='presbyters-request' or @type='fear-of-poverty'" behaviour="block">
+                        <outputRendition xml:space="preserve">display:block; border-left:4px solid #ef4444; background-color:#fef2f2; padding:6px 8px; margin:6px 0; border-radius:10px;</outputRendition>
+                    </model>
+
+                    <!-- Narrative / Setting (gray) -->
+                    <model predicate="@type='incipit' or @type='textual-closure' or @type='encounter' or @type='itinerary' or @type='setting' or @type='forced-return' or @type='departure' or @type='discovery-ritual' or @type='divine-revelation' or @type='discernment-climax' or @type='empirical-search' or @type='persistence' or @type='discovery-damage' or @type='restoration-labor' or @type='iterative-struggle' or @type='response-intro' or @type='historical-context' or @type='settlement-context' or @type='immediate-departure' or @type='resolute-action' or @type='petition' or @type='scenography-contemplative' or @type='meditative-rumination' or @type='civil-episode'" behaviour="block">
+                        <outputRendition xml:space="preserve">display:block; border-left:4px solid #9ca3af; background-color:#f9fafb; padding:6px 8px; margin:6px 0; border-radius:10px;</outputRendition>
+                    </model>
+
+                    <model behaviour="block"/>
+
+                </elementSpec>
+
+                <elementSpec ident="person" mode="change">
+
+                    <!-- Register entry overview in list (clickable link) -->
+                    <model predicate="parent::listPerson and $parameters?mode='register-overview'" behaviour="pass-through">
+                        <param name="id" value="@xml:id"/>
+                        <param name="label" value="head((persName[@type='sort'], persName[@type='main'], persName[1]))"/>
+                        <param name="description" value="note"/>
+                        <pb:template xmlns="" xml:space="preserve"><div>
+<header>
+    <a href="people/[[ id ]]">[[ label ]]</a>
+</header>
+[[ description ]]
+</div></pb:template>
+                    </model>
+
+                    <!-- Register sidebar -->
+                    <model predicate="parent::listPerson and $parameters?mode='register'" behaviour="listItem">
+                        <param name="content" value="persName[@type=('main', 'full')]"/>
+                    </model>
+
+                    <!-- Register details view — document-list model omitted; $passages in template provides links instead -->
+                    <modelSequence predicate="parent::listPerson">
+                        <model behaviour="heading">
+                            <param name="content" value="(persName[@type!='variant'])[1]"/>
+                        </model>
+                        <model predicate="$parameters?mode='register-details'" behaviour="block">
+                            <param name="content" value="(birth, death)"/>
+                        </model>
+                        <model predicate="$parameters?mode='register-details'" behaviour="paragraph">
+                            <param name="content" value="persName[@type='variant']"/>
+                        </model>
+                        <model predicate="$parameters?mode='register-details'" behaviour="block">
+                            <param name="content" value="figure"/>
+                        </model>
+                        <model behaviour="pass-through">
+                            <param name="content" value="note[@type='bio']"/>
+                        </model>
+                        <model predicate="$parameters?mode='register-details'" behaviour="pass-through">
+                            <param name="content" value="note[@type!='bio']"/>
+                        </model>
+                        <model behaviour="list">
+                            <param name="content" value="ptr"/>
+                        </model>
+                        <model predicate="$parameters?mode='register-details'" behaviour="block" cssClass="occupation">
+                            <param name="content" value="occupation"/>
+                        </model>
+                    </modelSequence>
+
+                </elementSpec>
+
+                <elementSpec ident="place" mode="change">
+
+                    <!-- Register entry overview in list (clickable link + map pin) -->
+                    <model predicate="$parameters?mode='register-overview'" behaviour="pass-through">
+                        <param name="id" value="@xml:id"/>
+                        <param name="label" value="placeName[1]/string()"/>
+                        <param name="longitude" value="tokenize(location/geo)[2]"/>
+                        <param name="latitude" value="tokenize(location/geo)[1]"/>
+                        <param name="zoom" value="if (@type != 'approximate') then 12 else 9"/>
+                        <param name="description" value="note"/>
+                        <pb:template xmlns="" xml:space="preserve"><div>
+<header>
+    <a href="places/[[id]]">
+        [[ label ]]
+    </a>
+    <pb-geolocation latitude="[[ latitude ]]" longitude="[[ longitude ]]" label="[[ label ]]" emit="map" event="click" zoom="[[ zoom ]]">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-map" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.5.5 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103M10 1.91l-4-.8v12.98l4 .8zm1 12.98 4-.8V1.11l-4 .8zm-6-.8V1.11l-4 .8v12.98z"/>
+        </svg>
+    </pb-geolocation>
+</header>
+[[ description ]]
+</div></pb:template>
+                    </model>
+
+                    <!-- Register sidebar -->
+                    <model predicate="$parameters?mode='register'" behaviour="listItem">
+                        <param name="content" value="placeName[@type='main']"/>
+                        <param name="longitude" value="tokenize(location/geo, ' ')[2]"/>
+                        <param name="latitude" value="tokenize(location/geo, ' ')[1]"/>
+                        <param name="label" value="placeName[@type='main']/node()"/>
+                        <pb:template xmlns="" xml:space="preserve"><pb-geolocation event="mouseover" longitude="[[longitude]]" latitude="[[latitude]]" label="[[label]]" auto="auto" wait-for="pb-leaflet-map" zoom="11" emit="map">[[content]]</pb-geolocation></pb:template>
+                    </model>
+
+                    <!-- Register details view — document-list model omitted; $passages in template provides links instead -->
+                    <modelSequence>
+                        <model behaviour="heading">
+                            <param name="longitude" value="tokenize(location/geo, ' ')[2]"/>
+                            <param name="latitude" value="tokenize(location/geo, ' ')[1]"/>
+                            <param name="label" value="placeName[@type='main']/node()"/>
+                            <param name="content" value="placeName[@type='main']"/>
+                            <param name="location" value="string-join((country, region), ', ')"/>
+                            <pb:template xmlns="" xml:space="preserve"><pb-geolocation event="click" longitude="[[longitude]]" latitude="[[latitude]]" label="[[label]]" auto="auto" wait-for="#map" subscribe="map" emit="map" zoom="11">[[content]] <small>[[location]]</small></pb-geolocation></pb:template>
+                        </model>
+                        <model behaviour="paragraph">
+                            <param name="content" value="note"/>
+                        </model>
+                        <model behaviour="list" cssClass="links">
+                            <param name="content" value="ptr"/>
+                        </model>
+                    </modelSequence>
+
+                </elementSpec>
+
+                <elementSpec ident="note" mode="change">
+
+                    <!-- Margin notes (violet accent) -->
+                    <model predicate="@place='margin'" behaviour="block">
+                        <outputRendition xml:space="preserve">display:block; border-left:4px solid #a78bfa; background-color:#f5f3ff; padding:6px 8px; margin:6px 0; border-radius:10px; font-size:.85em; color:#374151; font-style:italic;</outputRendition>
+                    </model>
+
+                </elementSpec>
+
 
             </schemaSpec>
         </body>

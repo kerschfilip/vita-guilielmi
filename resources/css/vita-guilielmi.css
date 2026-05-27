@@ -1,5 +1,11 @@
 /* Segment type colour coding — Vita Guilielmi synoptic edition */
 
+/* Person and place name links in text */
+a.person-ref { color: #1d4ed8; font-weight: bold; text-decoration: none; }
+a.person-ref:hover { text-decoration: underline; }
+a.place-ref  { color: #15803d; text-decoration: none; }
+a.place-ref:hover  { text-decoration: underline; }
+
 .seg-miracle        { background-color: #bdb2ff; padding: 0 .15em; border-radius: 3px; margin-bottom: 20px; display: block; }
 .seg-authorial      { background-color: #a8d8ea; padding: 0 .15em; border-radius: 3px; margin-bottom: 20px; display: block; }
 .seg-ascetic        { background-color: #d4a574; padding: 0 .15em; border-radius: 3px; margin-bottom: 20px; display: block; }

@@ -45,5 +45,6 @@
     [% endtemplate %]
     <section class="person">
         [[ page:transform($entity-data?root, map { "mode": "register-details" , "webcomponents": true()}) ]]
+        [[ $entity-data?passages ]]
     </section>
 </template>

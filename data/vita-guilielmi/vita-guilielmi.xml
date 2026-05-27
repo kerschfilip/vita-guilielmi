@@ -183,341 +183,6 @@
           </history>
         </msDesc>
 
-        <!-- PERSONS -->
-        <listPerson>
-          
-          <person xml:id="p_iacobus_pater">
-            <persName xml:lang="la" type="main">
-              <forename>Iacobus</forename>
-            </persName>
-            <note type="role">Addressee of the Prologus (pater / superior), as named in the MS.</note>
-          </person>
-
-          <person xml:id="p_iacobus_apostolus">
-            <persName xml:lang="la" type="main">
-              <forename>Iacobus</forename>
-            </persName>
-            <note type="role">Apostle James; pilgrimage shrine in the itinerary frame.</note>
-          </person>
-
-          <!-- Shared core protagonists -->
-          <person xml:id="p_guilielmus">
-            <persName xml:lang="la" type="main">
-              <forename>Guilielmus</forename>
-              <roleName>Subject of the Vita; founder of Montevergine</roleName>
-            </persName>
-            <idno type="VIAF">190751093</idno>
-            <idno type="Wikidata">Q2197784</idno>
-            <birth when="1085">1085</birth>
-            <death when="1142">1142</death>
-          </person>
-
-          <person xml:id="p_iohannes_discipulus">
-            <persName xml:lang="la" type="main">
-              <forename>Iohannes</forename>
-              <roleName>Disciple/holy companion of Guilielmus; appears as an abbot/founder figure (linked to Genusium and later the East/Gargano in Renda).</roleName>
-            </persName>
-          </person>
-
-          <person xml:id="p_albertus">
-            <persName xml:lang="la" type="main">
-              <forename>Albertus</forename>
-              <roleName>Monk received into Guilielmus’ community; later designated as superior/abbot in Renda (and implied leadership in the foundation phase).</roleName>
-            </persName>
-          </person>
-
-          <person xml:id="p_roggerius_rex">
-            <persName xml:lang="la" type="main">
-              <forename>Rogerius</forename>
-              <roleName>King mentioned as political pacifier/liberator of Apulia from robbers; part of historical framing in both witnesses.</roleName>
-            </persName>
-            <idno type="Wikipedia">https://it.wikipedia.org/wiki/Ruggero_II_di_Sicilia</idno>
-          </person>
-
-          <person xml:id="p_iohannes_episc_avellino">
-            <persName xml:lang="la" type="main">
-              <forename>Ioannes</forename>
-              <roleName>Bishop of Avellino who consecrates/dedicates the church.</roleName>
-            </persName>
-          </person>
-
-          <!-- Shared minor but functionally important (anonymous / role-based actors) -->
-          <person xml:id="p_petrus_socius_mons">
-            <persName xml:lang="la" type="main">
-              <forename>Petrus</forename>
-            </persName>
-            <note type="role">
-              Companion/guide associated with the ascent to the Virgilian/Virginian mountain and the search for water.
-              (Do not confuse with “miles Petrus” in another episode: encode separately if needed.)
-            </note>
-         </person>
-
-          <person xml:id="p_faber_ferrarius">
-            <persName xml:lang="la" type="main">
-              <name type="roleName">faber ferrarius</name>
-            </persName>
-            <note type="role">
-              Hospitator of Guilielmus during the early pilgrimage episode; provides the iron circles for bodily mortification.
-              Anonymous in both witnesses.
-            </note>
-           </person>
-
-          <person xml:id="p_matrona_atripaldum">
-            <persName xml:lang="la" type="main">
-              <name type="roleName">matrona</name>
-            </persName>
-            <note type="role">
-              Unnamed woman in Atripaldum who hosts Guilielmus and is consulted about the mountain hermit/water.
-            </note>
-          </person>
-
-          <person xml:id="p_baiulus_mercuriani">
-            <persName xml:lang="la" type="main">
-              <name type="roleName">baiulus Mercuriani</name>
-            </persName>
-            <note type="role">
-              Local official (baiulus) to whom the saint is brought by castle guards; releases him after recognising sanctity.
-              Anonymous in both witnesses.
-            </note>
-          </person>
-
-          <person xml:id="p_gualterius">
-            <persName xml:lang="la" type="main">
-              <forename>Gualterius</forename>
-            </persName>
-            <note type="role">
-              Ligure architectus with a withered arm (brachium aridum); miraculously healed during the construction of the church on Mons Virginis; later becomes disciple of Guilielmus (Renda 1581).
-            </note>
-          </person>
-
-          <!-- Renda-only paratext figures -->
-          <person xml:id="p_felix_renda">
-            <persName xml:lang="la" type="main">
-              <forename>Felix</forename>
-              <surname>Renda</surname>
-              <roleName>Editor/compilator of the 1581 printed edition; author of prefatory materials.</roleName>
-            </persName>
-          </person>
-
-          <person xml:id="p_guido_de_ferreriis">
-            <persName xml:lang="la" type="main">
-              <forename>Guido</forename>
-              <surname>de Ferreriis</surname>
-              <roleName>Dedicatee in the 1581 paratext (cardinal)</roleName>
-            </persName>
-          </person>
-
-          <person xml:id="p_io_franciscus_lombardus">
-            <persName xml:lang="la" type="main">
-              <forename>Ioannes</forename>
-              <forename type="middle">Franciscus</forename>
-              <surname>Lombardus</surname>
-              <addName type="geo">Neapolitanus</addName>
-              <roleName>Author of the Octastichon addressed to Felice Renda.</roleName>
-            </persName>
-          </person>
-
-          <person xml:id="p_paulus_regius">
-            <persName xml:lang="la" type="main">
-              <forename>Paulus</forename>
-              <surname>Regius</surname>
-              <roleName>Neapolitan theologian</roleName>
-            </persName>
-          </person>
-
-          <!-- Political and ecclesiastical figures from Praefatio 1581 -->
-          <person xml:id="p_constantia_regis">
-            <persName xml:lang="la" type="main">
-              <forename>Constantia</forename>
-              <roleName>Regis filia; monialis Montis Virginis; donor of Mercuriani territory</roleName>
-            </persName>
-          </person>
-
-          <person xml:id="p_henricus_v">
-            <persName xml:lang="la" type="main">
-              <forename>Henricus</forename>
-              <addName type="ordinal">V</addName>
-              <roleName>Romanorum Imperator Augustus; husband of Constantia</roleName>
-            </persName>
-            <idno type="Wikipedia">https://it.wikipedia.org/wiki/Enrico_V_del_Sacro_Romano_Impero</idno>
-          </person>
-
-          <person xml:id="p_carolus_v">
-            <persName xml:lang="la" type="main">
-              <forename>Carolus</forename>
-              <addName type="ordinal">V</addName>
-              <roleName>Imperator Romanorum Augustus; confirmer of privileges</roleName>
-            </persName>
-            <idno type="Wikipedia">https://it.wikipedia.org/wiki/Carlo_V_d%27Asburgo</idno>
-          </person>
-
-          <person xml:id="p_lucius_iii">
-            <persName xml:lang="la" type="main">
-              <forename>Lucius</forename>
-              <addName type="ordinal">III</addName>
-              <roleName>Sanctae Sedis Pontifex Maximus</roleName>
-            </persName>
-          </person>
-
-          <person xml:id="p_gregorius_xiii">
-            <persName xml:lang="la" type="main">
-              <forename>Gregorius</forename>
-              <addName type="ordinal">XIII</addName>
-              <roleName>Pontifex Romanus; grantor of indulgences and exemptions</roleName>
-            </persName>
-          </person>
-
-        </listPerson>
-
-        <!-- PLACES -->
-        <listPlace>
-
-          <!-- Core sacred topography -->
-          
-          <place xml:id="mons_virginis">
-            <placeName xml:lang="la" type="main">Mons Virginis</placeName>
-            <location>
-              <settlement>Mercogliano</settlement>
-              <region>Campania</region>
-              <country>Italia</country>
-              <geo>40.93583, 14.72834</geo>
-            </location>
-          </place>
-
-          <!-- Pilgrimage & broader geography -->
-          <place xml:id="hierosolyma">
-            <placeName xml:lang="la" type="main">Hierosolyma</placeName>
-            <location>
-              <settlement>Jerusalem</settlement>
-              <country>Israel</country>
-              <geo>31.789209025524954, 35.22065666393375</geo>
-            </location>
-            <note type="role">
-              Intended destination of Guilielmus’ pilgrimage (propositum peregrinationis).
-            </note>
-          </place>
-
-          <place xml:id="apulia">
-            <placeName xml:lang="la" type="main">Apulia</placeName>
-            <location>
-              <region>Puglia</region>
-              <country>Italia</country>
-              <geo>41.78352857206823, 15.735655875372178</geo>
-            </location>
-            <note type="role">
-              Southern Italian region where several key events occur.
-            </note>
-          </place>
-
-          <place xml:id="liguria">
-            <placeName xml:lang="la" type="main">Liguria</placeName>
-            <location>
-              <region>Liguria</region>
-              <country>Italia</country>
-              <geo>44.49339630559538, 8.792914366726006</geo>
-            </location>
-            <note type="role">
-              Region of origin of the architect Gualterius in the Renda narrative.
-            </note>
-          </place>
-
-          <!-- South Italy: towns & diocesan frame -->
-          <place xml:id="salernum">
-            <placeName xml:lang="la" type="main">Salernum</placeName>
-            <location>
-              <settlement>Salerno</settlement>
-              <region>Campania</region>
-              <country>Italia</country>
-              <geo>40.68278581797082, 14.771708712334146</geo>
-            </location>
-            <note type="role">
-              City where Guilielmus acquires the iron lorica.
-            </note>
-          </place>
-
-          <place xml:id="avellinum">
-            <placeName xml:lang="la" type="main">Avellinum</placeName>
-            <location>
-              <settlement>Avellino</settlement>
-              <region>Campania</region>
-              <country>Italia</country>
-              <geo>40.92150983025359, 14.79600083428309924</geo>
-            </location>
-            <note type="role">
-              Episcopal seat of Bishop Ioannes, who consecrates the church in 1124.
-            </note>
-          </place>
-
-          <place xml:id="genusium">
-            <placeName xml:lang="la" type="main">Genusium</placeName>
-            <note type="role">
-              Location of the monastery founded by Ioannes (exact identification debated).
-            </note>
-          </place>
-
-          <place xml:id="orea">
-            <placeName xml:lang="la" type="main">Orea</placeName>
-            <note type="role">
-              Place near which Guilielmus is assaulted by brigands.
-            </note>
-          </place>
-
-          <place xml:id="atripaldum">
-            <placeName xml:lang="la" type="main">Atripaldum</placeName>
-            <placeName xml:lang="la" type="alt">Tripaldum</placeName>
-            <location>
-              <settlement>Atripalda</settlement>
-              <region>Campania</region>
-              <country>Italia</country>
-              <geo>40.91689630640277, 14.827539320120781</geo>
-            </location>
-            <note type="role">
-              Village at the foot of Mons Virginis where Guilielmus lodges before ascending the mountain.
-            </note>
-          </place>
-
-          <!-- after Montevergine -->
-          <place xml:id="mons_lacenus">
-            <placeName xml:lang="la" type="main">Mons Lacenus</placeName>
-            <location>
-              <settlement>Bagnoli Irpino</settlement>
-              <region>Campania</region>
-              <country>Italia</country>
-              <geo>40.8026362304321, 15.113344484965413</geo>
-            </location>
-            <note type="role">
-              Later eremitic residence of Guilielmus after leaving Montevergine.
-            </note>
-          </place>
-
-          <place xml:id="nuscana_civitas">
-            <placeName xml:lang="la" type="main">Nuscana Civitas</placeName>
-            <location>
-              <settlement>Nusco</settlement>
-              <region>Campania</region>
-              <country>Italia</country>
-              <geo>40.8880704147824, 15.089422129103854</geo>
-            </location>
-            <note type="role">
-              Civic reference point near Mons Lacenus in the Renda narrative.
-            </note>
-          </place>
-
-          <place xml:id="beneventum">
-            <placeName xml:lang="la" type="main">Beneventum</placeName>
-            <location>
-              <settlement>Benevento</settlement>
-              <region>Campania</region>
-              <country>Italia</country>
-              <geo>41.13269334132484, 14.772320162776717</geo>
-            </location>
-            <note type="role">
-              City of origin of the Beneventan citizen mentioned in the miracle narrative.
-            </note>
-          </place>
-
-        </listPlace>
-
       </sourceDesc>
     </fileDesc>
 
@@ -572,13 +237,13 @@
         </p>
         
         <p>
-          Personal and place names are encoded with 
-          <code>&lt;persName&gt;</code> and 
-          <code>&lt;placeName&gt;</code> and linked via 
-          <code>@ref</code> to structured authority lists 
-          (<code>&lt;listPerson&gt;</code>, 
-          <code>&lt;listPlace&gt;</code>) in the header. 
-          These lists distinguish historical individuals, 
+          Personal and place names are encoded with
+          <code>&lt;persName&gt;</code> and
+          <code>&lt;placeName&gt;</code> and linked via
+          <code>@key</code> to structured authority lists
+          (<code>&lt;listPerson&gt;</code>,
+          <code>&lt;listPlace&gt;</code>) held in separate register files.
+          These lists distinguish historical individuals,
           role-based actors, and paratextual figures.
         </p>
         
@@ -624,7 +289,7 @@
                 misericordia fuerit operata.</seg>
               <seg type="moral-diagnosis" xml:id="ms.u01.s04">In nostris quippe temporibus, in quibus secundum dominicum dictum,
                 se ipsos amantium multorum caritas iam refrixit.</seg>
-              <seg type="mandate-writing" xml:id="ms.u01.s05">Dignata michi est, venerande <persName ref="#p_iacobus_pater">Iacobe</persName> pater, iniungere vestre sanctitatis religio.</seg>
+              <seg type="mandate-writing" xml:id="ms.u01.s05">Dignata michi est, venerande <persName key="p_iacobus_pater">Iacobe</persName> pater, iniungere vestre sanctitatis religio.</seg>
               <seg type="burden-writing" xml:id="ms.u01.s06">Gravissimi ponderis sarcinam humeris vehementer formido.</seg>
               <seg type="miracle-status" xml:id="ms.u01.s07">Dum quod cepero consumare non valeam.</seg>
               <seg type="saint-representation" xml:id="ms.u01.s08">Ad summi regis honorem et gloriam.</seg>
@@ -649,12 +314,12 @@
             <ab>
               <seg type="habit-assumptio" xml:id="ms.u03.s01">
                 Quartum decimum igitur hec salutaria meditans annum egressus, habitum sacre religionis assumpsit satisque suo faciens desiderio,
-                relicta patria, una contextus clamide, nudis etiam pedibus ad beati <persName ref="#p_iacobus_apostolus">Iacobi</persName>
+                relicta patria, una contextus clamide, nudis etiam pedibus ad beati <persName key="p_iacobus_apostolus">Iacobi</persName>
                 aliorumque sanctorum sacra visendum limina, impiger est iter aggressus.
               </seg>
 
               <seg type="hospitality-ritual" xml:id="ms.u03.s02a">
-                Erat in ea quidam <persName ref="#p_faber_ferrarius">faber ferrarius</persName>, homo quidem magne religionis et Deum timens, cui hospitalitatis gratia Deo accepto,
+                Erat in ea quidam <persName key="p_faber_ferrarius">faber ferrarius</persName>, homo quidem magne religionis et Deum timens, cui hospitalitatis gratia Deo accepto,
                 iam diuturni usus in morem converterant, diebus singulis pauperibus dare hospitia, eosque post reffectionem, lotis a se pedibus,
                 ad nocturnam quietem stratis lectulis invitare.
               </seg>
@@ -686,11 +351,11 @@
             <ab>
               <seg type="incipit" xml:id="ms.u05.s01">Per idem tempus, homo quidam erat in prefato loco, qui lumen amiserat oculorum.</seg>
               <seg type="discovery-ritual" xml:id="ms.u05.s02">Hunc dum forte ab agro redeuntem filia duceret, eminus aspiciens, tunc eidem e vestigio nuntiare curavit,
-                quod <persName ref="#p_guilielmus">Guilielmum</persName> heremitam in rupe fixis genibus orantem videret.</seg>
+                quod <persName key="p_guilielmus">Guilielmum</persName> heremitam in rupe fixis genibus orantem videret.</seg>
               <seg type="scenography-contemplative" xml:id="ms.u05.s03">Erat namque sancto viro in consuetudine, dum maximus estus solis incumberet, ad rupem quandam exire
                 ubi verum solem iusticie totis nisibus implorare.</seg>
               <seg type="petition" xml:id="ms.u05.s04">Qui protinus, spe sue salutis concepta, filiam orat, ut ad venerabilem Dei virum eum perduceret.
-                Cum ergo ad <persName ref="#p_guilielmus">Guilielmum</persName> esset homo perductus,
+                Cum ergo ad <persName key="p_guilielmus">Guilielmum</persName> esset homo perductus,
                 provolutus ad genua eius, rei familiaris inopiam, curam alende sobolis pretendens,
                 miserabiliter cepit orare, ut, sui miseritus, lumen sibi rederet oculorum.</seg>
               <seg type="humility-defense" xml:id="ms.u05.s05">Quod ubi vir Domini audivit, id sue virtutis non esse commemorans, eius condolens infortunio,
@@ -700,7 +365,7 @@
                 Qui tandem, sompno evigilans, benedictione a sancto accepta, continuo ut est domum regressus,
                 lumen quod amiserat clarius quam umquam habuerat recepit.</seg>
               <seg type="ascetic-crisis" xml:id="ms.u05.s07">Quod ubi precipus humilitatis custos audivit, plurimum contristatus simulque veritus ne popularibus auris moveretur,
-                utcumque statuit inde recedere seque ad <placeName ref="#hierosolyma">Hierosolymam</placeName> conferre.</seg>
+                utcumque statuit inde recedere seque ad <placeName key="hierosolyma">Hierosolymam</placeName> conferre.</seg>
             </ab>
           </div>
 
@@ -709,8 +374,8 @@
             <ab>
               <seg type="encounter" xml:id="ms.u06.s01">
                 Erat eo tempore magni meriti magnque nominis vir quidam Deo devotus nomine
-                <persName ref="#p_iohannes_discipulus">Iohannes</persName>, pater cuiusdam monasterii,
-                quod iuxta <placeName ref="#genusium">Genusium</placeName> ipse construxerat. De huius itaque sancti viri fama, cum predicte rei gratia faciens iter audisset,
+                <persName key="p_iohannes_discipulus">Iohannes</persName>, pater cuiusdam monasterii,
+                quod iuxta <placeName key="genusium">Genusium</placeName> ipse construxerat. De huius itaque sancti viri fama, cum predicte rei gratia faciens iter audisset,
                 opere pretium sui laboris esse putavit, si ab incepto itinere declinaret, causa colloquendi cum predicto Dei viro.
               </seg>
               <seg type="spiritual-dialogue" xml:id="ms.u06.s02">Ubi ergo in mutuos ruentes amplexus conveniunt, vicissimque datur copia fandi,
@@ -718,7 +383,7 @@
                 nisi de contemptu rerum mundanarum et celestium appetitu,
                 et qualiter soli Deo sit serviendum.</seg>
               <seg type="pastoral-argument" xml:id="ms.u06.s03">Altero die, profecturus a predicto viro, licentiam petiit,
-                insinuans quod orationis causa <placeName ref="#hierosolyma">Hierosolymam</placeName> tendere vellet,
+                insinuans quod orationis causa <placeName key="hierosolyma">Hierosolymam</placeName> tendere vellet,
                 suumque desiderium amplius differre non posse.
                 Et ille: « Noli, frater, frustra fatigari,
                 noli quod adimplere non poteris, non profecturus incipere.
@@ -726,15 +391,15 @@
                 quam propositi fieri pro voluntate participem ».</seg>
               <seg type="historical-context" xml:id="ms.u06.s05">Cuius monitis ardore sancti itineris nolens prebere ascensum,
                 mox iter arripuit.
-                Qui cum iuxta <placeName ref="#orea">Oream</placeName> devenisset,
+                Qui cum iuxta <placeName key="orea">Oream</placeName> devenisset,
                 a latronibus detentus, crudis est affectus verberibus.
                 Nondum etenim patruelia regna hereditario iure capessens,
                 ille iniquorum omnium metus, equitatis amator,
                 malorum omnium exterminator,
                 optimus siquidem tranquillatis et pacis patronus,
-                <persName ref="#p_roggerius_rex">Rogerius</persName> videlicet,
+                <persName key="p_roggerius_rex">Rogerius</persName> videlicet,
                 rex magnificentissimus,
-                feliciter triumphans a rapacium et latronum faucibus <placeName ref="#apulia">Apuliam</placeName> liberarat.</seg>
+                feliciter triumphans a rapacium et latronum faucibus <placeName key="apulia">Apuliam</placeName> liberarat.</seg>
               <seg type="discernment-climax" xml:id="ms.u06.s06">In hoc tandem certis cognovit indiciis,
                 secundum Dei famuli dictum,
                 quod corde gerebat, opere complere non posse.</seg>
@@ -760,10 +425,10 @@
                 per montana iter facere coepit,
                 loca singula diligentius explorando
                 solitariae vitae convenientia.
-                Pervenit <placeName ref="#atripaldum">Tripaldum</placeName>,
+                Pervenit <placeName key="atripaldum">Tripaldum</placeName>,
                 quod non multum distat a Virgiliano monte.
                 In hoc vico in domo cuiusdam
-                <persName ref="#p_matrona_atripaldum">matronae</persName>
+                <persName key="p_matrona_atripaldum">matronae</persName>
                 aliquantulum commoratus.
               </seg>
 
@@ -774,7 +439,7 @@
                 eosque totiens ferrariis ostendere
                 et similes fieri ab ipsis quaerere oportebat,
                 plausum hominum metuens vir prudentioris consilii
-                <placeName ref="#salernum">Salernum</placeName> proficiscitur.
+                <placeName key="salernum">Salernum</placeName> proficiscitur.
               </seg>
 
               <seg type="lorica-intent" xml:id="ms.u07.s03">
@@ -785,7 +450,7 @@
 
               <seg type="lorica-acquisition" xml:id="ms.u07.s04">
                 Nec eum fefellit opinio.
-                Nam postquam primum <placeName ref="#salernum">Salernum</placeName> fuit ingressus,
+                Nam postquam primum <placeName key="salernum">Salernum</placeName> fuit ingressus,
                 quidam miles occurrens,
                 eius cognita voluntate,
                 quotquot habuit loricas ostendit
@@ -829,14 +494,14 @@
               <ab>
                 <seg type="settlement-context" xml:id="ms.u08a.s00">
                   Cum igitur ad iam saepe dictum vicum reversus
-                  <persName ref="#p_guilielmus">Guilielmus</persName>,
+                  <persName key="p_guilielmus">Guilielmus</persName>,
                   assumptis quibusdam consanguineis et vicinis illius
-                  <persName ref="#p_matrona_atripaldum">matronae</persName>,
+                  <persName key="p_matrona_atripaldum">matronae</persName>,
                   apud quam hospitabatur,
                   ad locum in quo prius aquam invenerat ascendit;
                   ubi quadam domuncula ab eisdem sibi aedificata,
                   solus ibi cum Domino
-                  <persName ref="#p_guilielmus">venerabilis heremita</persName>
+                  <persName key="p_guilielmus">venerabilis heremita</persName>
                   remansit.
                 </seg>
               </ab>
@@ -870,7 +535,7 @@
               <ab>
                 <seg type="patience-limit" xml:id="ms.u08c.s01">
                   Quod cum diu perpetiretur
-                  <persName ref="#p_guilielmus">Guilielmus</persName>,
+                  <persName key="p_guilielmus">Guilielmus</persName>,
                   die quadam ad hauriendum aquam egressus,
                   beluam bibentem invenit.
                 </seg>
@@ -891,7 +556,7 @@
               <ab>
                 <seg type="miracle-response" xml:id="ms.u08d.s01">
                   Ad cuius imperium
-                  <persName ref="#p_guilielmus">venerandi patris</persName>,
+                  <persName key="p_guilielmus">venerandi patris</persName>,
                   mox depresso in terra capite ursus,
                   nihil feritatis ostendens,
                   protinus recessit
@@ -905,12 +570,12 @@
               <ab>
                 <seg type="civil-episode" xml:id="ms.u08e.s01">
                   Praedictus Dei famulus,
-                  cum comite <persName ref="#p_petrus_socius_mons">Petro</persName>,
+                  cum comite <persName key="p_petrus_socius_mons">Petro</persName>,
                   in aspectu fontis persistens,
                   a custodibus cuiusdam castelli visus est,
                   qui arbitrantes eos latrones esse,
                   capiunt et usque ad
-                  <persName ref="#p_baiulus_mercuriani">baiulum Mercuriani</persName>
+                  <persName key="p_baiulus_mercuriani">baiulum Mercuriani</persName>
                   deducunt;
                   qui, eius sacris auditis sermonibus,
                   cuius esset sanctitatis cognovit,
@@ -925,7 +590,7 @@
             <head>De monte Virgiliano</head>
             <ab>
               <seg type="setting" xml:id="ms.u09.s01" corresp="#renda.u09.s09">
-                <placeName ref="#mons_virginis">Virgiliano mons</placeName>, in quo cum ante latis presbiteris et nonnullis aliis fratribus habitabat, ob nimiam frigiditatis intemperantiam, nisi in tribus mensibus difficilis est et ad ascendendum valde laboriosus.
+                <placeName key="mons_virginis">Virgiliano mons</placeName>, in quo cum ante latis presbiteris et nonnullis aliis fratribus habitabat, ob nimiam frigiditatis intemperantiam, nisi in tribus mensibus difficilis est et ad ascendendum valde laboriosus.
               </seg>
 
               <seg type="offerings" xml:id="ms.u09.s02" corresp="#renda.u09.s10">
@@ -964,7 +629,7 @@
               </seg>
 
               <seg type="departure" xml:id="ms.u09.s10" corresp="#renda.u09.s18">
-                substituto ergo praeposito, quoniam inter eos se ulterius proficere non posse videbat, metuens ne ad maiora animarum detrimenta suis factis inciderent, quinque de ydiotis fratribus assumptis, inde secessit et, locorum asperitatem maiorem inquirens ad <placeName ref="#mons_lacenus">Lacenum</placeName> pervenit.
+                substituto ergo praeposito, quoniam inter eos se ulterius proficere non posse videbat, metuens ne ad maiora animarum detrimenta suis factis inciderent, quinque de ydiotis fratribus assumptis, inde secessit et, locorum asperitatem maiorem inquirens ad <placeName key="mons_lacenus">Lacenum</placeName> pervenit.
               </seg>
             </ab>
           </div>
@@ -1000,7 +665,7 @@
               </seg>
 
               <seg type="mandate-writing" xml:id="renda.u01.s04">Res magnae magno patrocinio indigent.
-                Vita Divi <persName ref="#p_guilielmus">Guilielmi</persName>,
+                Vita Divi <persName key="p_guilielmus">Guilielmi</persName>,
                 tui authoris et ducis,
                 tum mulierum religiosarum tum virorum,
                 qui ex loco in quo ipse Sanctus aetatem duxit
@@ -1009,7 +674,7 @@
                 merito in tuo nomine apparebit.</seg>
 
               <seg type="institutional-legitimation" xml:id="renda.u01.s05">Illustrissimo ac Reverendissimo Domino
-                <persName ref="#p_guido_de_ferreriis">Guido de Ferreriis</persName>,
+                <persName key="p_guido_de_ferreriis">Guido de Ferreriis</persName>,
                 Vercellensi,
                 Sanctae Romanae Ecclesiae Cardinali
                 tituli Sanctorum Viti et Modesti.</seg>
@@ -1030,27 +695,27 @@
               <seg type="liturgical-integration" xml:id="renda.u01.s07">Officium Sancti Guilielmi. Officium Sancti Amati.</seg>
               <seg type="saint-representation" xml:id="renda.u01.s08">Cuius Sancti Patris meritis religio brevi monasteriis innumerata magnificata fuit.</seg>
 
-              <seg type="political-legitimation" xml:id="renda.u01.s09"><persName ref="#p_roggerius_rex">Rogerius Rex</persName>
+              <seg type="political-legitimation" xml:id="renda.u01.s09"><persName key="p_roggerius_rex">Rogerius Rex</persName>
                 sanctitatem eius veneratus observavit.
 
-                <persName ref="#p_constantia_regis">Constantia</persName>,
+                <persName key="p_constantia_regis">Constantia</persName>,
                 regis filia,
                 huius religionis habitu induta,
                 monialis effecta,
                 terram Mercuriani monasterio donavit,
                 una cum viro suo
-                <persName ref="#p_henricus_v">Henrico V</persName>,
+                <persName key="p_henricus_v">Henrico V</persName>,
                 Romanorum Imperatore.
 
                 Postea
-                <persName ref="#p_carolus_v">Carolus V</persName>
+                <persName key="p_carolus_v">Carolus V</persName>
                 Imperator Romanorum Augustus
                 privilegia confirmavit et stabilivit.
 
-                <persName ref="#p_lucius_iii">Lucius III</persName>
+                <persName key="p_lucius_iii">Lucius III</persName>
                 Pontifex Maximus
                 et
-                <persName ref="#p_gregorius_xiii">Gregorius XIII</persName>
+                <persName key="p_gregorius_xiii">Gregorius XIII</persName>
                 indulgentiarum et exemptionum privilegiis
                 illustraverunt praedictam religionem.
               </seg>
@@ -1087,7 +752,7 @@
 
               <seg type="hospitality-ritual" xml:id="renda.u03.s02">
                 In quandam urbem circa noctis crepusculum adveniens,
-                a quodam <persName ref="#p_faber_ferrarius">fabro ferrario</persName>,
+                a quodam <persName key="p_faber_ferrarius">fabro ferrario</persName>,
                 magnae religionis viro,
                 fuit susceptus hospitio.
                 Is Dominum amans,
@@ -1177,10 +842,10 @@
               <seg type="encounter" xml:id="renda.u06.s01">
                 Eodem tempore quo iter aggreditur,
                 venerabilis vir
-                <persName ref="#p_iohannes_discipulus">Ioannes</persName>
+                <persName key="p_iohannes_discipulus">Ioannes</persName>
                 nomine,
                 cuiusdam Monasterii,
-                quod ipsemet iuxta <placeName ref="#genusium">Genusium</placeName> aedificaverat pater existens,
+                quod ipsemet iuxta <placeName key="genusium">Genusium</placeName> aedificaverat pater existens,
                 eius Confessor Sanctus
                 fama motus, ut cum eo loqueretur,
                 ab incepto declinavit illic manere.
@@ -1199,7 +864,7 @@
               </seg>
 
               <seg type="pastoral-argument" xml:id="renda.u06.s03">
-                Altera die <placeName ref="#hierosolyma">Hierosolymam</placeName> abeundi veniam petiit;
+                Altera die <placeName key="hierosolyma">Hierosolymam</placeName> abeundi veniam petiit;
                 quod ne faceret,
                 cum eius praesentia fidelibus maior fuisset utilitas,
                 a patre praedicto saepius admonetur.
@@ -1208,12 +873,12 @@
               <seg type="historical-context" xml:id="renda.u06.s04">
                 Cui nequaquam parens,
                 arrepto itinere,
-                iuxta <placeName ref="#orea">Oream</placeName> devenit,
+                iuxta <placeName key="orea">Oream</placeName> devenit,
                 et a latronibus saevis flagellis fuit affectus.
                 Non dum enim patruelia regna hereditario iure
-                <persName ref="#p_roggerius_rex">Rogerius</persName>
+                <persName key="p_roggerius_rex">Rogerius</persName>
                 Rex capessens,
-                a Sarracenorum faucibus <placeName ref="#apulia">Apuliam</placeName> liberarat.
+                a Sarracenorum faucibus <placeName key="apulia">Apuliam</placeName> liberarat.
               </seg>
 
               <seg type="discernment-climax" xml:id="renda.u06.s05">
@@ -1225,7 +890,7 @@
               <seg type="forced-return" xml:id="renda.u06.s06">
                 Necessitate impellente,
                 propere ad praedictum
-                <persName ref="#p_iohannes_discipulus">Ioannem Patrem</persName>
+                <persName key="p_iohannes_discipulus">Ioannem Patrem</persName>
                 est reversus,
                 a quo in dies,
                 ut secum cohabitaret,
@@ -1236,7 +901,7 @@
 
               <seg type="divine-revelation" xml:id="renda.u06.s07">
                 Cui
-                <persName ref="#p_guilielmus">Guilielmo</persName> Sanctissimo
+                <persName key="p_guilielmus">Guilielmo</persName> Sanctissimo
                 nocte oranti
                 ignis flamma apparuit Dominus,
                 praedicens ipsum alibi Deo serviturum
@@ -1249,11 +914,11 @@
             <head>The Lorica and the Cophia: Ascetic Armament</head>
             <ab>
               <seg type="itinerary" xml:id="renda.u07.s01">
-                Ad <placeName ref="#atripaldum">Atripaldum</placeName>, quod non longe abest a Virgiliano Monte,
+                Ad <placeName key="atripaldum">Atripaldum</placeName>, quod non longe abest a Virgiliano Monte,
                 quem ad solam vitam degendam opportunum esse cognovit,
                 pervenit.
                 In domo
-                <persName ref="#p_matrona_atripaldum">Matronae</persName>
+                <persName key="p_matrona_atripaldum">Matronae</persName>
                 cuiusdam acceptus hospitio.
               </seg>
 
@@ -1279,7 +944,7 @@
                 quotquot habuit libenter ostendit;
                 quarum maioris ponderis unam accepit,
                 et illa sub veste indutus,
-                iterum <placeName ref="#atripaldum">Atripaldum</placeName> remeat.
+                iterum <placeName key="atripaldum">Atripaldum</placeName> remeat.
               </seg>
 
               <seg type="lorica-secrecy" xml:id="renda.u07.s05">
@@ -1290,7 +955,7 @@
 
               <seg type="cophia-acquisition" xml:id="renda.u07.s06">
                 Et in domo praedictae
-                <persName ref="#p_matrona_atripaldum">Matronae</persName>
+                <persName key="p_matrona_atripaldum">Matronae</persName>
                 dum commoraret,
                 capitis tegmen ferreum est adeptus.
               </seg>
@@ -1310,7 +975,7 @@
                 Una die Confessor Sanctus,
                 aquam, quam volebat in montis cacumine posse inveniri,
                 cum socio
-                <persName ref="#p_petrus_socius_mons">Petro</persName>
+                <persName key="p_petrus_socius_mons">Petro</persName>
                 cuncta perquirens,
                 lutum ursarum vestigiis conculcatum inspicit;
                 quod manibus, prius orando elevatis in caelum,
@@ -1362,7 +1027,7 @@
             <head>De edificatione sacri monasterii</head>
             <ab>
               <note place="margin" target="#renda.u09.s01">
-                Ecclesiam <placeName ref="#mons_virginis">Montis Virginis</placeName> Sanctus erigit anno 1124 die decimo mensis Aprilis
+                Ecclesiam <placeName key="mons_virginis">Montis Virginis</placeName> Sanctus erigit anno 1124 die decimo mensis Aprilis
               </note>
 
               <seg type="foundation" xml:id="renda.u09.s01">
@@ -1374,8 +1039,8 @@
                 ut lapides essent in calcem soluti, facta est; propinquarum Civitatum auxiliis
                 Ecclesia incipit erigi, at ipse labori non parcens, ut solebat, in omnibus Deo gratias agens,
                 oratione facta, primus, subsequentibus sociis beatis
-                <persName ref="#p_iohannes_discipulus">Ioanne</persName> et
-                <persName ref="#p_albertus">Alberto</persName>,
+                <persName key="p_iohannes_discipulus">Ioanne</persName> et
+                <persName key="p_albertus">Alberto</persName>,
                 Ecclesiae fundamenta fodere incipit, et fossis primo lapidem signo crucis signatum projicit intus.
               </seg>
 
@@ -1383,13 +1048,13 @@
 
               <seg type="miracle-builder" xml:id="renda.u09.s02">
                 At dum ipsa construeretur Ecclesia, quidam ligur
-                <persName ref="#p_gualterius">Gualterius</persName> nomine advena,
+                <persName key="p_gualterius">Gualterius</persName> nomine advena,
                 aridum brachium habens, arte architectonica non ignarus, dum assisteret,
                 ad locum venit eundem, quem tamen exploratorem circumeuntem et inspicientem
                 Domini Confessor interrogat: «Num talis operis es artifex? Incipe operari».
                 At ille brachium aridum ostendens, talia voce profudit:
                 «O beatissime Pater, libenter quod tua sanctitas praecipit obsecundarem obediens.
-                Ecce in <placeName ref="#liguria">Liguriae</placeName> partibus architectonicae arte peritus,
+                Ecce in <placeName key="liguria">Liguriae</placeName> partibus architectonicae arte peritus,
                 divina puniente iustitia et meis peccatis exigentibus eam, dum turrim construerem cecidi,
                 ita ut hoc brachium irremediabiliter perderem».
                 Quod intuens Dei Confessor confisus in Domino ei lapidem ostendit dicens:
@@ -1403,13 +1068,13 @@
                 Lapidem laetus suscepit, postea ab eo sacrae Religionis habitum indutus
                 ac eius discipulus effectus, iugiter ipsius obsequebatur imperio.
                 Paucis vero diebus Ecclesia erecta fuit; de libris, paramentis indumentisque providere volens,
-                cum socio <placeName ref="#salernum">Salernum</placeName> adiit; inde reversus
-                <placeName ref="#avellinum">Avellini</placeName> Episcopum, ut ad Ecclesiae dedicationem
+                cum socio <placeName key="salernum">Salernum</placeName> adiit; inde reversus
+                <placeName key="avellinum">Avellini</placeName> Episcopum, ut ad Ecclesiae dedicationem
                 dignaretur accedere, invitavit, dicens:
                 «Antistes colende, cum Ecclesia ad Dei et suae Matris Sanctissimae sit in monte erecta virgineo,
                 die qua Deus spiritum suum igneis linguis misit in discipulos, sacrandam, ut benedicas
                 humiliter poscens exoro». Ad quem Pontifex
-                <persName ref="#p_iohannes_episc_avellino">Ioannes</persName> nomine:
+                <persName key="p_iohannes_episc_avellino">Ioannes</persName> nomine:
                 «In die qua cupis, paratus ad dedicationem accedam». A quo discedens, cum socio
                 ad praedictum rediit montem.
               </seg>
@@ -1418,8 +1083,8 @@
 
               <seg type="dedication-frame" xml:id="renda.u09.s04">
                 Proximo mense Maii, in die Pentecostes anno 1124, constituto die,
-                <placeName ref="#avellinum">Avellanensis</placeName> Episcopus Dominus
-                <persName ref="#p_iohannes_episc_avellino">Ioannes</persName> religiosissimus,
+                <placeName key="avellinum">Avellanensis</placeName> Episcopus Dominus
+                <persName key="p_iohannes_episc_avellino">Ioannes</persName> religiosissimus,
                 una cum clero suorum fratrum, ad Ecclesiae consecrationem venit; ad quam innumera
                 gentis multitudo confluxit.
               </seg>
@@ -1429,7 +1094,7 @@
               <seg type="miracle-mute" xml:id="renda.u09.s05">
                 In qua erat mulier quae per annos septem muta silebat; ad Sancti tamen Confessoris
                 interrogationem libera voce respondit. Quo viso miraculo omnes
-                <persName ref="#p_guilielmus">Guilielmum</persName> Sanctum praedicare coeperunt.
+                <persName key="p_guilielmus">Guilielmum</persName> Sanctum praedicare coeperunt.
               </seg>
 
               <note place="margin" target="#renda.u09.s06">Lupus pro asino facit servire</note>
@@ -1442,7 +1107,7 @@
               </seg>
 
               <seg type="miracle-wolf" xml:id="renda.u09.s07">
-                In nomine Gloriosae Virginis <persName ref="#p_guilielmus">Pater Sanctus</persName>
+                In nomine Gloriosae Virginis <persName key="p_guilielmus">Pater Sanctus</persName>
                 lupo imperat quod opera quae per Asellum fierent ipse subiret; qui feritate reiecta,
                 capite flexo viri Dei suscipit imperia; atque inceptum ab Asino opus usque ad eius vitae spatium,
                 non sine aspicientium admiratione, libenter perficit; his multisque miraculis templum et Monasterium
@@ -1452,7 +1117,7 @@
               <note place="margin" target="#renda.u09.s08">Exemptio facta ab Episcopo Abellinensi</note>
 
               <seg type="exemptio" xml:id="renda.u09.s08">
-                Annis duobus elapsis praedictus <placeName ref="#avellinum">Avellanensis</placeName> Episcopus,
+                Annis duobus elapsis praedictus <placeName key="avellinum">Avellanensis</placeName> Episcopus,
                 die quo Ecclesiam consecrarat, visitaturus advenit; cui Pater Sanctus se, suos, Monasterium
                 et omnia bona conferens, Episcopus sua pietate Monasterium, sacra, monachos ab omni onere
                 (sicut in privilegio talis exemptionis anno 1126 in archivo Montis Virginis ad praesens,
@@ -1506,7 +1171,7 @@
                 et Monasterium aedificari quaesistis; quod potui feci. Deus est qui avibus non arantibus providet,
                 quod eleemosinaliter habui, sic pauperibus erogavi. In omnibus Deo gratias agite, me post haec vobis
                 curam non esse scio. Ideo alium superiorem
-                <persName ref="#p_albertus">Dominum Albertum</persName> mihi dilectum eligo.
+                <persName key="p_albertus">Dominum Albertum</persName> mihi dilectum eligo.
                 Pro norma Regulam primi Patris Benedicti tenete. Verum praesentes et subsequentes incolae,
                 et peregrini, divino mihi revelante numine, carnis, ovorum et casei esum et conductionem hoc in loco
                 abstinete perpetuo».
@@ -1515,9 +1180,9 @@
               <seg type="departure" xml:id="renda.u09.s18">
                 Quod servatur ad praesens; ac comedere vel portare volentibus multa evenere miracula clara.
                 Ac illis monasticam normam traditam et substitutum sibi relinquuit
-                <persName ref="#p_albertus">Dominum Albertum</persName>, et quinque idiotas monachis sibi assumptis,
-                in <placeName ref="#mons_lacenus">Lacenum</placeName>, iuxta
-                <placeName ref="#nuscana_civitas">Nuscanam civitatem</placeName>, perrexit in montem.
+                <persName key="p_albertus">Dominum Albertum</persName>, et quinque idiotas monachis sibi assumptis,
+                in <placeName key="mons_lacenus">Lacenum</placeName>, iuxta
+                <placeName key="nuscana_civitas">Nuscanam civitatem</placeName>, perrexit in montem.
               </seg>
 
             </ab>
