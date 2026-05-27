@@ -38,7 +38,8 @@
         "document-list": "Documents",
         "people": "People",
         "places": "Places",
-        "codex": "Codex"
+        "manuscript": "Manuscript",
+        "print": "Print"
     },
     "odd": {
         "licence": "Licence",

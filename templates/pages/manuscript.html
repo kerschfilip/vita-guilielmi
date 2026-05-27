@@ -8,7 +8,7 @@
     }
     ---
 
-    <main class="codex-page">
+    <main class="manuscript-page">
 
         <nav class="unit-nav">
             <button id="prev-unit" onclick="navigateUnit(-1)">← Prev unit</button>
@@ -26,20 +26,20 @@
             <button id="next-unit" onclick="navigateUnit(1)">Next unit →</button>
         </nav>
 
-        <div id="codex-loading" style="padding:2rem;text-align:center;color:#6b7280">Loading…</div>
+        <div id="manuscript-loading" style="padding:2rem;text-align:center;color:#6b7280">Loading…</div>
 
         <div id="facs-lightbox" onclick="closeLightbox()">
             <button id="facs-lightbox-close" onclick="closeLightbox()">&#x2715;</button>
             <img id="facs-lightbox-img" src="" alt="Facsimile fullscreen" onclick="event.stopPropagation()"/>
         </div>
 
-        <div class="codex-grid" id="codex-grid" style="display:none">
-            <section class="codex-text-pane">
+        <div class="manuscript-grid" id="manuscript-grid" style="display:none">
+            <section class="manuscript-text-pane">
                 <div class="s-col-title">MS (sec. XIII)</div>
-                <div id="codex-body"></div>
+                <div id="manuscript-body"></div>
             </section>
 
-            <section class="codex-facs-pane">
+            <section class="manuscript-facs-pane">
                 <div class="s-col-title">Facsimile</div>
                 <div id="facs-pills"></div>
                 <div id="facs-viewer">
@@ -65,19 +65,19 @@
         .unit-nav button:disabled { opacity:.4; cursor:not-allowed; }
         .unit-nav select { padding:.4rem; min-width:280px; }
 
-        .codex-page { color:#111827; line-height:1.4; padding:0 1.5rem }
-        .codex-page a { color:#2563eb; text-decoration:none }
-        .codex-page a:hover { text-decoration:underline }
+        .manuscript-page { color:#111827; line-height:1.4; padding:0 1.5rem }
+        .manuscript-page a { color:#2563eb; text-decoration:none }
+        .manuscript-page a:hover { text-decoration:underline }
 
-        .codex-grid {
+        .manuscript-grid {
             display:grid; grid-template-columns:3fr 7fr;
             gap:2rem; padding:1.5rem;
             max-width:1600px; margin:0 auto;
         }
-        .codex-text-pane {
+        .manuscript-text-pane {
             border-left:3px solid #9ca3af; padding-left:1rem; min-width:0;
         }
-        .codex-facs-pane {
+        .manuscript-facs-pane {
             border-left:3px solid #c8a96e; padding-left:1rem; min-width:0;
         }
         .s-col-title { margin:0 0 8px 0; font-weight:700; color:#111827; font-size:.95rem }
@@ -158,7 +158,7 @@
         var MIN_UNIT = 1, MAX_UNIT = 9;
         var xmlDoc, personMap = {}, placeMap = {};
 
-        var FACS_BASE = '/exist/apps/vita-guilielmi/vita-guilielmi/codex-facs/';
+        var FACS_BASE = '/exist/apps/vita-guilielmi/vita-guilielmi/manuscript-facs/';
 
         /* Unit 01 is confirmed; 02-09 are placeholders — fill in the correct filenames. */
         var UNIT_PAGES = {
@@ -293,7 +293,7 @@
             var texts  = Array.from(xmlDoc.getElementsByTagNameNS(TEI, 'text'));
             var textEl = texts.find(function (t) { return getXmlId(t) === 'wit.ms_XIII'; });
             if (!textEl) {
-                document.getElementById('codex-body').innerHTML = '<p style="color:#dc2626">Witness wit.ms_XIII not found in XML.</p>';
+                document.getElementById('manuscript-body').innerHTML = '<p style="color:#dc2626">Witness wit.ms_XIII not found in XML.</p>';
                 return;
             }
             var divs    = Array.from(textEl.getElementsByTagNameNS(TEI, 'div'));
@@ -301,7 +301,7 @@
                 return d.getAttribute('type') === 'unit' && parseInt(d.getAttribute('n'), 10) === nInt;
             });
             if (!unitDiv) {
-                document.getElementById('codex-body').innerHTML = '<div class="s-missing">Unit ' + nPad + ' not found.</div>';
+                document.getElementById('manuscript-body').innerHTML = '<div class="s-missing">Unit ' + nPad + ' not found.</div>';
                 return;
             }
 
@@ -334,7 +334,7 @@
                 });
             }
 
-            document.getElementById('codex-body').innerHTML = html;
+            document.getElementById('manuscript-body').innerHTML = html;
 
             var pages = UNIT_PAGES[nPad] || [];
             renderFacsPills(pages);
@@ -380,13 +380,13 @@
                 ]);
                 xmlDoc = results[0];
                 buildMaps(results[1], results[2]);
-                document.getElementById('codex-loading').style.display = 'none';
-                document.getElementById('codex-grid').style.display    = '';
+                document.getElementById('manuscript-loading').style.display = 'none';
+                document.getElementById('manuscript-grid').style.display    = '';
                 var unit = currentUnit();
                 updateUnitUI(unit);
                 loadUnit(unit);
             } catch (e) {
-                document.getElementById('codex-loading').innerHTML =
+                document.getElementById('manuscript-loading').innerHTML =
                     '<span style="color:#dc2626">Error loading data: ' + esc(e.message) + '</span>';
                 console.error(e);
             }
