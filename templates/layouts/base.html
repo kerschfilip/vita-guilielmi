@@ -104,7 +104,7 @@
             <aside class="before hidden-mobile [[ if ($context?theme?layout?before?hidden) then 'hidden' else '' ]]">
                 [% block before %][% endblock %]
             </aside>
-
+            <!--
             <header class="content-top">
                 [% if $features?toolbar?enabled %]
                 [% include "templates/toolbar.html" %]
@@ -114,7 +114,7 @@
                 <pb-progress subscribe="[[ $features?toolbar?progress?subscribe ]]" indeterminate="indeterminate"/>
                 [% endif %]
             </header>
-
+            -->
             [% block content %][% endblock %]
 
             <nav class="after-top hidden-mobile [[ if ($context?theme?layout?after?hidden) then 'hidden' else '' ]]">
