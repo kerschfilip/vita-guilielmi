@@ -266,6 +266,30 @@
  </encodingDesc>
   </teiHeader>
 
+  <facsimile>
+    <surface xml:id="facs-007"><graphic url="007.jpg"/></surface>
+    <surface xml:id="facs-008"><graphic url="008.jpg"/></surface>
+    <surface xml:id="facs-009"><graphic url="009.jpg"/></surface>
+    <surface xml:id="facs-010"><graphic url="010.jpg"/></surface>
+    <surface xml:id="facs-011"><graphic url="011.jpg"/></surface>
+    <surface xml:id="facs-012"><graphic url="012.jpg"/></surface>
+    <surface xml:id="facs-013"><graphic url="013.jpg"/></surface>
+    <surface xml:id="facs-014"><graphic url="014.jpg"/></surface>
+    <surface xml:id="facs-015"><graphic url="015.jpg"/></surface>
+    <surface xml:id="facs-016"><graphic url="016.jpg"/></surface>
+    <surface xml:id="facs-017"><graphic url="017.jpg"/></surface>
+    <surface xml:id="facs-018"><graphic url="018.jpg"/></surface>
+    <surface xml:id="facs-019"><graphic url="019.jpg"/></surface>
+    <surface xml:id="facs-020"><graphic url="020.jpg"/></surface>
+    <surface xml:id="facs-021"><graphic url="021.jpg"/></surface>
+    <surface xml:id="facs-022"><graphic url="022.jpg"/></surface>
+    <surface xml:id="facs-023"><graphic url="023.jpg"/></surface>
+    <surface xml:id="facs-024"><graphic url="024.jpg"/></surface>
+    <surface xml:id="facs-025"><graphic url="025.jpg"/></surface>
+    <surface xml:id="facs-026"><graphic url="026.jpg"/></surface>
+    <surface xml:id="facs-027"><graphic url="027.jpg"/></surface>
+  </facsimile>
+
   <text>
     <group>
 

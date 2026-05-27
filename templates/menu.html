@@ -115,7 +115,13 @@
                 </details>
             </pb-restricted>
         </li>
-        [% block menu.left %][% endblock %]
+        [% block menu.left %]
+        <li class="hidden-mobile">
+            <a href="[[ $context-path ]]/pages/codex.html">
+                <pb-i18n key="menu.codex">Codex</pb-i18n>
+            </a>
+        </li>
+        [% endblock %]
     </ul>
     <ul>
         [% if $menu?search %]

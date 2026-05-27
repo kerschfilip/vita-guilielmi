@@ -37,7 +37,8 @@
     "register-details": {
         "document-list": "Documents",
         "people": "People",
-        "places": "Places"
+        "places": "Places",
+        "codex": "Codex"
     },
     "odd": {
         "licence": "Licence",
