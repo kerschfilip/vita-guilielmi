@@ -140,9 +140,9 @@
                     if (local === 'persName' || local === 'placeName') {
                         var kid = child.getAttribute('key') ||
                                   (child.getAttribute('ref') || '').replace(/^#/, '');
-                        var inner  = renderContent(child);
-                        var cls    = local === 'persName' ? 'person' : 'place';
-                        var refMap = local === 'persName' ? personMap : placeMap;
+                        var inner   = renderContent(child);
+                        var cls     = local === 'persName' ? 'person' : 'place';
+                        var refMap  = local === 'persName' ? personMap : placeMap;
                         var section = local === 'persName' ? 'people' : 'places';
                         if (kid && refMap[kid]) {
                             html += '<a class="ent ' + cls + '" href="' + APP + '/' + section + '/' + esc(kid) + '" target="_blank">' + inner + '</a>';
@@ -191,15 +191,15 @@
         };
 
         var UNIT_INTROS = {
-            1: `Prologus/Praefatio: the MS frames the writing as moral edification and a “curative” response to a present crisis (charity has grown cold); Renda reverses the frame, opening with a celebration of the abbey as a visible “sacred city,” consolidating institutional memory through privileges, confirmations, and public authority.`,
+            1: `Prologus/Praefatio: the MS frames the writing as moral edification and a "curative" response to a present crisis (charity has grown cold); Renda reverses the frame, opening with a celebration of the abbey as a visible "sacred city," consolidating institutional memory through privileges, confirmations, and public authority.`,
             2: `Incipit and formation: both texts share the nobilitas-topos, but the MS emphasises interior rumination and rational detachment, while Renda simplifies the motivation and accelerates the narrative action.`,
-            3: `Peregrinatio and the smith: in the MS authority is grounded in obedience and spiritual submission (ascetic practice defended from within); in Renda the episode becomes more “navigable,” supported by paratext and a more externalised rhetoric.`,
+            3: `Peregrinatio and the smith: in the MS authority is grounded in obedience and spiritual submission (ascetic practice defended from within); in Renda the episode becomes more "navigable," supported by paratext and a more externalised rhetoric.`,
             4: `The iron rings: the technical description is shared, but the MS constructs secrecy as a narrative ethic, while Renda shifts the interpretive force to the margin and to a rapid moral decoding.`,
-            5: `The miracle of the blind man: both preserve the prodigy and the saint’s refusal of personal glory, but the MS expands the episode into a broader drama of humility and reputation, while Renda segments it as a discrete, consultable miraculous unit.`,
+            5: `The miracle of the blind man: both preserve the prodigy and the saint's refusal of personal glory, but the MS expands the episode into a broader drama of humility and reputation, while Renda segments it as a discrete, consultable miraculous unit.`,
             6: `Vocational unit (Ioannes - brigands - vision in the fire): very stable narrative sequence; Renda reinforces the turning point with marginal notes and compresses the connective tissue.`,
             7: `Lorica and cophia: the MS foregrounds invisibility and fear of praise as a moral strategy; Renda retains the ascetic armament but favours a faster penitential reading, with marginal cues.`,
             8: `The spring and the bear: commitment and miracle are intertwined; the MS integrates the prodigy into the eremitic routine (damage - repair - repetition - rebuke), while Renda adds an empirical-search prelude and classifies the episode as a cataloguable miracle.`,
-            9: `Monte Virgiliano and institutional tension: the MS centres the communal economy (offerings/dispensatio) and the conflict over resources, culminating in William’s speech and departure; Renda frames the same core in a broader institutional narrative with explicit foundational and dedicatory material.`
+            9: `Monte Virgiliano and institutional tension: the MS centres the communal economy (offerings/dispensatio) and the conflict over resources, culminating in William's speech and departure; Renda frames the same core in a broader institutional narrative with explicit foundational and dedicatory material.`
         };
 
         function getTypes(n, msSegs, rSegs) {
@@ -270,11 +270,11 @@
                 : (ms.head || renda.head);
 
             var html = '<div class="s-unit-head">'
-                     + '<span class="s-unit-n">Unità ' + esc(nPad) + '</span>'
+                     + '<span class="s-unit-n">Unit\u00e0 ' + esc(nPad) + '</span>'
                      + (unitTitle ? '<b>' + esc(unitTitle) + '</b>' : '')
                      + '</div>';
 
-            html += '<div class="s-unit-intro">' + esc(UNIT_INTROS[nInt] || 'Sinossi allineata: scheletro narrativo condiviso con mediazione editoriale.') + '</div>';
+            html += '<div class="s-unit-intro">' + esc(UNIT_INTROS[nInt] || 'Aligned synopsis: shared narrative skeleton with editorial mediation.') + '</div>';
 
             html += '<table class="s-syn-table"><tr>';
             html += '<td class="s-col"><div class="s-col-title">MS (sec. XIII)</div>'
