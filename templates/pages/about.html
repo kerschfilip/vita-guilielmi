@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+    ---json
+    {
+        "templating": {
+            "extends": "templates/layouts/content.html"
+        }
+    }
+    ---
+
+    <main class="about-page">
+
+        <section class="about-hero">
+            <img src="[[ $context-path ]]/resources/images/tei-publisher-logo-contrast-color.svg"
+                 alt="Vita Guilielmi" class="about-logo"/>
+            <p class="about-tagline">A digital comparative edition of two witnesses of the
+                <em>Vita et obitus sancti Guilielmi</em></p>
+            <a class="about-cta" href="[[ $context-path ]]/vita-guilielmi/vita-guilielmi.xml?n=01">
+                Open comparative view →
+            </a>
+        </section>
+
+        <section class="about-body">
+
+            <div class="about-section">
+                <h2>About the edition</h2>
+                <p>The <em>Vita et obitus sancti Guilielmi</em> is a hagiographic text dedicated to
+                    Saint William of Montevergine (c. 1085–1142), founder of the Montevergine Abbey
+                    in Campania. This digital comparative edition presents two witnesses side by
+                    side: a 13th-century Beneventan manuscript from the Abbey of Montevergine
+                    (295×205 mm, 109 leaves, Beneventan and Gothic minuscule scripts), and the first
+                    printed edition (<em>editio princeps</em>) prepared by Felice Renda in 1581. The
+                    edition was developed as part of the ANTIDOTE doctoral training network
+                    (Bratislava, May 2026).</p>
+                <p>The two witnesses share a common unit structure corresponding to meaningful
+                    narrative sections — prologue, miracle episodes, ascetic episodes, and the
+                    foundation narrative of Monte Virgiliano. Within each unit, textual segments are
+                    annotated with rhetorical and narrative types (authorial stance, miracle events,
+                    institutional display, and more), enabling systematic comparison of how the two
+                    traditions frame, expand, and reinterpret the same hagiographic core. The edition
+                    also provides indexes of the persons and places mentioned across both witnesses,
+                    linked to the text passages where they appear.</p>
+            </div>
+
+            <div class="about-cards">
+                <a class="about-card" href="[[ $context-path ]]/vita-guilielmi/vita-guilielmi.xml?n=01">
+                    <h3>Comparative view</h3>
+                    <p>Both witnesses side by side, navigable by unit. Segments colour-coded by
+                        rhetorical type.</p>
+                    <span class="about-card-link">Open →</span>
+                </a>
+                <a class="about-card" href="[[ $context-path ]]/pages/manuscript.html">
+                    <h3>Manuscript</h3>
+                    <p>13th-century Beneventan manuscript from the Abbey of Montevergine, with
+                        facsimile images.</p>
+                    <span class="about-card-link">Open →</span>
+                </a>
+                <a class="about-card" href="[[ $context-path ]]/pages/print.html">
+                    <h3>Print edition</h3>
+                    <p><em>Editio princeps</em> by Felice Renda, 1581, with facsimile images of the
+                        printed pages.</p>
+                    <span class="about-card-link">Open →</span>
+                </a>
+            </div>
+
+            <div class="about-section">
+                <h2>Team</h2>
+                <div class="about-team">
+                    <div class="about-person">
+                        <strong>Michelle De Paola</strong>
+                        <span>Università Ca' Foscari Venezia</span>
+                    </div>
+                    <div class="about-person">
+                        <strong>Filip Kersch</strong>
+                        <span>ÚISK, Charles University Prague / Czech Academy of Sciences</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <style>
+        .about-page { color:#111827; line-height:1.6 }
+
+        .about-hero {
+            padding:4rem 2rem 3rem;
+            text-align:center;
+            background:linear-gradient(135deg, #1e3a5f 0%, #2d5986 100%);
+            color:#fff;
+        }
+        .about-logo { width:520px; max-width:80vw; margin-bottom:1.2rem }
+        .about-tagline {
+            font-size:1.1rem; color:#bfdbfe; max-width:600px;
+            margin:0 auto 2rem;
+        }
+        .about-cta {
+            display:inline-block; padding:.6rem 1.4rem;
+            background:#fff; color:#1e3a5f;
+            font-weight:600; border-radius:6px;
+            text-decoration:none; font-size:.95rem;
+        }
+        .about-cta:hover { background:#e0f2fe }
+
+        .about-body {
+            max-width:960px; margin:0 auto; padding:2.5rem 1.5rem;
+        }
+
+        .about-section { margin-bottom:3rem }
+        .about-section h2 {
+            font-size:1.35rem; font-weight:600; color:#1e3a5f;
+            border-bottom:2px solid #bfdbfe; padding-bottom:.4rem;
+            margin-bottom:1rem;
+        }
+        .about-section p { color:#374151; margin:.6rem 0 }
+
+        .about-cards {
+            display:grid; grid-template-columns:repeat(3,1fr);
+            gap:1.2rem; margin-bottom:3rem;
+        }
+        .about-card {
+            display:flex; flex-direction:column;
+            padding:1.2rem 1.4rem;
+            border:1px solid #e5e7eb; border-radius:10px;
+            background:#fafafa; text-decoration:none; color:#111827;
+            transition:box-shadow .15s, border-color .15s;
+        }
+        .about-card:hover { border-color:#29517B; box-shadow:0 2px 12px rgba(37,99,235,.1) }
+        .about-card h3 { margin:0 0 .5rem; font-size:1rem; color:#1e3a5f }
+        .about-card p  { margin:0 0 auto; font-size:.88rem; color:#6b7280; padding-bottom:.8rem }
+        .about-card-link { font-size:.85rem; color:#2563eb; font-weight:600 }
+
+        .about-team { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem }
+        .about-person {
+            padding:1.2rem 1.4rem;
+            border-radius:0 8px 8px 0;
+        }
+        .about-person strong { display:block; font-size:1rem; color:#1e3a5f }
+        .about-person span   { display:block; font-size:.83rem; color:#6b7280; margin:.2rem 0 .6rem }
+        .about-person p      { margin:0; font-size:.88rem; color:#374151 }
+
+        @media (max-width:680px) {
+            .about-cards { grid-template-columns:1fr }
+            .about-team  { grid-template-columns:1fr }
+        }
+    </style>
+</template>
