@@ -27,7 +27,7 @@
   } ],
   "profiles" : [ "base10", "registers", "toolbar-toggles", "metadata-panel", "theme-base10" ],
   "shortname" : "metadata",
-  "_lastModified" : "2026-05-25T20:49:39.349Z",
+  "_lastModified" : "2026-05-25T21:20:03.007Z",
   "label" : "Vita Guilielmi – Digital Comparative Edition",
   "odds" : [ "teipublisher.odd", "vita-guilielmi.odd" ],
   "version" : "1.0.0",
@@ -191,7 +191,7 @@
     "menubar" : true,
     "register" : {
       "description" : "auto",
-      "enabled" : false
+      "enabled" : true
     },
     "toolbar" : {
       "zoom" : true,
