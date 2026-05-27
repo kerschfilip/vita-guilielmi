@@ -7,152 +7,327 @@
         }
     }
     ---
-    
-       <main class="synoptic-page">
-        
+
+    <main class="synoptic-page">
+
         <nav class="unit-nav">
-            <button id="prev-unit" onclick="navigateUnit(-1)">← Předchozí</button>
-            <select id="unit-select" onchange="goToUnit(this.value)">
-                <option value="01">Unit 01 — Prologus / Praefatio</option>
-                <option value="02">Unit 02 — Incipit &amp; pueritia</option>
-                <option value="03">Unit 03 — Peregrinatio &amp; faber</option>
-                <option value="04">Unit 04 — Circuli ferrei</option>
-                <option value="05">Unit 05 — Miraculum caeci</option>
-                <option value="06">Unit 06 — Vocatio &amp; ignis</option>
-                <option value="07">Unit 07 — Lorica &amp; cophia</option>
-                <option value="08">Unit 08 — Fons &amp; ursus</option>
-                <option value="09">Unit 09 — Edificatio ecclesiae</option>
+            <button id="btn-prev" onclick="synNavUnit(-1)">&#8592; Prec.</button>
+            <select id="unit-sel" onchange="synShowUnit(this.value)">
+                <option value="01">Unit&#224; 01 &#8212; Prologus / Praefatio</option>
+                <option value="02">Unit&#224; 02 &#8212; Incipit &amp; pueritia</option>
+                <option value="03">Unit&#224; 03 &#8212; Peregrinatio &amp; faber</option>
+                <option value="04">Unit&#224; 04 &#8212; Circuli ferrei</option>
+                <option value="05">Unit&#224; 05 &#8212; Miraculum caeci</option>
+                <option value="06">Unit&#224; 06 &#8212; Vocatio &amp; ignis</option>
+                <option value="07">Unit&#224; 07 &#8212; Lorica &amp; cophia</option>
+                <option value="08">Unit&#224; 08 &#8212; Fons &amp; ursus</option>
+                <option value="09">Unit&#224; 09 &#8212; Edificatio ecclesiae</option>
             </select>
-            <button id="next-unit" onclick="navigateUnit(1)">Další →</button>
+            <button id="btn-next" onclick="synNavUnit(1)">Succ. &#8594;</button>
         </nav>
-        
-        <div class="synoptic-grid">
-            <section class="witness-pane">
-                <header><h2>Codex 1 (13. století)</h2></header>
-                <div id="content-ms" class="witness-content">Načítání…</div>
-            </section>
-            <section class="witness-pane">
-                <header><h2>Renda (1581)</h2></header>
-                <div id="content-renda" class="witness-content">Načítání…</div>
-            </section>
-        </div>
-        
+
+        <div id="syn-loading" style="padding:2rem;text-align:center;color:#6b7280">Caricamento in corso&#8230;</div>
+        <div id="unit-body" style="margin-top:12px;display:none"></div>
+
     </main>
-    
+
     <style>
         .unit-nav {
-            display: flex; justify-content: center; align-items: center;
-            gap: 1rem; padding: 1rem;
-            background: #f5f5f5; border-bottom: 1px solid #ddd;
+            display:flex; justify-content:center; align-items:center;
+            gap:1rem; padding:1rem;
+            background:#f5f5f5; border-bottom:1px solid #ddd;
         }
         .unit-nav button {
-            padding: .4rem .8rem; background: white;
-            border: 1px solid #999; border-radius: 4px; cursor: pointer;
+            padding:.4rem .8rem; background:white;
+            border:1px solid #999; border-radius:4px; cursor:pointer;
         }
-        .unit-nav button:disabled { opacity: .4; cursor: not-allowed; }
-        .unit-nav select { padding: .4rem; min-width: 280px; }
-        .synoptic-grid {
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 2rem; padding: 1.5rem;
-            max-width: 1600px; margin: 0 auto;
-        }
-        .witness-pane {
-            border-left: 3px solid #999; padding-left: 1rem; min-width: 0;
-        }
-        .witness-pane &gt; header h2 {
-            margin-top: 0; color: #555; font-size: 1.2em; font-weight: normal;
-            border-bottom: 1px solid #eee; padding-bottom: .5rem;
-        }
-        /* Segment color coding (mirror of ODD outputRendition) */
-        .tei-seg1 { background-color: #bdb2ff; padding: 0 .15em; border-radius: 3px; margin-bottom:20px;}
-        .tei-seg2 { background-color: #ffffff; padding: 0 .15em; border-radius: 3px; margin-bottom:20px;}
-        .tei-seg3 { background-color: #d4a574; padding: 0 .15em; border-radius: 3px; margin-bottom:20px;}
-        .tei-seg4 { background-color: #ffd6a5; padding: 0 .15em; border-radius: 3px; margin-bottom:20px;}
-        .tei-seg5 { background-color: #caffbf; padding: 0 .15em; border-radius: 3px; margin-bottom:20px;}
-        .tei-seg6 { background-color: #ffadad; padding: 0 .15em; border-radius: 3px; margin-bottom:20px;}
-        .tei-seg7 { background-color: #e0e0e0; padding: 0 .15em; border-radius: 3px; margin-bottom:20px;}
-        .tei-note1 { font-size: .85em; color: #555; font-style: italic; border-left: 2px solid #bbb; padding-left: .4em; margin: .4em 0; }
-        /* Person and place name links */
-        a.person-ref { color: #1d4ed8; font-weight: bold; text-decoration: none; }
-        a.person-ref:hover { text-decoration: underline; }
-        a.place-ref  { color: #15803d; text-decoration: none; }
-        a.place-ref:hover  { text-decoration: underline; }
+        .unit-nav button:disabled { opacity:.4; cursor:not-allowed; }
+        .unit-nav select { padding:.4rem; min-width:280px; }
+        .synoptic-page { color:#111827; line-height:1.4; padding:0 1.5rem }
+        .synoptic-page a { color:#2563eb; text-decoration:none }
+        .synoptic-page a:hover { text-decoration:underline }
+        .s-unit-head { margin-bottom:10px; padding:10px 0 }
+        .s-unit-n    { display:inline-block; padding:2px 8px; border:1px solid #d1d5db; border-radius:999px; background:#f3f4f6; font-size:.88rem; margin-right:6px }
+        .s-unit-intro { padding:8px 12px; background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; color:#1e3a8a; font-size:.93rem; margin:8px 0 12px }
+        table.s-syn-table  { width:100%; border-collapse:separate; border-spacing:8px; margin-bottom:2px }
+        table.s-type-table { width:100%; border-collapse:separate; border-spacing:8px }
+        td.s-col, td.s-type-col { width:50%; vertical-align:top; background:#fafafa; border:1px solid #e5e7eb; border-radius:10px; padding:9px }
+        .s-col-title { margin:0 0 8px 0; font-weight:700; color:#111827; font-size:.95rem }
+        /* segments per-type colours */
+        .seg { display:block; padding:6px 8px; margin:6px 0; border-left:4px solid #9ca3af; border-radius:10px; background:#fff; font-size:.92rem }
+        .t-authorial-stance                                          { border-left-color:#60a5fa; background:#eff6ff }
+        .t-authorial-fear                                            { border-left-color:#f87171; background:#fef2f2 }
+        .t-purpose-writing,.t-mandate-writing,.t-burden-writing,
+        .t-saint-representation,.t-moral-diagnosis,
+        .t-moral-certification                                       { border-left-color:#16a34a; background:#f0fdf4 }
+        .t-miracle-event,.t-miracle-status,.t-miracle-response,
+        .t-miracle-builder,.t-miracle-mute,.t-miracle-wolf          { border-left-color:#f59e0b; background:#fffbeb }
+        .t-ascetic-practice,.t-ascetic-defense,.t-ascetic-crisis,
+        .t-humility-defense,.t-penitential-limit,.t-lorica-intent,
+        .t-lorica-acquisition,.t-lorica-secrecy,.t-cophia-acquisition,
+        .t-cophia-secrecy,.t-habit-assumptio,.t-interior-discipline,
+        .t-patience-limit,.t-active-sanctity,.t-rational-detachment,
+        .t-hospitality-ritual,.t-technical-description               { border-left-color:#d97706; background:#fffbeb }
+        .t-institutional-display,.t-institutional-legitimation,
+        .t-political-legitimation,.t-liturgical-integration          { border-left-color:#34d399; background:#ecfdf5 }
+        .t-foundation,.t-dedication-frame,.t-completion-and-supply,
+        .t-post-dedication-building,.t-exemptio,.t-nobilitas-topos,
+        .t-offerings,.t-dispensatio                                  { border-left-color:#ea580c; background:#fff7ed }
+        .t-speech,.t-pastoral-argument,.t-spiritual-dialogue,
+        .t-holy-rebuke                                               { border-left-color:#2563eb; background:#eff6ff }
+        .t-escalation,.t-accusation,.t-presbyters-request,
+        .t-fear-of-poverty,.t-conflict                               { border-left-color:#ef4444; background:#fef2f2 }
+        .t-departure                                                 { border-left-color:#6b7280; background:#f3f4f6 }
+        .s-seg-type { display:inline-block; font-size:.72em; padding:1px 5px; border:1px solid #d1d5db; border-radius:999px; background:#f9fafb; color:#374151; margin-right:4px }
+        .s-note-margin { display:block; padding:5px 8px; margin:5px 0; border-left:4px solid #a78bfa; border-radius:8px; background:#f5f3ff; font-size:.87em; color:#374151; font-style:italic }
+        .s-note-label  { display:inline-block; font-size:.72em; padding:1px 5px; border:1px solid #c4b5fd; border-radius:999px; background:#fff; color:#5b21b6; margin-right:5px }
+        .s-missing { color:#9ca3af; font-style:italic; padding:5px 8px }
+        .ent        { padding:1px 4px; border-radius:5px; border:1px solid #e5e7eb; background:#f9fafb }
+        .ent.person { border-color:#bfdbfe; background:#eff6ff }
+        .ent.place  { border-color:#bbf7d0; background:#ecfdf5 }
+        .s-gap { font-style:italic; color:#6b7280; padding:0 3px }
+        .s-pb  { color:#6b7280 }
     </style>
-    
-    <script>
-    /*  */
-        var MIN_UNIT = 1, MAX_UNIT = 9;
-        var DOC_PATH = 'vita-guilielmi/vita-guilielmi.xml';
-        var ODD = 'vita-guilielmi';
-        var BASE_URL = '/exist/apps/vita-guilielmi';
-        
-        function padUnit(n) { return String(n).padStart(2, '0'); }
-        
-        function currentUnit() {
-            return new URLSearchParams(window.location.search).get('n') || '01';
+
+    <script>//<![CDATA[
+    (function () {
+        'use strict';
+        var TEI    = 'http://www.tei-c.org/ns/1.0';
+        var XML_NS = 'http://www.w3.org/XML/1998/namespace';
+        var BASE   = '/exist/rest/db/apps/vita-guilielmi/data';
+        var APP    = '/exist/apps/vita-guilielmi';
+
+        var xmlDoc, personMap = {}, placeMap = {};
+
+        function esc(s) {
+            if (s == null) return '';
+            return String(s)
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
         }
-        
-        function loadWitness(elementId, witnessId, unit) {
-            var xpath = "//tei:text[@xml:id='" + witnessId + "']//tei:div[@type='unit'][@n='" + unit + "']";
-            var url = BASE_URL + '/api/parts/' + encodeURIComponent(DOC_PATH) + 
-                      '/json?odd=' + ODD + '&amp;view=div&amp;xpath=' + encodeURIComponent(xpath);
-            var el = document.getElementById(elementId);
-            if (!el) return;
-            el.innerHTML = '&lt;em&gt;Načítání…&lt;/em&gt;';
-            
-            fetch(url)
-                .then(function(r) { return r.json(); })
-                .then(function(data) {
-                    /* TP API vrací JSON; HTML obsah bývá v poli "content" */
-                    var html = data.content || data.html || data.body || '';
-                    if (!html) { el.innerHTML = '&lt;pre&gt;' + JSON.stringify(data, null, 2) + '&lt;/pre&gt;'; return; }
-                    el.innerHTML = html;
-                })
-                .catch(function(err) {
-                    el.innerHTML = '&lt;p style="color:red"&gt;Chyba: ' + err.message + '&lt;/p&gt;';
+        function getXmlId(el) {
+            return el.getAttributeNS(XML_NS, 'id') || el.getAttribute('xml:id') || '';
+        }
+        async function fetchXML(url) {
+            var r = await fetch(url, { credentials: 'same-origin' });
+            if (!r.ok) throw new Error('HTTP ' + r.status + ' — ' + url);
+            var txt = await r.text();
+            var doc = new DOMParser().parseFromString(txt, 'application/xml');
+            if (doc.querySelector('parsererror')) throw new Error('XML parse error in ' + url);
+            return doc;
+        }
+
+        function buildMaps(pDoc, lDoc) {
+            Array.from(pDoc.getElementsByTagNameNS(TEI, 'person')).forEach(function (p) {
+                var id = getXmlId(p); if (id) personMap[id] = p;
+            });
+            Array.from(lDoc.getElementsByTagNameNS(TEI, 'place')).forEach(function (p) {
+                var id = getXmlId(p); if (id) placeMap[id] = p;
+            });
+        }
+
+        function SEG_CLASS(type) {
+            return 't-' + (type || 'unknown').replace(/\s+/g, '-');
+        }
+
+        function renderContent(node) {
+            var html = '';
+            Array.from(node.childNodes).forEach(function (child) {
+                if (child.nodeType === 3) {
+                    html += esc(child.textContent);
+                } else if (child.nodeType === 1) {
+                    var local = child.localName;
+                    if (local === 'persName' || local === 'placeName') {
+                        var kid = child.getAttribute('key') ||
+                                  (child.getAttribute('ref') || '').replace(/^#/, '');
+                        var inner  = renderContent(child);
+                        var cls    = local === 'persName' ? 'person' : 'place';
+                        var refMap = local === 'persName' ? personMap : placeMap;
+                        var section = local === 'persName' ? 'people' : 'places';
+                        if (kid && refMap[kid]) {
+                            html += '<a class="ent ' + cls + '" href="' + APP + '/' + section + '/' + esc(kid) + '" target="_blank">' + inner + '</a>';
+                        } else {
+                            html += inner;
+                        }
+                    } else if (local === 'gap') {
+                        var reason = child.getAttribute('reason') || '';
+                        var gn     = child.getAttribute('n') || '';
+                        html += '<span class="s-gap">[gap'
+                              + (reason ? ': ' + reason : '')
+                              + (gn ? ', ' + gn : '') + ']</span>';
+                    } else if (local === 'pb') {
+                        html += '<span class="s-pb"><sup>' + esc(child.getAttribute('n') || '▮') + '</sup></span>';
+                    } else if (local === 'lb') {
+                        html += '<br/>';
+                    } else {
+                        html += renderContent(child);
+                    }
+                }
+            });
+            return html;
+        }
+
+        function renderNote(noteEl) {
+            var target = noteEl.getAttribute('target') || '';
+            return '<div class="s-note-margin"' + (target ? ' title="targets: ' + esc(target) + '"' : '') + '>'
+                 + '<span class="s-note-label">margin</span>'
+                 + renderContent(noteEl) + '</div>';
+        }
+
+        function renderSegsOfType(segs, type) {
+            if (!segs.length) return '<div class="s-missing">—</div>';
+            return segs.map(function (seg) {
+                return '<div class="seg ' + SEG_CLASS(type) + '">'
+                     + '<span class="s-seg-type">' + esc(type) + '</span> '
+                     + renderContent(seg) + '</div>';
+            }).join('');
+        }
+
+        var FIXED_ORDER = {
+            2: ['nobilitas-topos','rational-detachment','active-sanctity','meditative-rumination','moral-certification','resolute-action','immediate-departure'],
+            3: ['habit-assumptio','hospitality-ritual','ascetic-practice','ascetic-defense'],
+            8: ['empirical-search','persistence','discovery-damage','restoration-labor','iterative-struggle','patience-limit','holy-rebuke','miracle-response'],
+            9: ['foundation','miracle-builder','completion-and-supply','dedication-frame','miracle-mute','post-dedication-building','miracle-wolf','exemptio','setting','offerings','dispensatio','presbyters-request','fear-of-poverty','escalation','accusation','response-intro','speech','departure']
+        };
+
+        var UNIT_INTROS = {
+            1: `Prologus/Praefatio: the MS frames the writing as moral edification and a “curative” response to a present crisis (charity has grown cold); Renda reverses the frame, opening with a celebration of the abbey as a visible “sacred city,” consolidating institutional memory through privileges, confirmations, and public authority.`,
+            2: `Incipit and formation: both texts share the nobilitas-topos, but the MS emphasises interior rumination and rational detachment, while Renda simplifies the motivation and accelerates the narrative action.`,
+            3: `Peregrinatio and the smith: in the MS authority is grounded in obedience and spiritual submission (ascetic practice defended from within); in Renda the episode becomes more “navigable,” supported by paratext and a more externalised rhetoric.`,
+            4: `The iron rings: the technical description is shared, but the MS constructs secrecy as a narrative ethic, while Renda shifts the interpretive force to the margin and to a rapid moral decoding.`,
+            5: `The miracle of the blind man: both preserve the prodigy and the saint’s refusal of personal glory, but the MS expands the episode into a broader drama of humility and reputation, while Renda segments it as a discrete, consultable miraculous unit.`,
+            6: `Vocational unit (Ioannes - brigands - vision in the fire): very stable narrative sequence; Renda reinforces the turning point with marginal notes and compresses the connective tissue.`,
+            7: `Lorica and cophia: the MS foregrounds invisibility and fear of praise as a moral strategy; Renda retains the ascetic armament but favours a faster penitential reading, with marginal cues.`,
+            8: `The spring and the bear: commitment and miracle are intertwined; the MS integrates the prodigy into the eremitic routine (damage - repair - repetition - rebuke), while Renda adds an empirical-search prelude and classifies the episode as a cataloguable miracle.`,
+            9: `Monte Virgiliano and institutional tension: the MS centres the communal economy (offerings/dispensatio) and the conflict over resources, culminating in William’s speech and departure; Renda frames the same core in a broader institutional narrative with explicit foundational and dedicatory material.`
+        };
+
+        function getTypes(n, msSegs, rSegs) {
+            var all  = msSegs.concat(rSegs);
+            var seen = {}, list = [];
+            var hasClosure = all.some(function (s) { return s.getAttribute('type') === 'textual-closure'; });
+            var fixed = FIXED_ORDER[n];
+            if (fixed) {
+                fixed.forEach(function (t) {
+                    if (!seen[t] && all.some(function (s) { return s.getAttribute('type') === t; })) {
+                        seen[t] = true; list.push(t);
+                    }
                 });
+                all.forEach(function (s) {
+                    var t = s.getAttribute('type');
+                    if (t && t !== 'textual-closure' && !seen[t]) { seen[t] = true; list.push(t); }
+                });
+            } else {
+                var master = (n === 1) ? rSegs : msSegs;
+                var other  = (n === 1) ? msSegs : rSegs;
+                master.forEach(function (s) {
+                    var t = s.getAttribute('type');
+                    if (t && t !== 'textual-closure' && !seen[t]) { seen[t] = true; list.push(t); }
+                });
+                other.forEach(function (s) {
+                    var t = s.getAttribute('type');
+                    if (t && t !== 'textual-closure' && !seen[t]) { seen[t] = true; list.push(t); }
+                });
+            }
+            if (hasClosure) list.push('textual-closure');
+            return list;
         }
-        
-        function loadBoth(unit) {
-            loadWitness('content-ms', 'wit.ms_XIII', unit);
-            loadWitness('content-renda', 'wit.renda_1581', unit);
+
+        function witnessData(witnessId, unitN) {
+            var texts  = Array.from(xmlDoc.getElementsByTagNameNS(TEI, 'text'));
+            var textEl = texts.find(function (t) { return getXmlId(t) === witnessId; });
+            if (!textEl) return { segs: [], notes: [], head: '' };
+            var divs    = Array.from(textEl.getElementsByTagNameNS(TEI, 'div'));
+            var unitDiv = divs.find(function (d) {
+                return d.getAttribute('type') === 'unit' && parseInt(d.getAttribute('n'), 10) === parseInt(unitN, 10);
+            });
+            if (!unitDiv) return { segs: [], notes: [], head: '' };
+            return {
+                segs:  Array.from(unitDiv.getElementsByTagNameNS(TEI, 'seg')).filter(function (s) { return !!s.getAttribute('type'); }),
+                notes: Array.from(unitDiv.getElementsByTagNameNS(TEI, 'note')).filter(function (n) { return n.getAttribute('place') === 'margin'; }),
+                head:  (unitDiv.getElementsByTagNameNS(TEI, 'head')[0] || { textContent: '' }).textContent.trim()
+            };
         }
-        
-        function updateUI(unit) {
-            var select = document.getElementById('unit-select');
-            if (select) select.value = unit;
-            var prev = document.getElementById('prev-unit');
-            var next = document.getElementById('next-unit');
-            if (prev) prev.disabled = parseInt(unit, 10) &lt;= MIN_UNIT;
-            if (next) next.disabled = parseInt(unit, 10) &gt;= MAX_UNIT;
+
+        window.synShowUnit = function (unitN) {
+            var nInt = parseInt(unitN, 10);
+            var nPad = String(nInt).padStart(2, '0');
+
+            var url = new URL(window.location.href);
+            url.searchParams.set('n', nPad);
+            history.replaceState({}, '', url);
+
+            var sel = document.getElementById('unit-sel');
+            if (sel) sel.value = nPad;
+            document.getElementById('btn-prev').disabled = nInt <= 1;
+            document.getElementById('btn-next').disabled = nInt >= 9;
+
+            var ms    = witnessData('wit.ms_XIII',    nPad);
+            var renda = witnessData('wit.renda_1581', nPad);
+
+            var unitTitle = (nInt === 1 && ms.head && renda.head)
+                ? ms.head + ' / ' + renda.head
+                : (ms.head || renda.head);
+
+            var html = '<div class="s-unit-head">'
+                     + '<span class="s-unit-n">Unità ' + esc(nPad) + '</span>'
+                     + (unitTitle ? '<b>' + esc(unitTitle) + '</b>' : '')
+                     + '</div>';
+
+            html += '<div class="s-unit-intro">' + esc(UNIT_INTROS[nInt] || 'Sinossi allineata: scheletro narrativo condiviso con mediazione editoriale.') + '</div>';
+
+            html += '<table class="s-syn-table"><tr>';
+            html += '<td class="s-col"><div class="s-col-title">MS (sec. XIII)</div>'
+                  + ms.notes.map(renderNote).join('') + '</td>';
+            html += '<td class="s-col"><div class="s-col-title">Renda (1581)</div>'
+                  + renda.notes.map(renderNote).join('') + '</td>';
+            html += '</tr></table>';
+
+            var types = getTypes(nInt, ms.segs, renda.segs);
+            html += '<table class="s-type-table">';
+            types.forEach(function (t) {
+                html += '<tr>'
+                      + '<td class="s-type-col">' + renderSegsOfType(ms.segs.filter(function(s){return s.getAttribute('type')===t;}), t) + '</td>'
+                      + '<td class="s-type-col">' + renderSegsOfType(renda.segs.filter(function(s){return s.getAttribute('type')===t;}), t) + '</td>'
+                      + '</tr>';
+            });
+            html += '</table>';
+
+            document.getElementById('unit-body').innerHTML = html;
+        };
+
+        window.synNavUnit = function (delta) {
+            var sel  = document.getElementById('unit-sel');
+            var cur  = sel ? parseInt(sel.value, 10) : 1;
+            var next = Math.max(1, Math.min(9, cur + delta));
+            window.synShowUnit(String(next).padStart(2, '0'));
+        };
+
+        async function init() {
+            try {
+                var results = await Promise.all([
+                    fetchXML(BASE + '/vita-guilielmi/vita-guilielmi.xml'),
+                    fetchXML(BASE + '/registers/persons.xml'),
+                    fetchXML(BASE + '/registers/places.xml')
+                ]);
+                xmlDoc = results[0];
+                buildMaps(results[1], results[2]);
+                document.getElementById('syn-loading').style.display = 'none';
+                document.getElementById('unit-body').style.display   = '';
+                var unit = new URLSearchParams(window.location.search).get('n') || '01';
+                window.synShowUnit(unit);
+            } catch (e) {
+                document.getElementById('syn-loading').innerHTML =
+                    '<span style="color:#dc2626">Errore nel caricamento: ' + esc(e.message) + '</span>';
+                console.error(e);
+            }
         }
-        
-        function goToUnit(unit) {
-            var url = new URL(window.location);
-            url.searchParams.set('n', unit);
-            window.history.pushState({}, '', url);
-            updateUI(unit);
-            loadBoth(unit);
-        }
-        
-        function navigateUnit(delta) {
-            var current = parseInt(currentUnit(), 10);
-            var target = current + delta;
-            if (target &lt; MIN_UNIT || target &gt; MAX_UNIT) return;
-            goToUnit(padUnit(target));
-        }
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            var unit = currentUnit();
-            updateUI(unit);
-            loadBoth(unit);
+
+        document.addEventListener('DOMContentLoaded', init);
+        window.addEventListener('popstate', function () {
+            var unit = new URLSearchParams(window.location.search).get('n') || '01';
+            window.synShowUnit(unit);
         });
-        
-        window.addEventListener('popstate', function() {
-            var unit = currentUnit();
-            updateUI(unit);
-            loadBoth(unit);
-        });
-    /*  */
-    </script>
+    }());
+    //]]></script>
 </template>
