@@ -25,9 +25,9 @@
       "name" : "target"
     } ]
   } ],
-  "profiles" : [ "base10", "registers", "toolbar-toggles", "metadata-panel", "theme-base10" ],
+  "profiles" : [ "base10", "registers", "toolbar-toggles", "metadata-panel", "theme-base10", "iiif" ],
   "shortname" : "metadata",
-  "_lastModified" : "2026-05-25T21:20:03.007Z",
+  "_lastModified" : "2026-05-27T16:53:23.241Z",
   "label" : "Vita Guilielmi – Digital Comparative Edition",
   "odds" : [ "teipublisher.odd", "vita-guilielmi.odd" ],
   "version" : "1.0.0",
@@ -193,6 +193,17 @@
       "description" : "auto",
       "enabled" : true
     },
+    "iiif" : {
+      "viewer" : "pb-facsimile",
+      "type" : "image",
+      "base_uri" : "http://localhost:8088/exist/apps/vita-guilielmi/vita-guilielmi/codex-facs/",
+      "milestone_xpath" : "//tei:pb",
+      "enabled" : true,
+      "replace_facs" : {
+        "regex" : "^[^:]+:(.*)",
+        "replace" : "$1"
+      }
+    },
     "toolbar" : {
       "zoom" : true,
       "navigation" : true,
@@ -249,7 +260,7 @@
   "description" : "",
   "_dry" : false,
   "source" : "/db/apps/jinks/profiles/theme-base10",
-  "type" : "theme",
+  "type" : "feature",
   "skip" : [ "^doc/.*$", "setup.xql", "config.json" ],
   "category" : "components",
   "_overwrite" : "quick",
@@ -275,7 +286,7 @@
     "register-root" : "registers"
   },
   "templating" : {
-    "use" : [ "templates/register-blocks.html", "templates/toggle-blocks.html", "templates/metadata-blocks.html" ],
+    "use" : [ "templates/register-blocks.html", "templates/toggle-blocks.html", "templates/metadata-blocks.html", "templates/iiif-blocks.html" ],
     "modules" : {
       "http://teipublisher.com/ns/templates/browse" : {
         "at" : "modules/templates/browse.xqm",
@@ -293,7 +304,7 @@
     "extra-components" : [ ],
     "cdn" : "https://cdn.jsdelivr.net/npm/@teipublisher/pb-components"
   },
-  "order" : 1,
+  "order" : 3,
   "$schema" : "../../schema/jinks.json",
   "i18n" : [ "registers" ],
   "api" : [ {
@@ -301,5 +312,10 @@
     "prefix" : "rview",
     "id" : "http://teipublisher.com/api/registers/view",
     "path" : "registers-api.xql"
+  }, {
+    "spec" : "iiif-api.json",
+    "prefix" : "iiif",
+    "id" : "https://e-editiones.org/api/iiif",
+    "path" : "iiif-api.xql"
   } ]
 }

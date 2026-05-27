@@ -29,23 +29,21 @@
         <div id="print-loading" style="padding:2rem;text-align:center;color:#6b7280">Loading…</div>
 
         <div id="facs-lightbox" onclick="closeLightbox()">
-            <button id="facs-lightbox-close" onclick="closeLightbox()">&#x2715;</button>
+            <button id="facs-lightbox-close" onclick="closeLightbox()">✕</button>
             <img id="facs-lightbox-img" src="" alt="Facsimile fullscreen" onclick="event.stopPropagation()"/>
         </div>
 
         <div class="print-grid" id="print-grid" style="display:none">
             <section class="print-text-pane">
                 <div class="s-col-title">Renda (1581)</div>
-                <div id="print-body"></div>
+                <div id="print-body"/>
             </section>
 
             <section class="print-facs-pane">
                 <div class="s-col-title">Facsimile</div>
-                <div id="facs-pills"></div>
+                <div id="facs-pills"/>
                 <div id="facs-viewer">
-                    <img id="facs-img" src="" alt="Facsimile page"
-                         onclick="openLightbox(this.src)"
-                         style="max-width:100%; height:auto; display:block; cursor:zoom-in;"/>
+                    <img id="facs-img" src="" alt="Facsimile page" onclick="openLightbox(this.src)" style="max-width:100%; height:auto; display:block; cursor:zoom-in;"/>
                 </div>
             </section>
         </div>
@@ -147,7 +145,7 @@
         #facs-lightbox-close:hover { color:#d1d5db }
     </style>
 
-    <script>//<![CDATA[
+    <script>//
     (function () {
         'use strict';
         var TEI    = 'http://www.tei-c.org/ns/1.0';
@@ -195,15 +193,15 @@
             var container = document.getElementById('facs-pills');
             if (!pages || !pages.length) { container.innerHTML = ''; return; }
             container.innerHTML = pages.map(function (p) {
-                return '<button class="facs-pill" data-page="' + esc(p) + '" onclick="showFacsPage(\'' + esc(p) + '\')">' + esc(p) + '</button>';
+                return '&lt;button class="facs-pill" data-page="' + esc(p) + '" onclick="showFacsPage(\'' + esc(p) + '\')"&gt;' + esc(p) + '&lt;/button&gt;';
             }).join('');
         }
 
         function esc(s) {
             if (s == null) return '';
             return String(s)
-                .replace(/&/g, '&amp;').replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+                .replace(/&amp;/g, '&amp;amp;').replace(/&lt;/g, '&amp;lt;')
+                .replace(/&gt;/g, '&amp;gt;').replace(/"/g, '&amp;quot;');
         }
         function getXmlId(el) {
             return el.getAttributeNS(XML_NS, 'id') || el.getAttribute('xml:id') || '';
@@ -244,21 +242,21 @@
                         var cls     = local === 'persName' ? 'person' : 'place';
                         var refMap  = local === 'persName' ? personMap : placeMap;
                         var section = local === 'persName' ? 'people' : 'places';
-                        if (kid && refMap[kid]) {
-                            html += '<a class="ent ' + cls + '" href="' + APP + '/' + section + '/' + esc(kid) + '" target="_blank">' + inner + '</a>';
+                        if (kid &amp;&amp; refMap[kid]) {
+                            html += '&lt;a class="ent ' + cls + '" href="' + APP + '/' + section + '/' + esc(kid) + '" target="_blank"&gt;' + inner + '&lt;/a&gt;';
                         } else {
                             html += inner;
                         }
                     } else if (local === 'gap') {
                         var reason = child.getAttribute('reason') || '';
                         var gn     = child.getAttribute('n') || '';
-                        html += '<span class="s-gap">[gap'
+                        html += '&lt;span class="s-gap"&gt;[gap'
                               + (reason ? ': ' + reason : '')
-                              + (gn ? ', ' + gn : '') + ']</span>';
+                              + (gn ? ', ' + gn : '') + ']&lt;/span&gt;';
                     } else if (local === 'pb') {
-                        html += '<span class="s-pb"><sup>' + esc(child.getAttribute('n') || '▮') + '</sup></span>';
+                        html += '&lt;span class="s-pb"&gt;&lt;sup&gt;' + esc(child.getAttribute('n') || '▮') + '&lt;/sup&gt;&lt;/span&gt;';
                     } else if (local === 'lb') {
-                        html += '<br/>';
+                        html += '&lt;br/&gt;';
                     } else {
                         html += renderContent(child);
                     }
@@ -269,9 +267,9 @@
 
         function renderNote(noteEl) {
             var target = noteEl.getAttribute('target') || '';
-            return '<div class="s-note-margin"' + (target ? ' title="targets: ' + esc(target) + '"' : '') + '>'
-                 + '<span class="s-note-label">margin</span>'
-                 + renderContent(noteEl) + '</div>';
+            return '&lt;div class="s-note-margin"' + (target ? ' title="targets: ' + esc(target) + '"' : '') + '&gt;'
+                 + '&lt;span class="s-note-label"&gt;margin&lt;/span&gt;'
+                 + renderContent(noteEl) + '&lt;/div&gt;';
         }
 
         var UNIT_INTROS = {
@@ -293,15 +291,15 @@
             var texts  = Array.from(xmlDoc.getElementsByTagNameNS(TEI, 'text'));
             var textEl = texts.find(function (t) { return getXmlId(t) === 'wit.renda_1581'; });
             if (!textEl) {
-                document.getElementById('print-body').innerHTML = '<p style="color:#dc2626">Witness wit.renda_1581 not found in XML.</p>';
+                document.getElementById('print-body').innerHTML = '&lt;p style="color:#dc2626"&gt;Witness wit.renda_1581 not found in XML.&lt;/p&gt;';
                 return;
             }
             var divs    = Array.from(textEl.getElementsByTagNameNS(TEI, 'div'));
             var unitDiv = divs.find(function (d) {
-                return d.getAttribute('type') === 'unit' && parseInt(d.getAttribute('n'), 10) === nInt;
+                return d.getAttribute('type') === 'unit' &amp;&amp; parseInt(d.getAttribute('n'), 10) === nInt;
             });
             if (!unitDiv) {
-                document.getElementById('print-body').innerHTML = '<div class="s-missing">Unit ' + nPad + ' not found.</div>';
+                document.getElementById('print-body').innerHTML = '&lt;div class="s-missing"&gt;Unit ' + nPad + ' not found.&lt;/div&gt;';
                 return;
             }
 
@@ -313,24 +311,24 @@
                 return !!s.getAttribute('type');
             });
 
-            var html = '<div class="s-unit-head">'
-                     + '<span class="s-unit-n">Unit ' + esc(nPad) + '</span>'
-                     + (head ? '<b>' + esc(head) + '</b>' : '')
-                     + '</div>';
+            var html = '&lt;div class="s-unit-head"&gt;'
+                     + '&lt;span class="s-unit-n"&gt;Unit ' + esc(nPad) + '&lt;/span&gt;'
+                     + (head ? '&lt;b&gt;' + esc(head) + '&lt;/b&gt;' : '')
+                     + '&lt;/div&gt;';
 
-            html += '<div class="s-unit-intro">' + esc(UNIT_INTROS[nInt] || '') + '</div>';
+            html += '&lt;div class="s-unit-intro"&gt;' + esc(UNIT_INTROS[nInt] || '') + '&lt;/div&gt;';
 
             notes.forEach(function (n) { html += renderNote(n); });
 
             if (!segs.length) {
-                html += '<div class="s-missing">No segments found for this unit.</div>';
+                html += '&lt;div class="s-missing"&gt;No segments found for this unit.&lt;/div&gt;';
             } else {
                 segs.forEach(function (seg) {
                     var type = seg.getAttribute('type') || '';
-                    html += '<div class="seg ' + SEG_CLASS(type) + '">'
-                          + '<span class="s-seg-type">' + esc(type) + '</span> '
+                    html += '&lt;div class="seg ' + SEG_CLASS(type) + '"&gt;'
+                          + '&lt;span class="s-seg-type"&gt;' + esc(type) + '&lt;/span&gt; '
                           + renderContent(seg)
-                          + '</div>';
+                          + '&lt;/div&gt;';
                 });
             }
 
@@ -352,8 +350,8 @@
             if (select) select.value = unit;
             var prev = document.getElementById('prev-unit');
             var next = document.getElementById('next-unit');
-            if (prev) prev.disabled = parseInt(unit, 10) <= MIN_UNIT;
-            if (next) next.disabled = parseInt(unit, 10) >= MAX_UNIT;
+            if (prev) prev.disabled = parseInt(unit, 10) &lt;= MIN_UNIT;
+            if (next) next.disabled = parseInt(unit, 10) &gt;= MAX_UNIT;
         }
 
         window.goToUnit = function (unit) {
@@ -367,7 +365,7 @@
         window.navigateUnit = function (delta) {
             var current = parseInt(currentUnit(), 10);
             var target  = current + delta;
-            if (target < MIN_UNIT || target > MAX_UNIT) return;
+            if (target &lt; MIN_UNIT || target &gt; MAX_UNIT) return;
             goToUnit(padUnit(target));
         };
 
@@ -387,7 +385,7 @@
                 loadUnit(unit);
             } catch (e) {
                 document.getElementById('print-loading').innerHTML =
-                    '<span style="color:#dc2626">Error loading data: ' + esc(e.message) + '</span>';
+                    '&lt;span style="color:#dc2626"&gt;Error loading data: ' + esc(e.message) + '&lt;/span&gt;';
                 console.error(e);
             }
         }
@@ -399,5 +397,5 @@
             loadUnit(unit);
         });
     }());
-    //]]></script>
+    //</script>
 </template>

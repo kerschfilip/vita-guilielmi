@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 200" role="img" aria-labelledby="title desc">
   <title id="title">Vita Guilielmi logo (white text)</title>
   <desc id="desc">A horizontal logo with a haloed standing figure in red and green robes holding a staff on the left, and the words Vita Guilielmi set in italic serif type to the right in white, on a transparent background. Designed for dark backgrounds.</desc>
@@ -9,8 +10,7 @@
   <circle cx="100" cy="55" r="26" fill="none" stroke="#a8341c" stroke-width="1"/>
 
   <!-- Head/hood (green cap) -->
-  <path d="M 78 48 Q 78 28 100 28 Q 122 28 122 48 L 122 60 L 78 60 Z"
-        fill="#2d6b3f" stroke="#1a4527" stroke-width="1.2"/>
+  <path d="M 78 48 Q 78 28 100 28 Q 122 28 122 48 L 122 60 L 78 60 Z" fill="#2d6b3f" stroke="#1a4527" stroke-width="1.2"/>
 
   <!-- Face -->
   <ellipse cx="100" cy="62" rx="14" ry="17" fill="#e6c4a0" stroke="#8a5a3a" stroke-width="1"/>
@@ -23,16 +23,13 @@
   <path d="M 96 72 Q 100 74 104 72" fill="none" stroke="#7a2a1a" stroke-width="0.8"/>
 
   <!-- Beard -->
-  <path d="M 88 72 Q 100 84 112 72 Q 112 82 100 86 Q 88 82 88 72 Z"
-        fill="#8a5a3a" opacity="0.7"/>
+  <path d="M 88 72 Q 100 84 112 72 Q 112 82 100 86 Q 88 82 88 72 Z" fill="#8a5a3a" opacity="0.7"/>
 
   <!-- Red outer robe -->
-  <path d="M 70 82 L 70 178 Q 70 184 76 184 L 124 184 Q 130 184 130 178 L 130 82 Q 130 80 126 80 L 74 80 Q 70 80 70 82 Z"
-        fill="#b8341c" stroke="#6b1810" stroke-width="1.5"/>
+  <path d="M 70 82 L 70 178 Q 70 184 76 184 L 124 184 Q 130 184 130 178 L 130 82 Q 130 80 126 80 L 74 80 Q 70 80 70 82 Z" fill="#b8341c" stroke="#6b1810" stroke-width="1.5"/>
 
   <!-- Green inner tunic -->
-  <path d="M 86 84 L 86 184 L 114 184 L 114 84 Q 114 82 110 82 L 90 82 Q 86 82 86 84 Z"
-        fill="#2d6b3f" stroke="#1a4527" stroke-width="1"/>
+  <path d="M 86 84 L 86 184 L 114 184 L 114 84 Q 114 82 110 82 L 90 82 Q 86 82 86 84 Z" fill="#2d6b3f" stroke="#1a4527" stroke-width="1"/>
 
   <!-- Cross on chest -->
   <rect x="98.5" y="104" width="3" height="14" fill="#e8c662" stroke="#5a3a08" stroke-width="0.4"/>

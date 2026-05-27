@@ -11,6 +11,8 @@
         <div id="custom"/>
         
         <div id="rview"/>
+         
+        <div id="iiif"/>
         
         <script>
             window.onload = function() {
@@ -27,6 +29,15 @@
                 SwaggerUIBundle({
                     url: "modules/registers-api.json",
                     dom_id: '#rview',
+                    displayOperationId: true,
+                    displayRequestDuration: true,
+                    showExtensions: true,
+                    withCredentials: true
+                });
+                 
+                SwaggerUIBundle({
+                    url: "modules/iiif-api.json",
+                    dom_id: '#iiif',
                     displayOperationId: true,
                     displayRequestDuration: true,
                     showExtensions: true,
