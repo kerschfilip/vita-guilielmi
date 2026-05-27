@@ -2,9 +2,24 @@
 <nav class="menubar">
     <ul>
         <li class="logo">
-            <a href="[[ head(($context?defaults?site-root, $context-path)) ]]"/>
+            <a href="[[ $context-path ]]/"/>
         </li>
-        [% for $item in $menu?items?* %]
+        <li class="hidden-mobile">
+            <a href="[[ $context-path ]]/vita-guilielmi/vita-guilielmi.xml?n=01">
+                <pb-i18n key="menu.comparative-view">Comparative view</pb-i18n>
+            </a>
+        </li>
+        <li class="hidden-mobile">
+            <a href="[[ $context-path ]]/pages/manuscript.html">
+                <pb-i18n key="menu.manuscript">Manuscript</pb-i18n>
+            </a>
+        </li>
+        <li class="hidden-mobile">
+            <a href="[[ $context-path ]]/pages/print.html">
+                <pb-i18n key="menu.print">Print</pb-i18n>
+            </a>
+        </li>
+        [% for $item in filter($menu?items?*, function($i) { $i?id != 'Start' }) %]
         [% if $item?url or $item?url = ''%]
         [% let $url = if (starts-with($item?url, 'http')) then $item?url else $context-path || '/' || $item?url %]
         <li class="hidden-mobile">
@@ -116,16 +131,6 @@
             </pb-restricted>
         </li>
         [% block menu.left %]
-        <li class="hidden-mobile">
-            <a href="[[ $context-path ]]/pages/manuscript.html">
-                <pb-i18n key="menu.manuscript">Manuscript</pb-i18n>
-            </a>
-        </li>
-        <li class="hidden-mobile">
-            <a href="[[ $context-path ]]/pages/print.html">
-                <pb-i18n key="menu.print">Print</pb-i18n>
-            </a>
-        </li>
         [% endblock %]
     </ul>
     <ul>
