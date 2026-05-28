@@ -23,25 +23,30 @@
 
             <div class="about-section">
                 <h2>About the edition</h2>
-                <p>The <em>Vita et obitus sancti Guilielmi</em> is a hagiographic text dedicated to
-                    Saint William of Montevergine (c. 1085–1142), founder of the Montevergine Abbey
-                    in Campania. This digital comparative edition presents two witnesses side by
-                    side: a 13th-century Beneventan manuscript from the Abbey of Montevergine
-                    (295×205 mm, 109 leaves, Beneventan and Gothic minuscule scripts), and the first
-                    printed edition (<em>editio princeps</em>) prepared by Felice Renda in 1581. The
-                    edition was developed as part of the ANTIDOTE doctoral training network
-                    (Bratislava, May 2026).</p>
-                <p>The two witnesses share a common unit structure corresponding to meaningful
-                    narrative sections — prologue, miracle episodes, ascetic episodes, and the
-                    foundation narrative of Monte Virgiliano. Within each unit, textual segments are
-                    annotated with rhetorical and narrative types (authorial stance, miracle events,
-                    institutional display, and more), enabling systematic comparison of how the two
-                    traditions frame, expand, and reinterpret the same hagiographic core. The edition
-                    also provides indexes of the persons and places mentioned across both witnesses,
-                    linked to the text passages where they appear.</p>
+                <p><em>Vita et obitus sancti Guilielmi</em> is a hagiographic text dedicated to
+                    Saint William of Montevergine (c. 1085–1142), founder of the Abbey of
+                    Montevergine in Campania. This digital comparative edition presents two witnesses
+                    side by side: a thirteenth-century Beneventan manuscript preserved in
+                    Montevergine Codex 1 (295 × 205 mm, 109 folios, Beneventan and Gothic scripts)
+                    and the 1581 <em>editio princeps</em> prepared by Felice Renda. The project was
+                    developed within the ANTIDOTE doctoral training network (Bratislava, May
+                    2026).</p>
+                <p>The edition is organized around selected narrative units, including prologues,
+                    miracle narratives, ascetic episodes, and the foundation narrative of Monte
+                    Virgiliano. Rather than comparing the entire 1581 volume, the project focuses on
+                    passages directly related to the <em>Vita</em> and its transformation from
+                    manuscript to print.</p>
+                <p>Within each unit, textual segments are annotated according to rhetorical and
+                    narrative categories, such as authorial stance, miracle discourse, institutional
+                    display, and devotional amplification. The synoptic alignment highlights
+                    omissions, interpolations, structural reorganizations, and shifts in narrative
+                    emphasis introduced by the printed edition.</p>
+                <p>Both witnesses were transcribed according to normalized editorial criteria
+                    designed to preserve philologically significant features while enabling
+                    computational comparison.</p>
             </div>
 
-            <div class="about-cards">
+             <div class="about-cards">
                 <a class="about-card" href="[[ $context-path ]]/vita-guilielmi/vita-guilielmi.xml?n=01">
                     <h3>Comparative view</h3>
                     <p>Both witnesses side by side, navigable by unit. Segments colour-coded by
@@ -61,6 +66,51 @@
                     <span class="about-card-link">Open →</span>
                 </a>
             </div>
+
+            <div class="about-section">
+                <h2>Digital Workflow</h2>
+                <p>The project was developed through a TEI-XML based workflow aimed at transforming
+                    manuscript and printed witnesses into structured, interoperable, and navigable
+                    textual data.</p>
+                <p>The digital interface was implemented using TEI Publisher. HTML rendering, reading
+                    modes, and interface behaviour are generated through TEI Publisher configurations
+                    and customized through the project's ODD specification and CSS stylesheets.</p>
+                <p>The platform integrates:</p>
+                <ul class="about-list">
+                    <li>a synoptic comparative architecture;</li>
+                    <li>authority files for persons and places;</li>
+                    <li>linked indexes of named entities;</li>
+                    <li>interactive navigation between textual occurrences;</li>
+                    <li>a geographical map connecting narrative references to historical
+                        locations.</li>
+                </ul>
+            </div>
+
+            <div class="about-section">
+                <h2>Manuscript Processing and HTR</h2>
+                <p>The Beneventan manuscript witness was processed in eScriptorium through a
+                    dedicated Handwritten Text Recognition (HTR) workflow. Since no pre-existing
+                    recognition model was available for Beneventan script, a custom model was
+                    trained specifically for this project using Kraken/PyLaia-based tools.</p>
+                <p>The workflow combined manual transcription, ground truth creation, layout
+                    correction, and iterative fine-tuning of the recognition model. Detailed
+                    technical procedures and evaluation data are discussed in the accompanying
+                    thesis, available in the Resources section.</p>
+            </div>
+
+            <div class="about-section">
+                <h2>Resources</h2>
+                <p><a class="about-res-link" href="#">Download thesis PDF</a></p>
+                <p><a class="about-res-link" href="#">GitHub repository</a></p>
+                <p>Tools used:</p>
+                <ul class="about-list">
+                    <li>TEI Publisher</li>
+                    <li>eXist-db</li>
+                    <li>eScriptorium</li>
+                </ul>
+            </div>
+
+           
 
             <div class="about-section">
                 <h2>Team</h2>
@@ -114,6 +164,10 @@
             margin-bottom:1rem;
         }
         .about-section p { color:#374151; margin:.6rem 0 }
+        .about-list { margin:.4rem 0 0 1.2rem; padding:0; color:#374151 }
+        .about-list li { margin:.3rem 0; font-size:.95rem }
+        .about-res-link { color:#2563eb; font-weight:600; text-decoration:none; font-size:.95rem }
+        .about-res-link:hover { text-decoration:underline }
 
         .about-cards {
             display:grid; grid-template-columns:repeat(3,1fr);
