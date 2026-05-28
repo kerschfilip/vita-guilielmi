@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<script src="https://cdn.jsdelivr.net/gh/silencesys/dh--manu-web-component/manu-viewer.js"/>
 <template>
     ---json
     {
@@ -43,7 +44,12 @@
                 <div class="s-col-title">Facsimile</div>
                 <div id="facs-pills"/>
                 <div id="facs-viewer">
-                    <img id="facs-img" src="" alt="Facsimile page" onclick="openLightbox(this.src)" style="max-width:100%; height:auto; display:block; cursor:zoom-in;"/>
+                    <manu-viewer id="manu-view"
+                        height="600"
+                        hide-open-in-manu
+                        hide-user-login
+                        hide-manu-title>
+                    </manu-viewer>
                 </div>
             </section>
         </div>
@@ -183,11 +189,12 @@
         });
 
         window.showFacsPage = function showFacsPage(filename) {
-            document.getElementById('facs-img').src = FACS_BASE + filename + '.jpg';
+            var viewer = document.getElementById('manu-view');
+            viewer.setView({ manifest: IIIF_MANIFEST, page: filename });
             Array.from(document.querySelectorAll('.facs-pill')).forEach(function (pill) {
                 pill.classList.toggle('active', pill.dataset.page === filename);
             });
-        }
+        };
 
         function renderFacsPills(pages) {
             var container = document.getElementById('facs-pills');
