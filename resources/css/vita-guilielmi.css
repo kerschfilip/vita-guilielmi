@@ -13,3 +13,9 @@ a.place-ref:hover  { text-decoration: underline; }
 .seg-speech         { background-color: #caffbf; padding: 0 .15em; border-radius: 3px; margin-bottom: 20px; display: block; }
 .seg-conflict       { background-color: #ffadad; padding: 0 .15em; border-radius: 3px; margin-bottom: 20px; display: block; }
 .seg-narrative      { background-color: #e0e0e0; padding: 0 .15em; border-radius: 3px; margin-bottom: 20px; display: block; }
+
+/* Compact teiHeader rendering in the metadata-panel sidebar */
+.tei-fileDesc { font-size: .78rem !important; line-height: 1.5; }
+.tei-fileDesc h1, .tei-fileDesc h2, .tei-fileDesc h3,
+.tei-fileDesc h4, .tei-fileDesc h5, .tei-fileDesc h6 { font-size: .85rem !important; font-weight: 600; margin: .3rem 0 .1rem; }
+.tei-sourceDesc { display: none; }
