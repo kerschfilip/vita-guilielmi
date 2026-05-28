@@ -28,12 +28,7 @@
 
         <div id="manuscript-loading" style="padding:2rem;text-align:center;color:#6b7280">Loading…</div>
 
-        <div id="facs-lightbox" onclick="closeLightbox()">
-            <button id="facs-lightbox-close" onclick="closeLightbox()">✕</button>
-            <img id="facs-lightbox-img" src="" alt="Facsimile fullscreen" onclick="event.stopPropagation()"/>
-        </div>
-
-        <div class="manuscript-grid" id="manuscript-grid" style="display:none">
+<div class="manuscript-grid" id="manuscript-grid" style="display:none">
             <section class="manuscript-text-pane">
                 <div class="s-col-title">MS (sec. XIII)</div>
                 <div id="manuscript-body"/>
@@ -133,21 +128,6 @@
         .facs-pill:hover { border-color:#9ca3af; background:#e5e7eb }
         .facs-pill.active { background:#374151; color:#fff; border-color:#374151 }
 
-        #facs-lightbox {
-            display:none; position:fixed; inset:0; z-index:9999;
-            background:rgba(0,0,0,.85); align-items:center; justify-content:center;
-        }
-        #facs-lightbox.open { display:flex }
-        #facs-lightbox img {
-            max-width:90vw; max-height:90vh; object-fit:contain;
-            border-radius:4px; box-shadow:0 8px 32px rgba(0,0,0,.6);
-        }
-        #facs-lightbox-close {
-            position:absolute; top:1rem; right:1.2rem;
-            font-size:2rem; line-height:1; color:#fff; cursor:pointer;
-            background:none; border:none; padding:0;
-        }
-        #facs-lightbox-close:hover { color:#d1d5db }
     </style>
 
     <script>//
@@ -161,7 +141,7 @@
         var MIN_UNIT = 1, MAX_UNIT = 9;
         var xmlDoc, personMap = {}, placeMap = {};
 
-        var IIIF_MANIFEST = 'https://raw.githubusercontent.com/kerschfilip/vita-guilielmi/facsimile/data/vita-guilielmi/manuscript-facs/manifest.json';
+        var IIIF_MANIFEST = 'https://raw.githubusercontent.com/kerschfilip/vita-guilielmi/refs/heads/manu/data/vita-guilielmi/manuscript-facs/manifest.json';
 
         /* Unit 01 is confirmed; 02-09 are placeholders — fill in the correct filenames. */
         var UNIT_PAGES = {
@@ -176,18 +156,7 @@
             '09': ['025', '026', '027']
         };
 
-        window.openLightbox = function (src) {
-            document.getElementById('facs-lightbox-img').src = src;
-            document.getElementById('facs-lightbox').classList.add('open');
-        };
-        window.closeLightbox = function () {
-            document.getElementById('facs-lightbox').classList.remove('open');
-        };
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') closeLightbox();
-        });
-
-        window.showFacsPage = function showFacsPage(filename) {
+window.showFacsPage = function showFacsPage(filename) {
             var viewer = document.getElementById('manu-view');
             viewer.setView({ manifest: IIIF_MANIFEST, page: filename });
             Array.from(document.querySelectorAll('.facs-pill')).forEach(function (pill) {
