@@ -21,6 +21,10 @@ import module namespace deploy="https://teipublisher.org/api/deploy" at "api/dep
 
 import module namespace rview="http://teipublisher.com/api/registers/view" at "../registers-api.xql";
 
+ 
+
+import module namespace iiif="https://e-editiones.org/api/iiif" at "../iiif-api.xql";
+
 
 
 declare option output:indent "no";
@@ -35,6 +39,10 @@ let $lookup := function($name as xs:string) {
 let $resp := roaster:route(
     (
         
+        
+        "modules/iiif-api.json",
+        
+         
         
         "modules/registers-api.json",
         

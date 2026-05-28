@@ -37,7 +37,11 @@
     "register-details": {
         "document-list": "Documents",
         "people": "People",
-        "places": "Places"
+        "places": "Places",
+        "about": "About",
+        "comparative-view": "Comparative view",
+        "manuscript": "Manuscript",
+        "print": "Print"
     },
     "odd": {
         "licence": "Licence",

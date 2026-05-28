@@ -1,5 +1,5 @@
 {
-  "modules/lib/api.xql" : "00f8da0c250f1e55191ea56a9d9d12e426c7d388aa65b21ff2159f558f1930ac",
+  "modules/lib/api.xql" : "bab7a106c962639d944854d061751a7af5aa18644626336f9eaf1ef9f6b7c9c5",
   "resources/fonts/inter-v19-latin_latin-ext-500italic.woff2" : "b36a2ba5a967404ed49def322603e8ee34dee356cd0e1d0faeaeb12da0d653bb",
   "modules/lib/epub.xql" : "8e809497ef34e7372c06898fa75a2adc9f0e1185d8cc70b81d515a3a8d1bd7dc",
   "resources/css/jinks-theme.css" : "f9bbc32141e8f3b1f80cce46796cce2c96cff633eeceba519da611207f2dc7ab",
@@ -137,7 +137,7 @@
   "data/registers/persons.xml" : "4c2f9b8cfafbdd474f95388e24d512ec530e7ed95a61a29836e5d73f5d9e13f1",
   "data/registers/bibliography.xml" : "55121db31f407560a4f807055cf5b126926717485cc175f62b2c0650dcf9afc7",
   "resources/css/pico-ext.css" : "3cc10efd886f4244be5cf5c81532abe1b3a0d1866b6aed4365209a42f5ccad38",
-  "templates/api.html" : "722f7e85f121e1d1da2aa9cd2911eca2474ffc044ce7b950d0416e9f5d12789f",
+  "templates/api.html" : "16d61383ca40bc962bf49b850e015c0e809e8cc400cd44c2233b6d0fae55a4f2",
   "modules/query-db.xql" : "21b99f06c5de0f8e7f557953d2832b30158b363b42e755168da7fc3bcc4bf54f",
   "static/templates/person.html" : "c1c4772a09b44bd4d86f479a9fa76818d0022ead4097a8e1e956cbafbf761d5e",
   "data/registers/templates/person-default.xml" : "9981522257159c7b49c48a73fec8fb6e8118e5111d2e5bfb5f70b580e8d1ccac",

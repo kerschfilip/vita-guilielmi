@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+    ---json
+    {
+        "templating": {
+            "extends": "templates/layouts/content.html"
+        }
+    }
+    ---
+
+    <main class="print-page">
+
+        <nav class="unit-nav">
+            <button id="prev-unit" onclick="navigateUnit(-1)">← Prev.</button>
+            <select id="unit-select" onchange="goToUnit(this.value)">
+                <option value="01">Unit 01 — Prologus / Praefatio</option>
+                <option value="02">Unit 02 — Incipit &amp; pueritia</option>
+                <option value="03">Unit 03 — Peregrinatio &amp; faber</option>
+                <option value="04">Unit 04 — Circuli ferrei</option>
+                <option value="05">Unit 05 — Miraculum caeci</option>
+                <option value="06">Unit 06 — Vocatio &amp; ignis</option>
+                <option value="07">Unit 07 — Lorica &amp; cophia</option>
+                <option value="08">Unit 08 — Fons &amp; ursus</option>
+                <option value="09">Unit 09 — Edificatio ecclesiae</option>
+            </select>
+            <button id="next-unit" onclick="navigateUnit(1)">Next →</button>
+        </nav>
+
+        <div id="print-loading" style="padding:2rem;text-align:center;color:#6b7280">Loading…</div>
+
+        <div id="facs-lightbox" onclick="closeLightbox()">
+            <button id="facs-lightbox-close" onclick="closeLightbox()">✕</button>
+            <img id="facs-lightbox-img" src="" alt="Facsimile fullscreen" onclick="event.stopPropagation()"/>
+        </div>
+
+        <div class="print-grid" id="print-grid" style="display:none">
+            <section class="print-text-pane">
+                <div class="s-col-title">Renda (1581)</div>
+                <div id="print-body"/>
+            </section>
+
+            <section class="print-facs-pane">
+                <div class="s-col-title">Facsimile</div>
+                <div id="facs-pills"/>
+                <div id="facs-viewer">
+                    <img id="facs-img" src="" alt="Facsimile page" onclick="openLightbox(this.src)" style="max-width:100%; height:auto; display:block; cursor:zoom-in;"/>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <style>
+        .unit-nav {
+            display:flex; justify-content:center; align-items:center;
+            gap:1rem; padding:1rem;
+            background:#f5f5f5; border-bottom:1px solid #ddd;
+        }
+        .unit-nav button {
+            padding:.4rem .8rem; background:white;
+            border:1px solid #999; border-radius:4px; cursor:pointer;
+        }
+        .unit-nav button:disabled { opacity:.4; cursor:not-allowed; }
+        .unit-nav select { padding:.4rem; min-width:280px; }
+
+        .print-page { color:#111827; line-height:1.4; padding:0 1.5rem }
+        .print-page a { color:#2563eb; text-decoration:none }
+        .print-page a:hover { text-decoration:underline }
+
+        .print-grid {
+            display:grid; grid-template-columns:3fr 7fr;
+            gap:2rem; padding:1.5rem;
+            max-width:1600px; margin:0 auto;
+        }
+        .print-text-pane {
+            border-left:3px solid #9ca3af; padding-left:1rem; min-width:0;
+        }
+        .print-facs-pane {
+            border-left:3px solid #c8a96e; padding-left:1rem; min-width:0;
+        }
+        .s-col-title { margin:0 0 8px 0; font-weight:700; color:#111827; font-size:.95rem }
+        #facs-viewer { overflow:auto }
+
+        .s-unit-head { margin-bottom:10px; padding:10px 0 }
+        .s-unit-n    { display:inline-block; padding:2px 8px; border:1px solid #d1d5db; border-radius:999px; background:#f3f4f6; font-size:.88rem; margin-right:6px }
+        .s-unit-intro { padding:8px 12px; background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; color:#1e3a8a; font-size:.93rem; margin:8px 0 12px }
+
+        .seg { display:block; padding:6px 8px; margin:6px 0; border-left:4px solid #9ca3af; border-radius:10px; background:#fff; font-size:.92rem }
+        .t-authorial-stance                                          { border-left-color:#60a5fa; background:#eff6ff }
+        .t-authorial-fear                                            { border-left-color:#f87171; background:#fef2f2 }
+        .t-purpose-writing,.t-mandate-writing,.t-burden-writing,
+        .t-saint-representation,.t-moral-diagnosis,
+        .t-moral-certification                                       { border-left-color:#16a34a; background:#f0fdf4 }
+        .t-miracle-event,.t-miracle-status,.t-miracle-response,
+        .t-miracle-builder,.t-miracle-mute,.t-miracle-wolf          { border-left-color:#f59e0b; background:#fffbeb }
+        .t-ascetic-practice,.t-ascetic-defense,.t-ascetic-crisis,
+        .t-humility-defense,.t-penitential-limit,.t-lorica-intent,
+        .t-lorica-acquisition,.t-lorica-secrecy,.t-cophia-acquisition,
+        .t-cophia-secrecy,.t-habit-assumptio,.t-interior-discipline,
+        .t-patience-limit,.t-active-sanctity,.t-rational-detachment,
+        .t-hospitality-ritual,.t-technical-description               { border-left-color:#d97706; background:#fffbeb }
+        .t-institutional-display,.t-institutional-legitimation,
+        .t-political-legitimation,.t-liturgical-integration          { border-left-color:#34d399; background:#ecfdf5 }
+        .t-foundation,.t-dedication-frame,.t-completion-and-supply,
+        .t-post-dedication-building,.t-exemptio,.t-nobilitas-topos,
+        .t-offerings,.t-dispensatio                                  { border-left-color:#ea580c; background:#fff7ed }
+        .t-speech,.t-pastoral-argument,.t-spiritual-dialogue,
+        .t-holy-rebuke                                               { border-left-color:#2563eb; background:#eff6ff }
+        .t-escalation,.t-accusation,.t-presbyters-request,
+        .t-fear-of-poverty,.t-conflict                               { border-left-color:#ef4444; background:#fef2f2 }
+        .t-departure                                                 { border-left-color:#6b7280; background:#f3f4f6 }
+
+        .s-seg-type { display:inline-block; font-size:.72em; padding:1px 5px; border:1px solid #d1d5db; border-radius:999px; background:#f9fafb; color:#374151; margin-right:4px }
+        .s-note-margin { display:block; padding:5px 8px; margin:5px 0; border-left:4px solid #a78bfa; border-radius:8px; background:#f5f3ff; font-size:.87em; color:#374151; font-style:italic }
+        .s-note-label  { display:inline-block; font-size:.72em; padding:1px 5px; border:1px solid #c4b5fd; border-radius:999px; background:#fff; color:#5b21b6; margin-right:5px }
+        .s-missing { color:#9ca3af; font-style:italic; padding:5px 8px }
+        .ent        { padding:1px 4px; border-radius:5px; border:1px solid #e5e7eb; background:#f9fafb }
+        .ent.person { border-color:#bfdbfe; background:#eff6ff }
+        .ent.place  { border-color:#bbf7d0; background:#ecfdf5 }
+        .s-gap { font-style:italic; color:#6b7280; padding:0 3px }
+        .s-pb  { color:#6b7280 }
+
+        #facs-pills { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px }
+        .facs-pill {
+            padding:2px 10px; border:1px solid #d1d5db; border-radius:999px;
+            background:#f3f4f6; color:#374151; font-size:.82rem; cursor:pointer;
+        }
+        .facs-pill:hover { border-color:#9ca3af; background:#e5e7eb }
+        .facs-pill.active { background:#374151; color:#fff; border-color:#374151 }
+
+        #facs-lightbox {
+            display:none; position:fixed; inset:0; z-index:9999;
+            background:rgba(0,0,0,.85); align-items:center; justify-content:center;
+        }
+        #facs-lightbox.open { display:flex }
+        #facs-lightbox img {
+            max-width:90vw; max-height:90vh; object-fit:contain;
+            border-radius:4px; box-shadow:0 8px 32px rgba(0,0,0,.6);
+        }
+        #facs-lightbox-close {
+            position:absolute; top:1rem; right:1.2rem;
+            font-size:2rem; line-height:1; color:#fff; cursor:pointer;
+            background:none; border:none; padding:0;
+        }
+        #facs-lightbox-close:hover { color:#d1d5db }
+    </style>
+
+    <script>//
+    (function () {
+        'use strict';
+        var TEI    = 'http://www.tei-c.org/ns/1.0';
+        var XML_NS = 'http://www.w3.org/XML/1998/namespace';
+        var BASE   = '/exist/rest/db/apps/vita-guilielmi/data';
+        var APP    = '/exist/apps/vita-guilielmi';
+
+        var MIN_UNIT = 1, MAX_UNIT = 9;
+        var xmlDoc, personMap = {}, placeMap = {};
+
+        var FACS_BASE = '/exist/apps/vita-guilielmi/vita-guilielmi/print-facs/';
+
+        /* All entries are placeholders — fill in the correct per-unit mapping. */
+        var UNIT_PAGES = {
+            '01': ['5', '8', '9'],
+            '02': ['10'],
+            '03': ['10','11'],
+            '04': ['12'],
+            '05': ['13'],
+            '06': ['13'],
+            '07': ['14'],
+            '08': ['15'],
+            '09': ['16', '17', '18', '19', '20','21']
+        };
+
+        window.openLightbox = function (src) {
+            document.getElementById('facs-lightbox-img').src = src;
+            document.getElementById('facs-lightbox').classList.add('open');
+        };
+        window.closeLightbox = function () {
+            document.getElementById('facs-lightbox').classList.remove('open');
+        };
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        window.showFacsPage = function showFacsPage(filename) {
+            document.getElementById('facs-img').src = FACS_BASE + filename + '.jpg';
+            Array.from(document.querySelectorAll('.facs-pill')).forEach(function (pill) {
+                pill.classList.toggle('active', pill.dataset.page === filename);
+            });
+        }
+
+        function renderFacsPills(pages) {
+            var container = document.getElementById('facs-pills');
+            if (!pages || !pages.length) { container.innerHTML = ''; return; }
+            container.innerHTML = pages.map(function (p) {
+                return '&lt;button class="facs-pill" data-page="' + esc(p) + '" onclick="showFacsPage(\'' + esc(p) + '\')"&gt;' + esc(p) + '&lt;/button&gt;';
+            }).join('');
+        }
+
+        function esc(s) {
+            if (s == null) return '';
+            return String(s)
+                .replace(/&amp;/g, '&amp;amp;').replace(/&lt;/g, '&amp;lt;')
+                .replace(/&gt;/g, '&amp;gt;').replace(/"/g, '&amp;quot;');
+        }
+        function getXmlId(el) {
+            return el.getAttributeNS(XML_NS, 'id') || el.getAttribute('xml:id') || '';
+        }
+        async function fetchXML(url) {
+            var r = await fetch(url, { credentials: 'same-origin' });
+            if (!r.ok) throw new Error('HTTP ' + r.status + ' — ' + url);
+            var txt = await r.text();
+            var doc = new DOMParser().parseFromString(txt, 'application/xml');
+            if (doc.querySelector('parseerror')) throw new Error('XML parse error in ' + url);
+            return doc;
+        }
+
+        function buildMaps(pDoc, lDoc) {
+            Array.from(pDoc.getElementsByTagNameNS(TEI, 'person')).forEach(function (p) {
+                var id = getXmlId(p); if (id) personMap[id] = p;
+            });
+            Array.from(lDoc.getElementsByTagNameNS(TEI, 'place')).forEach(function (p) {
+                var id = getXmlId(p); if (id) placeMap[id] = p;
+            });
+        }
+
+        function SEG_CLASS(type) {
+            return 't-' + (type || 'unknown').replace(/\s+/g, '-');
+        }
+
+        function renderContent(node) {
+            var html = '';
+            Array.from(node.childNodes).forEach(function (child) {
+                if (child.nodeType === 3) {
+                    html += esc(child.textContent);
+                } else if (child.nodeType === 1) {
+                    var local = child.localName;
+                    if (local === 'persName' || local === 'placeName') {
+                        var kid = child.getAttribute('key') ||
+                                  (child.getAttribute('ref') || '').replace(/^#/, '');
+                        var inner   = renderContent(child);
+                        var cls     = local === 'persName' ? 'person' : 'place';
+                        var refMap  = local === 'persName' ? personMap : placeMap;
+                        var section = local === 'persName' ? 'people' : 'places';
+                        if (kid &amp;&amp; refMap[kid]) {
+                            html += '&lt;a class="ent ' + cls + '" href="' + APP + '/' + section + '/' + esc(kid) + '" target="_blank"&gt;' + inner + '&lt;/a&gt;';
+                        } else {
+                            html += inner;
+                        }
+                    } else if (local === 'gap') {
+                        var reason = child.getAttribute('reason') || '';
+                        var gn     = child.getAttribute('n') || '';
+                        html += '&lt;span class="s-gap"&gt;[gap'
+                              + (reason ? ': ' + reason : '')
+                              + (gn ? ', ' + gn : '') + ']&lt;/span&gt;';
+                    } else if (local === 'pb') {
+                        html += '&lt;span class="s-pb"&gt;&lt;sup&gt;' + esc(child.getAttribute('n') || '▮') + '&lt;/sup&gt;&lt;/span&gt;';
+                    } else if (local === 'lb') {
+                        html += '&lt;br/&gt;';
+                    } else {
+                        html += renderContent(child);
+                    }
+                }
+            });
+            return html;
+        }
+
+        function renderNote(noteEl) {
+            var target = noteEl.getAttribute('target') || '';
+            return '&lt;div class="s-note-margin"' + (target ? ' title="targets: ' + esc(target) + '"' : '') + '&gt;'
+                 + '&lt;span class="s-note-label"&gt;margin&lt;/span&gt;'
+                 + renderContent(noteEl) + '&lt;/div&gt;';
+        }
+
+        var UNIT_INTROS = {
+            1: 'Prologus/Praefatio: the MS frames the writing as moral edification and a “curative” response to a present crisis (charity has grown cold); Renda reverses the frame, opening with a celebration of the abbey as a visible “sacred city,” consolidating institutional memory through privileges, confirmations, and public authority.',
+            2: 'Incipit and formation: both texts share the nobilitas-topos, but the MS emphasises interior rumination and rational detachment, while Renda simplifies the motivation and accelerates the narrative action.',
+            3: 'Peregrinatio and the smith: in the MS authority is grounded in obedience and spiritual submission (ascetic practice defended from within); in Renda the episode becomes more “navigable,” supported by paratext and a more externalised rhetoric.',
+            4: 'The iron rings: the technical description is shared, but the MS constructs secrecy as a narrative ethic, while Renda shifts the interpretive force to the margin and to a rapid moral decoding.',
+            5: 'The miracle of the blind man: both preserve the prodigy and the saint’s refusal of personal glory, but the MS expands the episode into a broader drama of humility and reputation, while Renda segments it as a discrete, consultable miraculous unit.',
+            6: 'Vocational unit (Ioannes - brigands - vision in the fire): very stable narrative sequence; Renda reinforces the turning point with marginal notes and compresses the connective tissue.',
+            7: 'Lorica and cophia: the MS foregrounds invisibility and fear of praise as a moral strategy; Renda retains the ascetic armament but favours a faster penitential reading, with marginal cues.',
+            8: 'The spring and the bear: commitment and miracle are intertwined; the MS integrates the prodigy into the eremitic routine (damage - repair - repetition - rebuke), while Renda adds an empirical-search prelude and classifies the episode as a cataloguable miracle.',
+            9: 'Monte Virgiliano and institutional tension: the MS centres the communal economy (offerings/dispensatio) and the conflict over resources, culminating in William’s speech and departure; Renda frames the same core in a broader institutional narrative with explicit foundational and dedicatory material.'
+        };
+
+        function loadUnit(unit) {
+            var nInt = parseInt(unit, 10);
+            var nPad = String(nInt).padStart(2, '0');
+
+            var texts  = Array.from(xmlDoc.getElementsByTagNameNS(TEI, 'text'));
+            var textEl = texts.find(function (t) { return getXmlId(t) === 'wit.renda_1581'; });
+            if (!textEl) {
+                document.getElementById('print-body').innerHTML = '&lt;p style="color:#dc2626"&gt;Witness wit.renda_1581 not found in XML.&lt;/p&gt;';
+                return;
+            }
+            var divs    = Array.from(textEl.getElementsByTagNameNS(TEI, 'div'));
+            var unitDiv = divs.find(function (d) {
+                return d.getAttribute('type') === 'unit' &amp;&amp; parseInt(d.getAttribute('n'), 10) === nInt;
+            });
+            if (!unitDiv) {
+                document.getElementById('print-body').innerHTML = '&lt;div class="s-missing"&gt;Unit ' + nPad + ' not found.&lt;/div&gt;';
+                return;
+            }
+
+            var head = (unitDiv.getElementsByTagNameNS(TEI, 'head')[0] || { textContent: '' }).textContent.trim();
+            var notes = Array.from(unitDiv.getElementsByTagNameNS(TEI, 'note')).filter(function (n) {
+                return n.getAttribute('place') === 'margin';
+            });
+            var segs = Array.from(unitDiv.getElementsByTagNameNS(TEI, 'seg')).filter(function (s) {
+                return !!s.getAttribute('type');
+            });
+
+            var html = '&lt;div class="s-unit-head"&gt;'
+                     + '&lt;span class="s-unit-n"&gt;Unit ' + esc(nPad) + '&lt;/span&gt;'
+                     + (head ? '&lt;b&gt;' + esc(head) + '&lt;/b&gt;' : '')
+                     + '&lt;/div&gt;';
+
+            html += '&lt;div class="s-unit-intro"&gt;' + esc(UNIT_INTROS[nInt] || '') + '&lt;/div&gt;';
+
+            notes.forEach(function (n) { html += renderNote(n); });
+
+            if (!segs.length) {
+                html += '&lt;div class="s-missing"&gt;No segments found for this unit.&lt;/div&gt;';
+            } else {
+                segs.forEach(function (seg) {
+                    var type = seg.getAttribute('type') || '';
+                    html += '&lt;div class="seg ' + SEG_CLASS(type) + '"&gt;'
+                          + '&lt;span class="s-seg-type"&gt;' + esc(type) + '&lt;/span&gt; '
+                          + renderContent(seg)
+                          + '&lt;/div&gt;';
+                });
+            }
+
+            document.getElementById('print-body').innerHTML = html;
+
+            var pages = UNIT_PAGES[nPad] || [];
+            renderFacsPills(pages);
+            if (pages.length) showFacsPage(pages[0]);
+        }
+
+        function padUnit(n) { return String(n).padStart(2, '0'); }
+
+        function currentUnit() {
+            return new URLSearchParams(window.location.search).get('n') || '01';
+        }
+
+        function updateUnitUI(unit) {
+            var select = document.getElementById('unit-select');
+            if (select) select.value = unit;
+            var prev = document.getElementById('prev-unit');
+            var next = document.getElementById('next-unit');
+            if (prev) prev.disabled = parseInt(unit, 10) &lt;= MIN_UNIT;
+            if (next) next.disabled = parseInt(unit, 10) &gt;= MAX_UNIT;
+        }
+
+        window.goToUnit = function (unit) {
+            var url = new URL(window.location.href);
+            url.searchParams.set('n', unit);
+            history.replaceState({}, '', url);
+            updateUnitUI(unit);
+            loadUnit(unit);
+        };
+
+        window.navigateUnit = function (delta) {
+            var current = parseInt(currentUnit(), 10);
+            var target  = current + delta;
+            if (target &lt; MIN_UNIT || target &gt; MAX_UNIT) return;
+            goToUnit(padUnit(target));
+        };
+
+        async function init() {
+            try {
+                var results = await Promise.all([
+                    fetchXML(BASE + '/vita-guilielmi/vita-guilielmi.xml'),
+                    fetchXML(BASE + '/registers/persons.xml'),
+                    fetchXML(BASE + '/registers/places.xml')
+                ]);
+                xmlDoc = results[0];
+                buildMaps(results[1], results[2]);
+                document.getElementById('print-loading').style.display = 'none';
+                document.getElementById('print-grid').style.display    = '';
+                var unit = currentUnit();
+                updateUnitUI(unit);
+                loadUnit(unit);
+            } catch (e) {
+                document.getElementById('print-loading').innerHTML =
+                    '&lt;span style="color:#dc2626"&gt;Error loading data: ' + esc(e.message) + '&lt;/span&gt;';
+                console.error(e);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
+        window.addEventListener('popstate', function () {
+            var unit = currentUnit();
+            updateUnitUI(unit);
+            loadUnit(unit);
+        });
+    }());
+    //</script>
+</template>
