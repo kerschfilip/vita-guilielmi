@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <template>
     [% template after %]
-    [% if $context?features?register?enabled and exists($context?doc) %]
-    <pb-view src="document1" subscribe="transcription" view="[[ $context?doc?view ]]" disable-history="">
-        <pb-param name="mode" value="register"/>
-    </pb-view>
-    <pb-leaflet-map id="map" zoom="11" subscribe="map">
-        <pb-map-layer show="" base="" label="OpenTopo Map" url="https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png" max-zoom="19" attribution="© &lt;a href=&#34;https://www.openstreetmap.org/copyright&#34;&gt;OpenStreetMap&lt;/a&gt; contributors"/>
-    </pb-leaflet-map>
+    [% if exists($context?doc) %]
+    <div class="sidebar-info">
+    <!---
+        <section class="sidebar-section">
+            <h5>Indices</h5>
+            <ul class="sidebar-nav">
+                <li><a href="[[ $context-path ]]/people"><pb-i18n key="menu.people">Persons</pb-i18n></a></li>
+                <li><a href="[[ $context-path ]]/places"><pb-i18n key="menu.places">Places</pb-i18n></a></li>
+            </ul>
+        </section>
+    -->
+        <section class="sidebar-section">
+            <h5>Edition</h5>
+            <p class="sidebar-title">Vita Guilielmi – Digital Comparative Edition</p>
+            <dl class="sidebar-meta">
+                <dt>MS sec. XIII</dt>
+                <dd>Abbey of Montevergine – Beneventan script (ff. 1–65) + Gothic minuscule (ff. 66–109)</dd>
+                <dt>Renda 1581</dt>
+                <dd>Editio princeps by Felice Renda – <em>Vita et obitu sancti Guilielmi</em></dd>
+            </dl>
+        </section>
+    </div>
     [% endif %]
     [% endtemplate %]
 
@@ -25,8 +40,33 @@
     [% endtemplate %]
 
     [% template styles %]
-    [% if $context?features?register?enabled %]
+    [% if exists($context?doc) %]
     <link rel="stylesheet" href="[[ $context-path ]]/resources/css/registers-theme.css"/>
+    <style>
+        .sidebar-info { padding: 1rem; font-size: .9rem; line-height: 1.5; }
+        .sidebar-section { margin-bottom: 1.6rem; }
+        .sidebar-section h5 {
+            margin: 0 0 .5rem;
+            font-size: .72rem; text-transform: uppercase; letter-spacing: .07em;
+            color: #6b7280; font-weight: 600; border-bottom: 1px solid #e5e7eb; padding-bottom: .3rem;
+        }
+        .sidebar-nav { list-style: none; padding: 0; margin: 0; }
+        .sidebar-nav li { margin: .35rem 0; }
+        .sidebar-nav a { color: #2563eb; text-decoration: none; font-size: .93rem; }
+        .sidebar-nav a:hover { text-decoration: underline; }
+        .sidebar-title { margin: 0 0 .6rem; font-weight: 600; color: #111827; font-size: .9rem; }
+        .sidebar-meta { margin: 0; }
+        .sidebar-meta dt { font-weight: 600; color: #374151; margin-top: .5rem; }
+        .sidebar-meta dd { margin: 0 0 0 .8rem; color: #6b7280; font-size: .85rem; }
+        /* Compact the "Metadata" heading from metadata-blocks.html (light DOM) */
+        .metadata-panel { padding: 0 1rem 1rem; }
+        .metadata-panel h2 {
+            font-size: .72rem; text-transform: uppercase; letter-spacing: .07em;
+            color: #6b7280; font-weight: 600;
+            border-bottom: 1px solid #e5e7eb; padding-bottom: .3rem;
+            margin: 0 0 .5rem;
+        }
+    </style>
     [% endif %]
     [% endtemplate %]
 </template>
