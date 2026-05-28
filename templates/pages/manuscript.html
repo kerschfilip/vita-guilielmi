@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<script src="https://cdn.jsdelivr.net/gh/silencesys/dh--manu-web-component/manu-viewer.js"/>
 <template>
     ---json
     {
@@ -8,7 +7,7 @@
         }
     }
     ---
-
+    <script type="module" src="https://cdn.jsdelivr.net/gh/silencesys/dh--manu-web-component/manu-viewer.js"> </script>
     <main class="manuscript-page">
 
         <nav class="unit-nav">
@@ -46,9 +45,9 @@
                 <div id="facs-viewer">
                     <manu-viewer id="manu-view"
                         height="600"
-                        hide-open-in-manu
-                        hide-user-login
-                        hide-manu-title>
+                        hide-open-in-manu="true"
+                        hide-user-login="true"
+                        hide-manu-title="true">
                     </manu-viewer>
                 </div>
             </section>
@@ -162,7 +161,7 @@
         var MIN_UNIT = 1, MAX_UNIT = 9;
         var xmlDoc, personMap = {}, placeMap = {};
 
-        var FACS_BASE = '/exist/apps/vita-guilielmi/vita-guilielmi/manuscript-facs/';
+        var IIIF_MANIFEST = 'https://raw.githubusercontent.com/kerschfilip/vita-guilielmi/facsimile/data/vita-guilielmi/manuscript-facs/manifest.json';
 
         /* Unit 01 is confirmed; 02-09 are placeholders — fill in the correct filenames. */
         var UNIT_PAGES = {
@@ -194,7 +193,7 @@
             Array.from(document.querySelectorAll('.facs-pill')).forEach(function (pill) {
                 pill.classList.toggle('active', pill.dataset.page === filename);
             });
-        };
+        }
 
         function renderFacsPills(pages) {
             var container = document.getElementById('facs-pills');
